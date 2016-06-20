@@ -1,0 +1,67 @@
+$margin_text: 10px;
+
+* {
+	box-sizing: border-box;
+	&:before, &:after {
+		box-sizing: border-box;
+	}
+}
+
+%h16 {
+	font-weight: normal;
+	margin: .7em 0;
+	line-height: 1;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+@for $i from 1 through 6 {
+	h#{$i}, .h#{$i} {
+		@extend %h16;
+		font-size: #{(36 - 4*$i)/14}em;
+		a {
+			border: 0;
+		}
+	}
+}
+
+a {
+	@include link($color__primary, $color__primary);
+}
+
+p {
+	margin: $margin_text 0;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ul {
+	padding-left: 20px;
+	list-style-type: disc;
+	margin: $margin_text 0;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ol {
+	padding-left: 20px;
+	list-style-type: decimal;
+	margin: $margin_text 0;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
