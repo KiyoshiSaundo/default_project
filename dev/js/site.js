@@ -3,12 +3,10 @@ jQuery(document).ready(function($) {
 	InitInput();
 
 	if ( $().bxSlider ) {
-		//
+		// sliders
 	}
 	if ( $().colorbox ) {
-		/*
-		 * Всплывающие картинки
-		 */
+		// popup images
 		$('.colorbox').colorbox({
 			maxWidth: '98%',
 			maxHeight: '98%',
@@ -21,9 +19,7 @@ jQuery(document).ready(function($) {
 				$("#cboxClose").stop().animate({opacity: 1});
 			}
 		});
-		/*
-		 * Всплывающие формы
-		 */
+		// popup forms
 		$(".pforms").colorbox({
 			className: 'pforms',
 			maxWidth: '98%',
@@ -39,17 +35,13 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-	/*
-	 * Плавный скролл к элементу
-	 */
+	// scroll to the element
 	$('a[href^="#"]').click(function(){
 		var el = $(this).attr('href');
 		$('body').animate({scrollTop: $(el).offset().top}, 1000);
 		return false;
 	});
-	/*
-	 * Стилизация элементов форм
-	 */
+	// style for form elements
 	function InitInput(){
 		if ( $().datepicker ) {
 			$('input.date').datepicker({

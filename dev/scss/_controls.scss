@@ -28,24 +28,32 @@ $margin_input: 15px;
 .form {
 	@include clearfix;
 	padding: 20px;
-	header {
+	position: relative;
+	&__header {
 		margin-bottom: 20px;
 	}
-	footer {
+	&__footer {
 		margin-top: 20px;
 	}
-	.preloader {}
-	.messages {}
+	&__preloader {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,.5);
+	}
+	&__messages {}
 	.bad {
 		color: $color__bad;
 	}
 	.good {
 		color: $color__good;
 	}
-	.notes {
+	&__notes {
 		font-size: 12px;
 	}
-	.require:not(label) {
+	&__require:not(label) {
 		font-size: 18px;
 		font-weight: bold;
 	}
