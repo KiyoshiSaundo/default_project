@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
 		$('body').animate({scrollTop: $(el).offset().top}, 1000);
 		return false;
 	});
-	// style for form elements
+	// styles for form elements
 	function InitInput(){
 		if ( $().datepicker ) {
 			$('input.date').datepicker({

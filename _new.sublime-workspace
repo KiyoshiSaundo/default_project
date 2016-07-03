@@ -1,0 +1,1272 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"clea",
+				"clearfix\t(_mixins.scss)"
+			],
+			[
+				"cler",
+				"clearfix\t(_mixins.scss)"
+			],
+			[
+				"cl",
+				"clearfix\t(_mixins.scss)"
+			],
+			[
+				"no",
+				"no-repeat\t(_plugins.scss)"
+			],
+			[
+				"bo",
+				"bottom\t(_mixins.scss)"
+			],
+			[
+				"main-slider__ite",
+				"main-slider__items\t(index.html)"
+			],
+			[
+				"link",
+				"link-reset"
+			],
+			[
+				"bre",
+				"breakpoint\t(_mixins.scss)"
+			],
+			[
+				"last",
+				"last-child"
+			],
+			[
+				"SITE",
+				"SITE_TEMPLATE_PATH\t(template.php)"
+			],
+			[
+				"UF",
+				"UF_SDACHA"
+			],
+			[
+				"get",
+				"getelement\tgetelement"
+			],
+			[
+				"SECT",
+				"SECTION_PAGE_URL\t(index.php)"
+			],
+			[
+				"func",
+				"function_exists"
+			],
+			[
+				"IBLO",
+				"IBLOCK_SECTION_ID\t(component.php)"
+			],
+			[
+				"Get",
+				"GetCurPage\t(footer.php)"
+			],
+			[
+				"firt",
+				"first-letter"
+			],
+			[
+				"dib",
+				"display:inline-block"
+			],
+			[
+				"first",
+				"first-letter"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"forma",
+				"number_format"
+			],
+			[
+				"ar",
+				"arItem"
+			],
+			[
+				"colo",
+				"colorbox\t(kio_styles.css)"
+			],
+			[
+				"on",
+				"onclick"
+			],
+			[
+				"Re",
+				"RemoveDir"
+			],
+			[
+				"strpos",
+				"strpos"
+			],
+			[
+				"SEC",
+				"SECTION_ID\t(rooms_load.php)"
+			],
+			[
+				"PROP",
+				"PROPERTY_SELECTION"
+			],
+			[
+				"css",
+				"cssoutline\tcssoutline"
+			],
+			[
+				"iconv",
+				"iconv"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"preg",
+				"preg_match"
+			],
+			[
+				"this",
+				"this\t$(this)"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"arR",
+				"arRoom\t(tile.php)"
+			],
+			[
+				"ST",
+				"STATUS\t(house_parse.php)"
+			],
+			[
+				"function",
+				"create_function"
+			],
+			[
+				"t",
+				"totalPrice"
+			],
+			[
+				"STA",
+				"STAGE\t(house_parse.php)"
+			],
+			[
+				"arS",
+				"arStages"
+			],
+			[
+				"unse",
+				"unserialize"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"err",
+				"error_reporting"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"color__",
+				"color__primary"
+			],
+			[
+				"bg__",
+				"bg__primary"
+			],
+			[
+				"color",
+				"colorbox\t(index.html)"
+			],
+			[
+				"sh",
+				"show-form\t(_yamaps.scss)"
+			],
+			[
+				"ya",
+				"yaMap"
+			],
+			[
+				"bg_",
+				"bg__brand-one"
+			],
+			[
+				"La",
+				"Lato\t(font_loader.js)"
+			],
+			[
+				"fon",
+				"font_loader\t(header.html)"
+			],
+			[
+				"sta",
+				"static"
+			],
+			[
+				"baloo",
+				"balloonContent"
+			],
+			[
+				"fo",
+				"for\t(_base.scss)"
+			],
+			[
+				"ima",
+				"imagesMapPath"
+			],
+			[
+				"prop",
+				"properties"
+			],
+			[
+				"do",
+				"document\t(site.js)"
+			],
+			[
+				"pla",
+				"placemark"
+			],
+			[
+				"my",
+				"myPlacemark"
+			],
+			[
+				"map_",
+				"map_dot_car"
+			],
+			[
+				"borde",
+				"border"
+			],
+			[
+				"bg",
+				"bg__primary"
+			],
+			[
+				"hr",
+				"hr_icon"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"clear",
+				"clearfix"
+			],
+			[
+				"cle",
+				"clearfix"
+			],
+			[
+				"sol",
+				"solutions\t(site.js)"
+			],
+			[
+				"blo",
+				"block1\t(load_experts.html)"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"fsi",
+				"fs-i\tfont-style: italic;"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"fig",
+				"figcaption\t(experts.html)"
+			],
+			[
+				"expe",
+				"experts_line"
+			],
+			[
+				"setT",
+				"setTimeout\t(site.js)"
+			],
+			[
+				"load",
+				"loadUrl"
+			],
+			[
+				"flex",
+				"flex-start"
+			],
+			[
+				"expert",
+				"experts\t(_menus.scss)"
+			],
+			[
+				"fr",
+				"fl-r\tfloat: right;"
+			],
+			[
+				"ye",
+				"yellow\t(_menus.scss)"
+			],
+			[
+				"color__p",
+				"color__primary"
+			],
+			[
+				"fsz",
+				"fsz__primary"
+			],
+			[
+				"inpu",
+				"input__mb"
+			],
+			[
+				"bg-color",
+				"bg-color__secondary"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"re",
+				"resize"
+			],
+			[
+				"text",
+				"textarea"
+			],
+			[
+				"bg-colo",
+				"bg-color__primary"
+			],
+			[
+				"qu",
+				"question"
+			],
+			[
+				"bg-col",
+				"bg-color__primary"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"maxw",
+				"max-width"
+			],
+			[
+				"ro",
+				"rotate\t(_template.scss)"
+			],
+			[
+				"spri",
+				"sprite"
+			],
+			[
+				"sprites",
+				"sprites($spritesheet\t(_sprites.scss)"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"bu",
+				"buffer"
+			],
+			[
+				"path",
+				"paths"
+			],
+			[
+				"spr",
+				"sprites"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"contro",
+				"controls_sprite\t(_controls.scss)"
+			],
+			[
+				"color__b",
+				"color__brand\t(_variables.scss)"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"seel",
+				"selected\t(_controls.scss)"
+			],
+			[
+				"data",
+				"data-index"
+			],
+			[
+				"co",
+				"content"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"width_",
+				"width__site"
+			],
+			[
+				"bp",
+				"background-position"
+			],
+			[
+				"footer",
+				"footer__heading\t(footer.html)"
+			],
+			[
+				"te",
+				"template_sprite"
+			],
+			[
+				"color-b",
+				"color__brand-two"
+			],
+			[
+				"mai",
+				"main_page_sprite"
+			],
+			[
+				"over",
+				"overflow"
+			],
+			[
+				"ou",
+				"outline"
+			],
+			[
+				"borderr",
+				"border-radius"
+			],
+			[
+				"ali",
+				"align"
+			],
+			[
+				"nth",
+				"nth-of-type"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"url",
+				"url()"
+			],
+			[
+				"bgco",
+				"background-color"
+			],
+			[
+				"bg-",
+				"bg-color__brand-one"
+			],
+			[
+				"color__bra",
+				"bg-color__brand-one"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"fad",
+				"fadeIn\t.fadeIn()"
+			],
+			[
+				"main",
+				"main-slider"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 5292,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/SASS Build/SASS - Compressed.sublime-build",
+					""
+				],
+				[
+					"Packages/SASS Build/SASS.sublime-build",
+					""
+				],
+				[
+					"Packages/User/MYSASS.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/MYSASS.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/SASS Build/SASS - Compressed.sublime-build",
+					""
+				],
+				[
+					"Packages/SASS Build/SASS.sublime-build",
+					""
+				],
+				[
+					"Packages/User/sass_build.sublime-build",
+					""
+				],
+				[
+					"Packages/User/sass_build_bitrix.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/sass_build_bitrix.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 490.0,
+		"last_filter": "rem",
+		"selected_items":
+		[
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"set",
+				"Set Syntax: PHP"
+			],
+			[
+				"bu",
+				"Build With: sass_build_bitrix"
+			],
+			[
+				"se",
+				"Set Syntax: PHP"
+			],
+			[
+				"set php",
+				"Set Syntax: PHP"
+			],
+			[
+				"au",
+				"Autoprefix CSS"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"live",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"di",
+				"Package Control: Disable Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"subl",
+				"Sublimall: Upload"
+			],
+			[
+				"sub",
+				"Sublimall: Upload"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 195.0,
+		"history":
+		[
+			"import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/evgen/Desktop/NewProject/dev"
+	],
+	"file_history":
+	[
+		"/C/Users/evgen/Desktop/NewProject/.gitignore",
+		"/D/Projects/sapienpromo.lc/makeup/dev/pages/index.html",
+		"/D/Projects/sapienpromo.lc/makeup/dev/partials/header.html",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_page/_sales.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_page/_why.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_template.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_base.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_mixins.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_variables.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/template_styles.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/js/site.js",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/User/CSScomb.sublime-settings",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_page/_main_slider.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/partials/footer.html",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_plugins.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_header.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/fonts/fonts.js",
+		"/D/Projects/sapienpromo.lc/makeup/build/fonts/Roboto-Thin.css",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_slider.scss",
+		"/D/Projects/sapienpromo.lc/makeup/gulpfile.js",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/User/Gulp.sublime-settings",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/Gulp/Gulp.sublime-settings",
+		"/D/Projects/sapienpromo.lc/makeup/build/fonts/Roboto-Regular.css",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_menus.scss",
+		"/C/Users/evgen/Desktop/NewProject/gulpfile.js",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_variables.scss",
+		"/C/Users/evgen/Desktop/NewProject/build/template_styles.css",
+		"/C/Users/evgen/Desktop/NewProject/build/styles.css",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_base.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_template.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/index.html",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/examples.html",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/main.html",
+		"/C/Users/evgen/Desktop/NewProject/build/index.html",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_mixins.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_normalize.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/partials/header.html",
+		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/Other/PhotoshopPortable.ini",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_plugins.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_controls.scss",
+		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/Data/PortableApps.comLauncherRuntimeData-PhotoshopPortable.ini",
+		"/C/Users/evgen/Desktop/NewProject/dev/fonts/fonts.js",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/template_styles.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/styles.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/js/ymaps.js",
+		"/C/Users/evgen/Desktop/NewProject/dev/plugins/colorbox/colorbox.css",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/plugins.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/partials/footer.html",
+		"/C/Users/evgen/Desktop/NewProject/package.json",
+		"/C/Users/evgen/Desktop/NewProject/dev/plugins/bxslider/jquery.bxslider.css",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_helper.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_menus.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_simple_elements.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_template.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/styles.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_base.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_components.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_controls.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_variables.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_plugins_reset.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_mixins.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/index.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/examples.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/main.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_sprites.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/package.json",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/template_styles.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/plugins/bxslider/jquery.bxslider.css",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_normalize.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_form.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/scss/_fonts.scss",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/js/site.js",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/gulpfile.js",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/js/ymaps.js",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/partials/breadcrumbs.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/partials/footer.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/partials/pagination.html",
+		"/C/Users/evgen/Desktop/sapienpromo/verst/dev/partials/header.html",
+		"/C/Users/evgen/Desktop/biiks/dev/scss/_variables.scss",
+		"/C/Users/evgen/Desktop/bitrix_gulp/gulpfile.js",
+		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/PhotoshopPortable.ini",
+		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/App/AppInfo/Launcher/PhotoshopPortable.ini",
+		"/D/_tmp/vorota-tomsk.ru/.htaccess",
+		"/D/_tmp/vorota-tomsk.ru/component.php",
+		"/D/_tmp/vorota-tomsk.ru/template.php",
+		"/D/_tmp/masterskaya/init.php",
+		"/D/_tmp/masterskaya/redirects.php",
+		"/P/www.stroykomplekt.ru/www2/.htaccess",
+		"/D/_tmp/masterskaya/.htaccess",
+		"/C/Users/evgenii.kuzovlev/AppData/Local/Temp/_tc/init.php",
+		"/D/_tmp/vorota-tomsk.ru/texts.php",
+		"/D/_tmp/vorota-tomsk.ru/style.css",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_main/style.css",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_main/template.php",
+		"/P/www.stroykomplekt.ru/www2/ajax/view/gk_action_popup.php",
+		"/D/_tmp/vorota-tomsk.ru/result_modifier.php",
+		"/D/_tmp/vorota-tomsk.ru/.default/template.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_main/result_modifier.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_detail/style.css",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_detail/result_modifier.php",
+		"/D/_tmp/masterskaya/custom_catalog.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_detail/component_epilog.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_detail/template.php",
+		"/P/www.stroykomplekt.ru/www2/ajax/form/main_ipoteka.php",
+		"/P/www.stroykomplekt.ru/www2/ajax/result/ipoteka_result.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/header_projector/result_modifier.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/gk_section_menu/component_epilog.php",
+		"/P/www.stroykomplekt.ru/www2/bitrix/templates/utlab/components/utlab/custom.list/header_projector/template.php",
+		"/D/_tmp/vorota-tomsk.ru/sitemap.php",
+		"/D/_tmp/vorota-tomsk.ru/404.php",
+		"/D/_tmp/vorota-tomsk.ru/_sitemap.php",
+		"/D/_tmp/123vorota.ru/sitemap.xml",
+		"/D/_tmp/123vorota.ru/sitemap.php",
+		"/D/_tmp/vorota-tomsk.ru/index.php",
+		"/C/Users/evgenii.kuzovlev/Desktop/sitemap.xml",
+		"/P/www.oboi4.ru/www/map/index.php",
+		"/D/_tmp/vorota-tomsk.ru/.section.php",
+		"/D/_tmp/vorota-tomsk.ru/header.php",
+		"/D/_tmp/vorota-tomsk.ru/.top.menu_ext.php",
+		"/D/_tmp/vorota-tomsk.ru/.top.menu.php",
+		"/D/_tmp/vorota-tomsk.ru/stub.php",
+		"/D/_tmp/vorota-tomsk.ru/component_sec.php",
+		"/D/_tmp/vorota-tomsk.ru/element.php",
+		"/D/_tmp/vorota-tomsk.ru/init.php",
+		"/D/_tmp/vorota-tomsk.ru/functions.php",
+		"/D/_tmp/vorota-tomsk.ru/init_main.php",
+		"/D/_tmp/vorota-tomsk.ru/components_functions.php"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"adv71",
+			"adv101",
+			"line-height",
+			"class=\"i",
+			"desc",
+			"breakpoint__mobile",
+			"s1349",
+			"s1920",
+			"&_",
+			"14px",
+			"footerHeight",
+			"outli",
+			"marginText",
+			"marginInput",
+			"marginLabel",
+			"text-margin",
+			"input__mb",
+			"statuetki_iz_metalla",
+			"statuetki_iz_plastika",
+			"MAX",
+			"PROPERTY_MIN_PRICE",
+			"<priority>.*</priority>",
+			"<changefreq>.*</changefreq>",
+			"SetStatus",
+			"404",
+			"най",
+			"h1",
+			"utlabseo",
+			"/catalog/rollety/",
+			"{TEL}",
+			"{REGION}",
+			"{COMPANY}",
+			"http://{DOMEN}",
+			"first-le",
+			"php",
+			"$arResult['MAX_PRICE']",
+			"$arResult['MIN_PRICE']",
+			"DETAIL_TEXT",
+			"news-list",
+			"Ортопедические одеяла и подушки в Туле - купить в интернет-магазине «Мерцана»",
+			"site",
+			"<lastmod>.*</lastmod>",
+			"<priority>.*</priority>",
+			"<changefreq>.*</changefreq>",
+			"get_cache_pic",
+			"Б",
+			"catalog__filter-light",
+			"jea_item",
+			"arElement",
+			"dbElement",
+			"em",
+			" class=\"MsoNormal\"",
+			"'keywd'",
+			"'descr'",
+			"http://vyveski.laserstyle.ru",
+			"news",
+			"fff",
+			"Нелегальных жильцов штрафуют рублем",
+			"\\r\\n",
+			"Оценка незавершенного строительства",
+			"\\r\\n",
+			"Оценка нежилой недвижимости",
+			"\\r\\n",
+			"Оценка квартиры профессиональным оценщиком",
+			"\\r\\n",
+			"Оценка недвижимости",
+			"\\r\\n",
+			"Регистрация сделок недвижимости",
+			"\\r\\n",
+			"Правила покупки недвижимости",
+			"\\r\\n",
+			"Как купить недвижимость без посредников",
+			"\\r\\n",
+			"Государственная недвижимость",
+			"\\r\\n",
+			"Рынок недвижимости в Туле",
+			"\\r\\n",
+			"Регистрация недвижимости",
+			"\\r\\n",
+			"Индустриальный парк «Первомайский»",
+			"\\r\\n",
+			"Минстрой ввел штрафы для регионов за просрочку при расселении ветхого жилья",
+			"\\r\\n",
+			"Как узаконить перепланировку в квартире",
+			"\\r\\n",
+			"Задаток при покупке квартиры",
+			"\\r\\n",
+			"Документы для покупки квартиры",
+			"\\r\\n",
+			"Документы для дарения квартиры",
+			"\\r\\n",
+			"Налог при продаже квартиры",
+			"\\r\\n",
+			"Налог при покупке квартиры",
+			"\\r\\n",
+			"Образцы бланков договора купли продажи или аренды",
+			"\\r\\n",
+			"Арендный синдром",
+			"\\r\\n",
+			"Межевание земельных участков",
+			"\\r\\n",
+			"Микроклимат производственных помещений",
+			"\\r\\n",
+			"Согласование границ земельного участка",
+			"\\r\\n",
+			"Наследство земельного участка",
+			"\\r\\n",
+			"Адрес земельного участка",
+			"VIEWS",
+			"\\r\\n",
+			"readm",
+			"Государственная регистрация права",
+			"read",
+			"Госпошлина за земельный участок",
+			"h2",
+			"#conten",
+			"conten",
+			"jpg",
+			"two_pr bg_onne",
+			"<td></td>",
+			"\t",
+			"<td></td>",
+			"\t",
+			"rsd02",
+			"\t",
+			"<td></td>",
+			"\t",
+			"<th></th>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"adv",
+			"class=\"why-list__icon",
+			"text",
+			".header_",
+			"footer_height",
+			"margin_height",
+			"margin_text",
+			"margin_input",
+			"margin_label",
+			"marginText",
+			"marginInput",
+			"<priority>0.8</priority>",
+			"<changefreq>weekly</changefreq>",
+			"+7 (3822) 59-48-48",
+			"Томск",
+			"Автоматические ворота",
+			"",
+			"$return['MAX']",
+			"$return['MIN']",
+			"PREVIEW_TEXT",
+			"<lastmod>inner</lastmod>",
+			"<priority>0.9</priority>",
+			"<changefreq>weekly</changefreq>",
+			"",
+			"'keywords'",
+			"'description'",
+			"",
+			"<td>-</td>",
+			"",
+			"</td><td>",
+			"",
+			"</td><td>",
+			"RSD02",
+			"</td><td>",
+			"</th><th>",
+			"",
+			"</td><td>",
+			"",
+			"</th><th>",
+			"",
+			"</td><td>",
+			"",
+			"</th><th>",
+			"",
+			"</td><td>",
+			"th",
+			"",
+			"</td><td>",
+			"<td></td>",
+			"td",
+			"th",
+			"",
+			"</td><td>",
+			"",
+			"</td><td>",
+			"' => '",
+			"",
+			"url",
+			"",
+			"fCall",
+			"fonts",
+			".pipe(reload({stream: true}));",
+			"yaBalloonContentLayout",
+			"yaBalloonLayout",
+			"yaMapNeighbor",
+			"yaClusterIconParams",
+			"yaIconNeighborParams",
+			"yaIconCarParams",
+			"yaIconDotParams",
+			"yaClusterIconParams",
+			"yaIconNeighborParams",
+			"yaIconCarParams",
+			"yaIconDotParams",
+			"fWaiting",
+			"fReviewsEmail",
+			"$bg__black",
+			"$bg__white",
+			"$bg__brand-two",
+			"$bg__brand-one",
+			"$bg__secondary",
+			"$bg__primary",
+			"darken($bg-color__brand-two, 10)",
+			"darken($bg-color__brand-two, 5)",
+			"darken($bg-color__brand-one, 10)",
+			"darken($bg-color__brand-one, 5)",
+			"",
+			"path",
+			"paths",
+			"<article class=\"item\">",
+			"<article class=\"item>",
+			"data-slide",
+			"20",
+			"$width__content",
+			"$line-height__primary",
+			"$font-size__primary",
+			"$font-family__primary",
+			"$bg-color__black",
+			"$bg-color__brand-two--darker",
+			"$bg-color__brand-two",
+			"$bg-color__brand-one--darker",
+			"$bg-color__brand-one",
+			"$bg-color__secondary",
+			"$bg-color__primary",
+			"$color__bad",
+			"$color__good",
+			"$color__placeholder",
+			"$color__brand-two",
+			"$color__brand-one",
+			"$color__tertiary",
+			"$color__secondary",
+			"$color__primary",
+			"#000",
+			"$color--good",
+			"$color--error",
+			"",
+			"$margin__text--primary",
+			"\\\\",
+			"inHtml",
+			"outSass",
+			"inSass",
+			"prod",
+			"for_complect",
+			"EXT_SETTINGS",
+			"ADD_SYSTEM",
+			"$PROP['SYSTEM']",
+			"SYSTEM",
+			"PRODUCT_ID",
+			"sassOut"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2271,
+								2271
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "2a4ab929",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2028.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 142.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.gulp_output":
+	{
+		"height": 166.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 142.0
+	},
+	"pinned_build_system": "",
+	"project": "_new.sublime-project",
+	"replace":
+	{
+		"height": 82.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

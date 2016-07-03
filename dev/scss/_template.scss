@@ -1,21 +1,5 @@
 $footer_height: 100px;
 
-html {
-	height: 100%;
-	@include breakpoint($breakpoint__desktop) {
-		min-width: $content__laptop;
-	}
-	@include breakpoint($breakpoint__laptop) {
-		min-width: $content__laptop;
-	}
-}
-body {
-	font: normal 14px/20px $font__primary;
-	height: 100%;
-	color: $color__primary;
-	background: $bg__primary;
-}
-
 .wrapper {
 	position: relative;
 	overflow: hidden;

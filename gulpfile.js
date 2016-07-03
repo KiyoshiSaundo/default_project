@@ -2,8 +2,7 @@ var gulp = require('gulp')
 	, watch = require('gulp-watch')
 	, concat = require('gulp-concat')
 	// server
-	, browserSync = require("browser-sync")
-	, reload = browserSync.reload
+	, browserSync = require('browser-sync').create()
 	// css
 	, scss = require('gulp-ruby-sass')
 	, sourcemaps = require('gulp-sourcemaps')
@@ -65,7 +64,7 @@ var path = {
 
 // server
 gulp.task('server', function () {
-	browserSync({
+	browserSync.init({
 		server: {
 			baseDir: './build'
 		},
@@ -85,7 +84,7 @@ gulp.task('pages', function() {
 	return gulp.src(path.in.pages)
 		.pipe(rigger())
 		.pipe(gulp.dest(path.out.pages))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // styles
@@ -100,7 +99,7 @@ gulp.task('styles', ['sprites'], function() {
 			function() { return sourcemaps.write('.') }
 		))
 		.pipe(gulp.dest(path.out.css))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.stream());
 });
 
 // images
@@ -110,7 +109,7 @@ gulp.task('images', ['sprites'], function() {
 			function() { return imagemin({progressive: true, interlaced: true}) }
 		))
 		.pipe(gulp.dest(path.out.img))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // plugins
@@ -119,7 +118,7 @@ gulp.task('plugins', function() {
 		.pipe(concat('plugins.js'))
 		.pipe(minify({ext:{src:'.js',min:'.min.js'}}))
 		.pipe(gulp.dest(path.out.plugins))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // sprites
@@ -152,7 +151,7 @@ gulp.task('fonts', function () {
 		.pipe(font2css())
 		.pipe(cssnano({discardUnused: {fontFace: false}}))
 		.pipe(gulp.dest(path.out.fonts))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // fontjs
@@ -160,7 +159,7 @@ gulp.task('fontsjs', function () {
 	return gulp.src(path.in.fontsjs)
 		.pipe(minify({ext:{src:'.js',min:'.min.js'}}))
 		.pipe(gulp.dest(path.out.fontsjs))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // scripts
@@ -169,7 +168,7 @@ gulp.task('scripts', function() {
 		.pipe(concat('main.js'))
 		.pipe(minify({ext:{src:'.js',min:'.min.js'}}))
 		.pipe(gulp.dest(path.out.js))
-		.pipe(reload({stream: true}));
+		.pipe(browserSync.reload({stream: true}));
 });
 
 // clean directory 'build'
