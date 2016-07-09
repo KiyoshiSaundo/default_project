@@ -12,15 +12,16 @@
 	width: 100%;
 }
 
-@mixin list-reset {
+@mixin ul-reset {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	li {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+}
+
+@mixin li-reset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 @mixin link ($color, $hover) {

@@ -523,8 +523,105 @@
 			"file": "gulpfile.js",
 			"settings":
 			{
-				"buffer_size": 5292,
+				"buffer_size": 5465,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/pages/index.html",
+			"settings":
+			{
+				"buffer_size": 324,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 834,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/pages/ajax/view/phone.html",
+			"settings":
+			{
+				"buffer_size": 53,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/scss/_components.scss",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/scss/_controls.scss",
+			"settings":
+			{
+				"buffer_size": 5098,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/pages/partials/header.html",
+			"settings":
+			{
+				"buffer_size": 1116,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/scss/template_styles.scss",
+			"settings":
+			{
+				"buffer_size": 319,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/scss/_template.scss",
+			"settings":
+			{
+				"buffer_size": 1302,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/scss/components/_header.scss",
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Windows",
+				"name": ".header {"
+			}
+		},
+		{
+			"file": "dev/pages/examples.html",
+			"settings":
+			{
+				"buffer_size": 17565,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/pages/ajax/form/call_form.html",
+			"settings":
+			{
+				"buffer_size": 402,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/scss/_base.scss",
+			"settings":
+			{
+				"buffer_size": 1142,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -580,9 +677,17 @@
 	"command_palette":
 	{
 		"height": 490.0,
-		"last_filter": "rem",
+		"last_filter": "ins",
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"u",
+				"Package Control: Upgrade Package"
+			],
 			[
 				"rem",
 				"Package Control: Remove Package"
@@ -656,10 +761,6 @@
 				"LiveReload: Enable/disable plug-ins"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"ena",
 				"Package Control: Enable Package"
 			],
@@ -714,10 +815,31 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/evgen/Desktop/NewProject/dev"
+		"/C/Users/evgen/Desktop/NewProject/dev",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax/form",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax/result",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax/view"
 	],
 	"file_history":
 	[
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax/result/result.json",
+		"/C/Users/evgen/Desktop/NewProject/build/ajax/result/result.json",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/_mixins.scss",
+		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_mixins.scss",
+		"/C/Users/evgen/Desktop/NewProject/dev/pages/ajax/result/load_experts.html",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/User/CSScomb.sublime-settings",
+		"/C/Users/evgen/Desktop/NewProject/dev/scss/components/_main_menu.scss",
+		"/C/Users/evgen/Desktop/NewProject/build/index.html",
+		"/C/Users/evgen/AppData/Local/Temp/Temp1_csscomb.js-dev.zip/csscomb.js-dev/.gitignore",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/CSScomb/package.json",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/CSScomb/node_modules/csscomb/package.json",
+		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/CSScomb/README.md",
+		"/C/Users/evgen/Desktop/NewProject/dev/js/ymaps.js",
+		"/C/Users/evgen/Desktop/NewProject/dev/js/site.js",
+		"/C/Users/evgen/Desktop/word_to_html/gulpfile.js",
+		"/C/Users/evgen/Desktop/NewProject/dev/fonts/fonts.js",
 		"/C/Users/evgen/Desktop/NewProject/.gitignore",
 		"/D/Projects/sapienpromo.lc/makeup/dev/pages/index.html",
 		"/D/Projects/sapienpromo.lc/makeup/dev/partials/header.html",
@@ -725,11 +847,9 @@
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_page/_why.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_template.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_base.scss",
-		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_mixins.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_variables.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/template_styles.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/js/site.js",
-		"/C/Users/evgen/Dropbox/programms/subl3/Data/Packages/User/CSScomb.sublime-settings",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/main_page/_main_slider.scss",
 		"/D/Projects/sapienpromo.lc/makeup/dev/partials/footer.html",
 		"/D/Projects/sapienpromo.lc/makeup/dev/scss/_plugins.scss",
@@ -752,18 +872,14 @@
 		"/C/Users/evgen/Desktop/NewProject/dev/pages/index.html",
 		"/C/Users/evgen/Desktop/NewProject/dev/pages/examples.html",
 		"/C/Users/evgen/Desktop/NewProject/dev/pages/main.html",
-		"/C/Users/evgen/Desktop/NewProject/build/index.html",
-		"/C/Users/evgen/Desktop/NewProject/dev/scss/_mixins.scss",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/_normalize.scss",
 		"/C/Users/evgen/Desktop/NewProject/dev/partials/header.html",
 		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/Other/PhotoshopPortable.ini",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/_plugins.scss",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/_controls.scss",
 		"/C/Users/evgen/Dropbox/programms/PhotoshopPortable/Data/PortableApps.comLauncherRuntimeData-PhotoshopPortable.ini",
-		"/C/Users/evgen/Desktop/NewProject/dev/fonts/fonts.js",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/template_styles.scss",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/styles.scss",
-		"/C/Users/evgen/Desktop/NewProject/dev/js/ymaps.js",
 		"/C/Users/evgen/Desktop/NewProject/dev/plugins/colorbox/colorbox.css",
 		"/C/Users/evgen/Desktop/NewProject/dev/scss/plugins.scss",
 		"/C/Users/evgen/Desktop/NewProject/dev/partials/footer.html",
@@ -835,17 +951,7 @@
 		"/D/_tmp/vorota-tomsk.ru/index.php",
 		"/C/Users/evgenii.kuzovlev/Desktop/sitemap.xml",
 		"/P/www.oboi4.ru/www/map/index.php",
-		"/D/_tmp/vorota-tomsk.ru/.section.php",
-		"/D/_tmp/vorota-tomsk.ru/header.php",
-		"/D/_tmp/vorota-tomsk.ru/.top.menu_ext.php",
-		"/D/_tmp/vorota-tomsk.ru/.top.menu.php",
-		"/D/_tmp/vorota-tomsk.ru/stub.php",
-		"/D/_tmp/vorota-tomsk.ru/component_sec.php",
-		"/D/_tmp/vorota-tomsk.ru/element.php",
-		"/D/_tmp/vorota-tomsk.ru/init.php",
-		"/D/_tmp/vorota-tomsk.ru/functions.php",
-		"/D/_tmp/vorota-tomsk.ru/init_main.php",
-		"/D/_tmp/vorota-tomsk.ru/components_functions.php"
+		"/D/_tmp/vorota-tomsk.ru/.section.php"
 	],
 	"find":
 	{
@@ -864,6 +970,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"browser",
 			"adv71",
 			"adv101",
 			"line-height",
@@ -990,8 +1097,7 @@
 			"rsd02",
 			"\t",
 			"<td></td>",
-			"\t",
-			"<th></th>"
+			"\t"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1146,15 +1252,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5292,
+						"buffer_size": 5465,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2271,
-								2271
+								2166,
+								2166
 							]
 						],
 						"settings":
@@ -1166,10 +1272,390 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2028.0,
+						"translation.y": 908.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dev/pages/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "c91f03ae",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								445,
+								445
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "json",
+							"buffer_scroll_name": "ac2212c4",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "dev/pages/ajax/view/phone.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 53,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "9ffbb884",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "dev/scss/_components.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "23d10eb4",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "dev/scss/_controls.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5098,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1244,
+								1244
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "bec7d9e7",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1643.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "dev/pages/partials/header.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								325
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "e6f01f8b",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "dev/scss/template_styles.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								319,
+								319
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "0c81f4f9",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "dev/scss/_template.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								507
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "2ad6d8bb",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1088.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "dev/scss/components/_header.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"auto_name": ".header {",
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "9cb751fa",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "dev/pages/examples.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2273,
+								2273
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "73d230d2",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1293.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "dev/pages/ajax/form/call_form.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								363,
+								363
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "html",
+							"buffer_scroll_name": "0081b6aa",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "dev/scss/_base.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								20
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "scss",
+							"buffer_scroll_name": "1ca8257e",
+							"spell_check": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
 					"type": "text"
 				}
 			]

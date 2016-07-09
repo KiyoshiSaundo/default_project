@@ -12,23 +12,18 @@ $footer_height: 100px;
 	display: flex;
 	flex-direction: row-reverse;
 	margin: 0 auto;
-
-	.content {
-		width: auto;
-		flex: 1;
-		padding-bottom: 50px;
-	}
-	.sidebar {
-		width: 270px;
-		margin-right: 30px;
-	}
+	width: 1170px;
 }
 
-.header {
-	//
-	.logo {
-		//
-	}
+.content {
+	width: auto;
+	flex: 1;
+	padding-bottom: 50px;
+}
+
+.sidebar {
+	width: 270px;
+	margin-right: 30px;
 }
 
 .footer {
@@ -43,7 +38,7 @@ $footer_height: 100px;
 .breadcrumbs {
 	margin-bottom: 30px;
 	ul {
-		@include list-reset;
+		// @include list-reset;
 		li {
 			display: inline-block;
 			margin-right: 3px;

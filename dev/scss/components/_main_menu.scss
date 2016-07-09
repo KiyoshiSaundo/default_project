@@ -1,0 +1,21 @@
+.main-menu {
+	width: 1170px;
+	margin: 0 auto;
+}
+.main-menu__list {
+	@include ul-reset;
+	@include breakpoint(sm) {
+		width: 100px;
+	}
+	display: flex;
+	justify-content: space-between;
+}
+.main-menu__item {
+	//
+}
+.main-menu__link {
+	//
+	&.selected {
+		//
+	}
+}
