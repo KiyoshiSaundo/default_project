@@ -20,7 +20,6 @@
     "gulp-imagemin": "^2.4.0",
     "gulp-include": "^2.3.0",
     "gulp-minify": "0.0.11",
-    "gulp-rigger": "^0.5.8",
     "gulp-ruby-sass": "^2.0.6",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-w3cjs": "^1.2.0",
