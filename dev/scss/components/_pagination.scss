@@ -1,0 +1,38 @@
+.pagination {
+	line-height: 1;
+	margin: 25px 0 0;
+	text-align: center;
+	a, span {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		padding-top: 6px;
+		text-align: center;
+		text-decoration: none;
+	}
+	a:hover, .selected {
+		//
+	}
+	.page-list {
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: middle;
+	}
+	.page-prev, .page-next {
+		display: inline-block;
+		vertical-align: middle;
+		* {
+			width: auto;
+			padding-right: 13px;
+			padding-left: 13px;
+		}
+	}
+	.page-prev *:before {
+		content: '< ';
+		margin-right: 20px;
+	}
+	.page-next *:after {
+		content: ' >';
+		margin-left: 20px;
+	}
+}

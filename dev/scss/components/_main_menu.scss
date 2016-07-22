@@ -1,12 +1,9 @@
 .main-menu {
-	width: 1170px;
-	margin: 0 auto;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #eee;
 }
 .main-menu__list {
 	@include ul-reset;
-	@include breakpoint(sm) {
-		width: 100px;
-	}
 	display: flex;
 	justify-content: space-between;
 }
@@ -14,7 +11,9 @@
 	//
 }
 .main-menu__link {
-	//
+	display: block;
+	padding: 10px;
+
 	&.selected {
 		//
 	}

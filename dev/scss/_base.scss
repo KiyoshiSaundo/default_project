@@ -2,31 +2,26 @@ $margin_text: 10px;
 
 * {
 	box-sizing: border-box;
+
 	&:before, &:after {
 		box-sizing: border-box;
 	}
 }
 
-html {
-	height: 100%;
-	@include breakpoint($breakpoint__desktop) {
-		min-width: $content__laptop;
-	}
-	@include breakpoint($breakpoint__laptop) {
-		min-width: $content__laptop;
-	}
-}
 body {
-	font: normal 14px/20px $font__primary;
-	height: 100%;
-	color: $color__primary;
-	background: $bg__primary;
+	font-family: $font;
+	font-size: $fsz;
+	font-weight: 400;
+	line-height: 1.2;
+	color: $fg;
+	background: $bg;
 }
 
 %h16 {
 	font-weight: normal;
-	margin: .7em 0;
 	line-height: 1;
+	margin: .7em 0;
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -38,6 +33,7 @@ body {
 	h#{$i}, .h#{$i} {
 		@extend %h16;
 		font-size: #{(36 - 4*$i)/14}em;
+
 		a {
 			border: 0;
 		}
@@ -45,11 +41,12 @@ body {
 }
 
 a {
-	@include link($color__primary, $color__primary);
+	@include link($fg, $fg);
 }
 
 p {
 	margin: $margin_text 0;
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -59,9 +56,10 @@ p {
 }
 
 ul {
+	margin: $margin_text 0;
 	padding-left: 20px;
 	list-style-type: disc;
-	margin: $margin_text 0;
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -71,9 +69,10 @@ ul {
 }
 
 ol {
+	margin: $margin_text 0;
 	padding-left: 20px;
 	list-style-type: decimal;
-	margin: $margin_text 0;
+
 	&:first-child {
 		margin-top: 0;
 	}

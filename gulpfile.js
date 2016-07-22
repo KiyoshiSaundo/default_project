@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+var   gulp = require('gulp')
 	, watch = require('gulp-watch')
 	, concat = require('gulp-concat')
 	, browserSync = require('browser-sync').create()
@@ -74,7 +74,6 @@ gulp.task('server', function () {
 		port: 9000,
 		logPrefix: "kio",
 		open: false,
-		// open: "local",
 		// open: "tunnel",
 	});
 });

@@ -24,6 +24,15 @@
 	list-style: none;
 }
 
+@mixin a-reset {
+	color: inherit;
+	border: 0;
+	&:hover {
+		color: inherit;
+		border: 0;
+	}
+}
+
 @mixin link ($color, $hover) {
 	text-decoration: none;
 	color: $color;
@@ -33,7 +42,17 @@
 		color: $hover;
 		border-color: transparent;
 	}
+}
 
+@mixin link-invert ($color, $hover) {
+	text-decoration: none;
+	color: $color;
+	border-bottom: 1px solid transparent;
+	transition: color 0.2s ease, border-color 0.2s ease;
+	&:hover {
+		color: $hover;
+		border-color: $hover;
+	}
 }
 
 @mixin arrow-icon ($pos: 'right', $direction: 'right') {

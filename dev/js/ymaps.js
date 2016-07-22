@@ -1,1 +1,1 @@
-// ya maps
+/* yandex maps */

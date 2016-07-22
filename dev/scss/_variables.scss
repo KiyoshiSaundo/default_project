@@ -1,4 +1,4 @@
-$font__primary: Arial, Helvetica, sans-serif;
+$font: Arial, Helvetica, sans-serif;
 // $font__primary: "Arial Black", Gadget, sans-serif;
 // $font__primary: "Comic Sans MS", cursive;
 // $font__primary: "Courier New", Courier, monospace;
@@ -17,25 +17,10 @@ $font__primary: Arial, Helvetica, sans-serif;
 // $font__primary: "MS Sans Serif", Geneva, sans-serif;
 // $font__primary: "MS Serif", "New York", serif;
 
-$fsz__primary: 14px;
+$fsz: 14px;
 // $fsz__primary: 16px;
 
-$color__primary: #000;
-$color__secondary: #000;
-$color__tertiary: #000;
+$fg: #000;
+$bg: #fff;
 
-$bg__primary: #fff;
-$bg__secondary: #fff;
-$bg__tertiary: #fff;
-
-$breakpoint__mobile: 480px;
-$breakpoint__phablet: 800px;
-$breakpoint__tablet: 1024px;
-$breakpoint__laptop: 1349px;
-$breakpoint__desktop: 1920px;
-
-$content__mobile: 100%;
-$content__phablet: 100%;
-$content__tablet: 924px;
-$content__laptop: 1250px;
-$content__desktop: 1720px;
+$footer_height: 110px;
