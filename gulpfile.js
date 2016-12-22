@@ -5,6 +5,10 @@ var gulp = require('gulp'),
 	include = require("gulp-include"),
 	rimraf = require('rimraf'), // remove dir
 	ifElse = require('gulp-if-else'),
+ 	filter = require('gulp-filter'),
+ 	order = require('gulp-order'),
+	// bower
+	mainBowerFiles = require('main-bower-files'),
 	// css
 	scss = require('gulp-sass'),
 	scssGlob = require('gulp-sass-glob'),
@@ -50,7 +54,8 @@ var path = { in : {
 		img: 'www/static/images/',
 		fonts: 'www/static/fonts/',
 		fontsjs: 'www/static/js/',
-		plugins: 'www/static/js/',
+
+		plugins_js: 'source/js/',
 
 		sprites_i: 'source/images/',
 		sprites_s: 'source/scss/'
@@ -128,18 +133,13 @@ gulp.task('images', function() {
 
 // plugins
 gulp.task('plugins', function() {
-	return gulp.src(path.in.plugins)
+	var vendors = mainBowerFiles();
+
+	return gulp.src(vendors)
+		.pipe(filter('**.js'))
+		// .pipe(order(vendors))
 		.pipe(concat('plugins.js'))
-		.pipe(minify({
-			ext: {
-				src: '.js',
-				min: '.min.js'
-			}
-		}))
-		.pipe(gulp.dest(path.out.plugins))
-		.pipe(browserSync.reload({
-			stream: true
-		}));
+		.pipe(gulp.dest(path.out.plugins_js));
 });
 
 // sprites
