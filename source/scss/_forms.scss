@@ -1,0 +1,32 @@
+$fg-bad: #f00;
+$fg-good: #0f0;
+
+.form {
+	@include clearfix;
+	position: relative;
+	padding: 20px;
+
+	&__header {
+		margin-bottom: 20px;
+	}
+	&__footer {
+		margin-top: 20px;
+	}
+	&__messages {
+		display: none;
+		margin-bottom: 20px;
+	}
+	&__notes {
+		font-size: 80%;
+	}
+	&__require {
+		font-weight: bold;
+		color: $fg-bad;
+	}
+	&__bad {
+		color: $fg-bad;
+	}
+	&__good {
+		color: $fg-good;
+	}
+}

@@ -1,0 +1,19 @@
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: $footer-height;
+	margin: 0 auto;
+	padding: 15px 0;
+	background: #eee;
+}
+.footer__logo {
+	line-height: 0;
+	display: inline-block;
+	border: 0;
+
+	img {
+		max-width: 100%;
+	}
+}

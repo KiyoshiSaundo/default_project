@@ -1,0 +1,22 @@
+.main-menu {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+
+	&__list {
+		@include ul-reset;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__item {
+		@include li-reset;
+	}
+	&__link {
+		@include a-reset;
+		display: block;
+		padding: 10px;
+
+		&.selected {
+			font-weight: 700;
+		}
+	}
+}

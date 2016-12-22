@@ -1,0 +1,250 @@
+//=include ../html_partials/header.html
+
+<h1>Примеры оформления шрифтов (h1)</h1>
+
+<p>Обычный шрифт: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta corporis impedit amet deleniti nisi consequuntur repudiandae laborum tempora aut odio dolores sequi id doloribus quia a esse, non neque dolore!</p>
+<hr>
+<p>Курсив:
+<i>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</i>
+<em>Animi eos facere quibusdam voluptas magnam nisi fugiat culpa necessitatibus ea omnis, fugit architecto laudantium minus, alias aperiam perspiciatis, debitis nostrum temporibus!</em>
+</p>
+<div class="hr"></div>
+<p>Жирный:
+<b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b>
+<strong>Vel amet sequi unde obcaecati architecto reprehenderit, enim modi perspiciatis voluptatibus magnam aspernatur veritatis officia repellendus nisi recusandae vitae vero, autem voluptate.</strong>
+</p>
+<hr>
+<p>Жирный курсив:
+<b><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</i></b>
+<strong><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</i></strong>
+<b><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</em></b>
+<strong><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</em></strong>
+
+<i><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></i>
+<i><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></i>
+<em><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></em>
+<em><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></em>
+</p>
+
+<h2>Формы (h2)</h2>
+
+<form action="#" class="form">
+<header>
+	<h5 class="tac">Header формы</h5>
+</header>
+
+<label for="i1" class="require">Текстовое поле с отдельным label</label>
+<input type="text" id="i1">
+
+<div class="field">
+	<input type="text" id="i2">
+	<label for="i2" class="require">Текстовое поле с плавающим label</label>
+</div>
+
+<hr>
+
+<label for="i3" class="require">Текстовое поле с отдельным label</label>
+<input type="text" id="i3" class="error" placeholder="поле с ошибкой">
+
+<div class="field">
+	<input type="text" id="i4" class="error">
+	<label for="i4" class="require">Текстовое поле с плавающим label и ошибкой</label>
+</div>
+
+<hr>
+
+<label for="s1">Выпадающий список</label>
+<select id="s1">
+	<option>Lorem ipsum dolor sit.</option>
+	<option>Exercitationem rem quod animi.</option>
+	<option>Deserunt iure, iste quis.</option>
+	<option>Eligendi amet obcaecati sunt!</option>
+	<option>Enim omnis fugit at.</option>
+	<option>Hic facilis aliquid fuga.</option>
+	<option>Esse ex voluptatem eos.</option>
+	<option>Maxime aspernatur iusto repellat.</option>
+	<option>Doloremque assumenda similique aut.</option>
+	<option>Rem perferendis eos dolorem.</option>
+</select>
+
+<label for="s2">Выпадающий список с ошибкой</label>
+<select id="s2" class="error">
+	<option>Exercitationem rem quod animi.</option>
+	<option>Deserunt iure, iste quis.</option>
+	<option>Eligendi amet obcaecati sunt!</option>
+	<option>Enim omnis fugit at.</option>
+	<option>Hic facilis aliquid fuga.</option>
+	<option>Esse ex voluptatem eos.</option>
+	<option>Maxime aspernatur iusto repellat.</option>
+	<option>Doloremque assumenda similique aut.</option>
+	<option>Rem perferendis eos dolorem.</option>
+</select>
+
+<hr>
+
+<label for="t1">Текстовое поле</label>
+<textarea rows="3" id="t1"></textarea>
+
+<label for="t2">Текстовое поле с ошибкой</label>
+<textarea rows="4" id="t2" class="error"></textarea>
+
+<hr>
+
+<div class="check-radio"><label><input type="checkbox" name="cc" value="1"> Вариант раз</label></div>
+<div class="check-radio"><label><input type="checkbox" name="cc" value="2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet aliquid voluptatibus libero qui soluta commodi, illo nemo magnam quod, incidunt eius! Labore veniam voluptate ipsa possimus pariatur dolore quod ullam.</label></div>
+<div class="check-radio"><label><input type="checkbox" name="cc" value="3" class="error"> Вариант три с ошибкой</label></div>
+
+<hr>
+
+<div class="check-radio"><label><input type="radio" name="rr" value="1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo deleniti iure consequuntur, sapiente qui optio dolorum suscipit beatae reprehenderit ea omnis, libero repellendus, nam quisquam, nobis sint. Odio, tempore, ea.</label></div>
+<div class="check-radio"><label><input type="radio" name="rr" value="2" class="error"> Вариант два с ошибкой</label></div>
+<div class="check-radio"><label><input type="radio" name="rr" value="3"> Вариант три</label></div>
+
+<hr>
+
+<div class="file"><input type="file"></div>
+<div class="file"><input type="file" class="error"></div>
+<footer>
+	<button type="submit">Отправит (button)</button>
+	<input type="submit" value="Отправит (input)">
+	<a href="#" class="btn">Отправить (a)</a>
+</footer>
+</form>
+
+<h3>Пример оформления таблиц (h3)</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae veritatis ipsam temporibus dolore animi atque, accusamus similique, quasi at aperiam fugit et consequuntur facere quod eligendi! Earum eveniet fuga asperiores!</p>
+<table>
+	<thead>
+		<tr>
+			<th>Lorem ipsum dolor</th>
+			<th>Repudiandae veritatis</th>
+			<th>Qui, distinctio perspiciatis</th>
+			<th>Saepe laboriosam dolor tempora</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe laboriosam dolor tempora, harum, neque nisi nemo possimus incidunt, numquam ab tenetur minus in illo fugit nulla. Unde quo, vitae sequi!</td>
+			<td>Repellendus culpa accusamus nisi, natus, ipsam voluptatum incidunt sed quam totam vero facilis ratione laborum beatae nihil fugiat at nesciunt quia obcaecati? Quidem aspernatur voluptatum quasi eaque vel, commodi adipisci?</td>
+			<td>Sunt voluptatem animi et quo in, iste itaque sequi sed voluptas voluptatum voluptatibus recusandae at maxime quia vero ipsum perferendis dolorem voluptate magni! Architecto assumenda omnis repudiandae fugiat, fuga laborum.</td>
+			<td>Laborum autem non deleniti, rem illum impedit facilis, repudiandae pariatur explicabo esse cum atque magnam numquam distinctio totam enim nemo ratione cumque amet eveniet minus. Nesciunt a fugiat, numquam distinctio.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolorem cupiditate necessitatibus aliquam, quisquam itaque, saepe consectetur repellendus voluptatem, ipsam ea delectus nobis nemo laborum placeat tempore, ad debitis vero!</td>
+			<td>Architecto delectus adipisci tempora earum laborum dolorem harum reiciendis rerum esse, quis hic rem. Dolorum modi incidunt error, ipsum architecto possimus perferendis culpa provident, animi amet. Veritatis, quis blanditiis porro.</td>
+			<td>Laborum autem non deleniti, rem illum impedit facilis, repudiandae pariatur explicabo esse cum atque magnam numquam distinctio totam enim nemo ratione cumque amet eveniet minus. Nesciunt a fugiat, numquam distinctio.</td>
+			<td>Sunt voluptatem animi et quo in, iste itaque sequi sed voluptas voluptatum voluptatibus recusandae at maxime quia vero ipsum perferendis dolorem voluptate magni! Architecto assumenda omnis repudiandae fugiat, fuga laborum.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, architecto! Eveniet consequuntur repellat, tenetur hic nostrum modi, ex repellendus ducimus, iure veniam, maiores. Similique debitis, obcaecati natus ut! Quibusdam, consectetur!</td>
+			<td>Iusto minima qui temporibus magnam dolore suscipit nemo autem fugiat quasi sequi! Iure praesentium ab commodi mollitia, possimus accusamus! Similique in qui perspiciatis totam labore vitae provident ut, fugit amet?</td>
+			<td>Error numquam autem architecto maxime vero! Doloremque earum ipsum magnam, reiciendis, quisquam maiores iusto corporis numquam blanditiis voluptatibus accusantium, obcaecati repellat aspernatur labore temporibus corrupti minima vero molestias illum. Quam!</td>
+			<td>Deserunt porro cum possimus commodi rem architecto ab corrupti, impedit, eos cumque natus. Sunt provident at molestiae autem perspiciatis eveniet dolor dolores optio doloribus, quam perferendis amet nihil, tenetur, non!</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus impedit odit labore quasi quaerat, placeat dolorum inventore. Rerum sint consectetur placeat at, obcaecati assumenda cum quod ut velit. Natus, odit!</td>
+			<td>Natus, officiis placeat, error quod totam saepe, repellendus dolor dicta praesentium, alias sit. Nulla a possimus, fugiat officiis. Nesciunt voluptates, dolorum iste dignissimos quisquam nobis ut iusto fugit! Non, iure?</td>
+			<td>Deserunt porro cum possimus commodi rem architecto ab corrupti, impedit, eos cumque natus. Sunt provident at molestiae autem perspiciatis eveniet dolor dolores optio doloribus, quam perferendis amet nihil, tenetur, non!</td>
+			<td>Error numquam autem architecto maxime vero! Doloremque earum ipsum magnam, reiciendis, quisquam maiores iusto corporis numquam blanditiis voluptatibus accusantium, obcaecati repellat aspernatur labore temporibus corrupti minima vero molestias illum. Quam!</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>Lorem ipsum dolor sit amet.</td>
+			<td>Culpa labore quos deserunt quae.</td>
+			<td>Odit atque, aliquam. Illum, quod.</td>
+			<td>Sint omnis cumque, ut earum!</td>
+		</tr>
+	</tfoot>
+</table>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus omnis eligendi quas voluptatem quasi neque obcaecati, similique eius, excepturi, eveniet veritatis voluptas, consequuntur! Animi, minus, maiores. Recusandae cupiditate, impedit nesciunt!</p>
+<table class="dark">
+	<thead>
+		<tr>
+			<th>Lorem ipsum dolor</th>
+			<th>Repudiandae veritatis</th>
+			<th>Qui, distinctio perspiciatis</th>
+			<th>Saepe laboriosam dolor tempora</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe laboriosam dolor tempora, harum, neque nisi nemo possimus incidunt, numquam ab tenetur minus in illo fugit nulla. Unde quo, vitae sequi!</td>
+			<td>Repellendus culpa accusamus nisi, natus, ipsam voluptatum incidunt sed quam totam vero facilis ratione laborum beatae nihil fugiat at nesciunt quia obcaecati? Quidem aspernatur voluptatum quasi eaque vel, commodi adipisci?</td>
+			<td>Sunt voluptatem animi et quo in, iste itaque sequi sed voluptas voluptatum voluptatibus recusandae at maxime quia vero ipsum perferendis dolorem voluptate magni! Architecto assumenda omnis repudiandae fugiat, fuga laborum.</td>
+			<td>Laborum autem non deleniti, rem illum impedit facilis, repudiandae pariatur explicabo esse cum atque magnam numquam distinctio totam enim nemo ratione cumque amet eveniet minus. Nesciunt a fugiat, numquam distinctio.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolorem cupiditate necessitatibus aliquam, quisquam itaque, saepe consectetur repellendus voluptatem, ipsam ea delectus nobis nemo laborum placeat tempore, ad debitis vero!</td>
+			<td>Architecto delectus adipisci tempora earum laborum dolorem harum reiciendis rerum esse, quis hic rem. Dolorum modi incidunt error, ipsum architecto possimus perferendis culpa provident, animi amet. Veritatis, quis blanditiis porro.</td>
+			<td>Laborum autem non deleniti, rem illum impedit facilis, repudiandae pariatur explicabo esse cum atque magnam numquam distinctio totam enim nemo ratione cumque amet eveniet minus. Nesciunt a fugiat, numquam distinctio.</td>
+			<td>Sunt voluptatem animi et quo in, iste itaque sequi sed voluptas voluptatum voluptatibus recusandae at maxime quia vero ipsum perferendis dolorem voluptate magni! Architecto assumenda omnis repudiandae fugiat, fuga laborum.</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, architecto! Eveniet consequuntur repellat, tenetur hic nostrum modi, ex repellendus ducimus, iure veniam, maiores. Similique debitis, obcaecati natus ut! Quibusdam, consectetur!</td>
+			<td>Iusto minima qui temporibus magnam dolore suscipit nemo autem fugiat quasi sequi! Iure praesentium ab commodi mollitia, possimus accusamus! Similique in qui perspiciatis totam labore vitae provident ut, fugit amet?</td>
+			<td>Error numquam autem architecto maxime vero! Doloremque earum ipsum magnam, reiciendis, quisquam maiores iusto corporis numquam blanditiis voluptatibus accusantium, obcaecati repellat aspernatur labore temporibus corrupti minima vero molestias illum. Quam!</td>
+			<td>Deserunt porro cum possimus commodi rem architecto ab corrupti, impedit, eos cumque natus. Sunt provident at molestiae autem perspiciatis eveniet dolor dolores optio doloribus, quam perferendis amet nihil, tenetur, non!</td>
+		</tr>
+		<tr>
+			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus impedit odit labore quasi quaerat, placeat dolorum inventore. Rerum sint consectetur placeat at, obcaecati assumenda cum quod ut velit. Natus, odit!</td>
+			<td>Natus, officiis placeat, error quod totam saepe, repellendus dolor dicta praesentium, alias sit. Nulla a possimus, fugiat officiis. Nesciunt voluptates, dolorum iste dignissimos quisquam nobis ut iusto fugit! Non, iure?</td>
+			<td>Deserunt porro cum possimus commodi rem architecto ab corrupti, impedit, eos cumque natus. Sunt provident at molestiae autem perspiciatis eveniet dolor dolores optio doloribus, quam perferendis amet nihil, tenetur, non!</td>
+			<td>Error numquam autem architecto maxime vero! Doloremque earum ipsum magnam, reiciendis, quisquam maiores iusto corporis numquam blanditiis voluptatibus accusantium, obcaecati repellat aspernatur labore temporibus corrupti minima vero molestias illum. Quam!</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>Lorem ipsum dolor sit amet.</td>
+			<td>Culpa labore quos deserunt quae.</td>
+			<td>Odit atque, aliquam. Illum, quod.</td>
+			<td>Sint omnis cumque, ut earum!</td>
+		</tr>
+	</tfoot>
+</table>
+<p>Qui, distinctio perspiciatis recusandae autem nesciunt iste incidunt adipisci in nihil expedita commodi dolores culpa, delectus quo facere eveniet, a sequi. Beatae atque molestias vel expedita, nesciunt rem eligendi voluptatem.</p>
+<ol>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+	<li>Consectetur culpa tenetur necessitatibus nihil illo enim, aliquam.</li>
+	<li>Dicta distinctio facere neque explicabo possimus officia repellat.</li>
+	<li>Corrupti nobis enim nostrum voluptatem vero incidunt! Itaque.</li>
+	<li>A nostrum, perspiciatis voluptatum nisi, similique itaque. Aspernatur.</li>
+	<li>
+		Doloremque, sint omnis commodi assumenda accusantium non error?
+		<ol>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, deleniti perferendis odio impedit ea officia eum ipsum, quas non delectus consequatur laudantium unde saepe praesentium voluptatum, voluptate omnis dignissimos alias.</li>
+			<li>Saepe officia excepturi consequatur voluptates ullam impedit commodi velit, nesciunt reiciendis libero quasi sunt quam inventore quisquam minima fugit suscipit cupiditate pariatur. Hic ea nisi, temporibus aliquid fugiat, necessitatibus porro!</li>
+			<li>Provident id esse reiciendis molestias assumenda illum ad temporibus, quae aut aspernatur obcaecati minima, possimus praesentium dolorum dolores quidem sequi dolorem consectetur facilis inventore, tempore! Consequuntur ullam id aperiam suscipit.</li>
+		</ol>
+	</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+	<li>Consectetur culpa tenetur necessitatibus nihil illo enim, aliquam.</li>
+	<li>Dicta distinctio facere neque explicabo possimus officia repellat.</li>
+	<li>Corrupti nobis enim nostrum voluptatem vero incidunt! Itaque.</li>
+	<li>A nostrum, perspiciatis voluptatum nisi, similique itaque. Aspernatur.</li>
+	<li>Doloremque, sint omnis commodi assumenda accusantium non error?</li>
+</ol>
+<h2>h2 Lorem ipsum dolor sit amet.</h2>
+<p>Amet magnam obcaecati, molestiae labore vel quasi rerum porro, optio soluta sint blanditiis eum facilis debitis earum quibusdam deleniti nam sequi ab aperiam suscipit animi? Nulla officiis nemo, totam soluta!</p>
+<ul>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+	<li>Consectetur culpa tenetur necessitatibus nihil illo enim, aliquam.</li>
+	<li>Dicta distinctio facere neque explicabo possimus officia repellat.</li>
+	<li>
+		Corrupti nobis enim nostrum voluptatem vero incidunt! Itaque.
+		<ul>
+			<li>Lorem ipsum dolor.</li>
+			<li>Mollitia, eveniet non?</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae esse, pariatur, asperiores explicabo omnis totam nam at repellat quisquam voluptas consequuntur porro similique velit quae blanditiis officiis rerum animi, dolorem!</li>
+			<li>Eos, ipsa, dicta?</li>
+			<li>Rerum, saepe, soluta?</li>
+		</ul>
+	</li>
+	<li>A nostrum, perspiciatis voluptatum nisi, similique itaque. Aspernatur.</li>
+	<li>Doloremque, sint omnis commodi assumenda accusantium non error?</li>
+</ul>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut maxime qui cum recusandae veniam, eum porro voluptates impedit aliquid quos odit pariatur! Consectetur necessitatibus ipsum voluptatum molestiae nisi repudiandae mollitia.</p>
+<h3>h3 Lorem ipsum dolor sit amet.</h3>
+<p>Officiis, dolorem iusto est beatae, at voluptates alias distinctio ex molestias asperiores iure consequuntur, possimus similique. Veniam laboriosam totam debitis omnis, sit, deleniti tempora aspernatur harum consequatur, unde magnam natus?</p>
+
+//=include ../html_partials/footer.html
