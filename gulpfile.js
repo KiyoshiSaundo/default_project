@@ -5,8 +5,8 @@ var gulp = require('gulp'),
 	include = require("gulp-include"),
 	rimraf = require('rimraf'), // remove dir
 	ifElse = require('gulp-if-else'),
- 	filter = require('gulp-filter'),
- 	order = require('gulp-order'),
+	filter = require('gulp-filter'),
+	order = require('gulp-order'),
 	// bower
 	mainBowerFiles = require('main-bower-files'),
 	// css
@@ -35,7 +35,6 @@ var path = { in : {
 		fonts: ['source/fonts/**/*.{woff,woff2}'],
 		fontsjs: ['source/fonts/fonts.js'],
 		sprites: ['source/sprites/**/*.{jpg,jpeg,gif,png}'],
-		plugins: ['source/plugins/**/*.js']
 	},
 	watch: {
 		html: ['source/html/**/*', 'source/html_partials/**/*'],
@@ -45,7 +44,6 @@ var path = { in : {
 		fonts: ['source/fonts/**/*.{woff,woff2}'],
 		fontsjs: ['source/fonts/fonts.js'],
 		sprites: ['source/sprites/**/*.{jpg,jpeg,gif,png}'],
-		plugins: ['source/plugins/**/*.js']
 	},
 	out: {
 		html: 'www/static/',
@@ -54,8 +52,6 @@ var path = { in : {
 		img: 'www/static/images/',
 		fonts: 'www/static/fonts/',
 		fontsjs: 'www/static/js/',
-
-		plugins_js: 'source/js/',
 
 		sprites_i: 'source/images/',
 		sprites_s: 'source/scss/'
@@ -93,10 +89,11 @@ gulp.task('html', function() {
 // styles
 gulp.task('styles', function() {
 	return gulp.src(path.in.css)
-		.pipe(scssGlob())
+		.pipe(include())
 		.pipe(ifElse(isDev, function() {
 			return sourcemaps.init();
 		}))
+		.pipe(scssGlob())
 		.pipe(scss({
 			errLogToConsole: true
 		}))
@@ -129,17 +126,6 @@ gulp.task('images', function() {
 		.pipe(browserSync.reload({
 			stream: true
 		}));
-});
-
-// plugins
-gulp.task('plugins', function() {
-	var vendors = mainBowerFiles();
-
-	return gulp.src(vendors)
-		.pipe(filter('**.js'))
-		// .pipe(order(vendors))
-		.pipe(concat('plugins.js'))
-		.pipe(gulp.dest(path.out.plugins_js));
 });
 
 // sprites
@@ -199,6 +185,11 @@ gulp.task('fontsjs', function() {
 // scripts
 gulp.task('scripts', function() {
 	return gulp.src(path.in.js)
+		.pipe(include())
+		.pipe(order([
+			"plugins.js",
+			"*.js"
+		]))
 		.pipe(concat('main.js'))
 		.pipe(minify({
 			ext: {
@@ -212,7 +203,7 @@ gulp.task('scripts', function() {
 		}));
 });
 
-// clean directory 'build'
+// clean directory 'www/static'
 gulp.task('clean', function(cb) {
 	return rimraf(path.clean, cb);
 });
@@ -225,8 +216,7 @@ gulp.task('build', [
 	'images',
 	'fonts',
 	'fontsjs',
-	'scripts',
-	'plugins'
+	'scripts'
 ]);
 
 // watch
@@ -251,9 +241,6 @@ gulp.task('watch', function() {
 	});
 	watch(path.watch.fontsjs, function() {
 		gulp.start('fontsjs');
-	});
-	watch(path.watch.plugins, function() {
-		gulp.start('plugins');
 	});
 });
 
