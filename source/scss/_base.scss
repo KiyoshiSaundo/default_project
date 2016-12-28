@@ -67,6 +67,7 @@ ul {
 	margin: $margin_text 0;
 	padding-left: 20px;
 	list-style-type: disc;
+	overflow: hidden;
 
 	&:first-child {
 		margin-top: 0;
@@ -80,6 +81,7 @@ ol {
 	margin: $margin_text 0;
 	padding-left: 20px;
 	list-style-type: decimal;
+	overflow: hidden;
 
 	&:first-child {
 		margin-top: 0;
