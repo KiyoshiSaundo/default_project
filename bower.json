@@ -16,8 +16,6 @@
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "bxslider-4": "*",
-    "jquery-colorbox": "colorbox#^1.6.4",
     "normalize-css": "^5.0.0"
   }
 }
