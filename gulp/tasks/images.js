@@ -1,22 +1,33 @@
 // images.js
 
-var params = require('../params.js');
-
 var gulp     = require('gulp'),
-    ifElse   = require('gulp-if-else'),
+    watch    = require('gulp-watch'),
     imagemin = require('gulp-imagemin'),
-    bSync    = require('browser-sync').create();
+    ifElse   = require('gulp-if-else');
 
-gulp.task('images', function() {
-	return gulp.src(params.paths.in.img)
-		.pipe(ifElse(params.isImageMin, function() {
-			return imagemin({
-				progressive: true,
-				interlaced: true
-			});
-		}))
-		.pipe(gulp.dest(params.paths.out.img))
-		.pipe(bSync.reload({
-			stream: true
-		}));
-});
+module.exports = {
+	task: function(taskName, params) {
+		var pathIn  = params.path.in + '/images/**/*.{jpg,jpeg,gif,png}';
+		var pathOut = params.path.out + '/images';
+
+		gulp.task(taskName, function() {
+			return gulp.src(pathIn)
+				.pipe(ifElse(params.isImageMin, function() {
+					return imagemin({
+						progressive: true,
+						interlaced: true
+					});
+				}))
+				.pipe(gulp.dest(pathOut));
+		});
+	},
+	watch: function (taskName, params) {
+		var pathWatch = [
+			params.path.in + '/images/**/*.{jpg,jpeg,gif,png}'
+		];
+
+		watch(pathWatch, function() {
+			gulp.start(taskName, params.bSync.reload);
+		});
+	}
+};

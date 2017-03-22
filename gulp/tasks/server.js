@@ -1,22 +1,22 @@
 // server.js
 
-var params = require('../params.js');
+var gulp  = require('gulp');
 
-var gulp  = require('gulp'),
-    bSync = require('browser-sync').create();
-
-gulp.task('server', function() {
-	bSync.init({
-		server: {
-			baseDir: params.paths.server
-		},
-		notify: false,
-		tunnel: false,
-		// tunnel: true,
-		host: 'localhost',
-		port: 9000,
-		logPrefix: "kio",
-		open: false,
-		// open: "tunnel",
-	});
-});
+module.exports = {
+	task: function(taskName, params) {
+		gulp.task(taskName, function() {
+			params.bSync.init({
+				server: {
+					baseDir: params.server.path
+				},
+				notify: false,
+				tunnel: params.server.tunnel,
+				host: 'localhost',
+				port: 9000,
+				logLevel: params.server.logLevel,
+				logPrefix: "server",
+				open: params.server.open
+			});
+		});
+	}
+};

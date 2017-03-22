@@ -1,41 +1,52 @@
 // styles.js
 
-var params = require('../params.js');
-
 var gulp       = require('gulp'),
+    watch      = require('gulp-watch'),
     include    = require('gulp-include'),
     ifElse     = require('gulp-if-else'),
     scss       = require('gulp-sass'),
     scssGlob   = require('gulp-sass-glob'),
     sourcemaps = require('gulp-sourcemaps'),
     prefixer   = require('gulp-autoprefixer'),
-    cssnano    = require('gulp-cssnano'),
-    bSync      = require('browser-sync').create();
+    cssnano    = require('gulp-cssnano');
 
-gulp.task('styles', function() {
-	return gulp.src(params.paths.in.css)
-		.pipe(include())
-		.pipe(ifElse(params.isCssMap, function() {
-			return sourcemaps.init();
-		}))
-		.pipe(scssGlob())
-		.pipe(scss({
-			errLogToConsole: true
-		}))
-		.pipe(prefixer({
-			browsers: ['last 3 versions']
-		}))
-		.pipe(cssnano({
-			zindex: false,
-			discardUnused: {
-				fontFace: false
-			}
-		}))
-		.pipe(ifElse(params.isCssMap, function() {
-			return sourcemaps.write('.');
-		}))
-		.pipe(gulp.dest(params.paths.out.css))
-		.pipe(bSync.reload({
-			stream: true
-		}));
-});
+module.exports = {
+	task: function(taskName, params) {
+		var pathIn  = params.path.in + '/scss/**/*.scss';
+		var pathOut = params.path.out;
+
+		gulp.task(taskName, function() {
+			return gulp.src(pathIn)
+				.pipe(include())
+				.pipe(ifElse(params.isCssMap, function() {
+					return sourcemaps.init();
+				}))
+				.pipe(scssGlob())
+				.pipe(scss({
+					errLogToConsole: true
+				}))
+				.pipe(prefixer({
+					browsers: params.prefixer
+				}))
+				.pipe(cssnano({
+					zindex: false,
+					discardUnused: {
+						fontFace: false
+					}
+				}))
+				.pipe(ifElse(params.isCssMap, function() {
+					return sourcemaps.write('.');
+				}))
+				.pipe(gulp.dest(pathOut));
+		});
+	},
+	watch: function (taskName, params) {
+		var pathWatch = [
+			params.path.in + '/scss/**/*.scss'
+		];
+
+		watch(pathWatch, function() {
+			gulp.start(taskName, params.bSync.reload);
+		});
+	}
+};
