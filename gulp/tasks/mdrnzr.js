@@ -2,6 +2,7 @@
 
 var gulp   = require('gulp'),
     watch  = require('gulp-watch'),
+    mkdirp = require('mkdirp'),
     fs     = require('fs'),
     mdrnzr = require('modernizr');
 
@@ -16,11 +17,11 @@ module.exports = {
 		gulp.task(taskName, function() {
 			var config = require(pathIn);
 			return mdrnzr.build(config, function(code) {
-				fs.mkdir(pathOutDir, function() { // <- mkdir not recursive
+				mkdirp(pathOutDir, function() {
 					fs.writeFile(pathOutFile, code);
 				});
 				if (params.isBitrix) {
-					fs.mkdir(pathOutBDir, function() { // <- mkdir not recursive
+					mkdirp(pathOutBDir, function() {
 						fs.writeFile(pathOutBFile, code);
 					});
 				}

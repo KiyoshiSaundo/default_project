@@ -27,6 +27,7 @@
     "gulp-watch": "^4.3.5",
     "gulp.spritesmith": "^6.2.0",
     "merge-stream": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "modernizr": "^3.3.1",
     "rimraf": "^2.5.2"
   }
