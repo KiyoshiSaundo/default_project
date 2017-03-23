@@ -3,7 +3,7 @@
 var gulp       = require('gulp'),
     watch      = require('gulp-watch'),
     include    = require('gulp-include'),
-    ifElse     = require('gulp-if-else'),
+    gulpif     = require('gulp-if'),
     scss       = require('gulp-sass'),
     scssGlob   = require('gulp-sass-glob'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -12,15 +12,17 @@ var gulp       = require('gulp'),
 
 module.exports = {
 	task: function(taskName, params) {
-		var pathIn  = params.path.in + '/scss/**/*.scss';
-		var pathOut = params.path.out;
+		var pathIn   = params.path.in + '/scss/**/*.scss';
+		var pathOut  = params.path.out;
+		var pathOutB = params.path.bitrix;
 
 		gulp.task(taskName, function() {
 			return gulp.src(pathIn)
 				.pipe(include())
-				.pipe(ifElse(params.isCssMap, function() {
-					return sourcemaps.init();
-				}))
+				.pipe(gulpif(
+					params.isCssMap,
+					sourcemaps.init()
+				))
 				.pipe(scssGlob())
 				.pipe(scss({
 					errLogToConsole: true
@@ -34,9 +36,14 @@ module.exports = {
 						fontFace: false
 					}
 				}))
-				.pipe(ifElse(params.isCssMap, function() {
-					return sourcemaps.write('.');
-				}))
+				.pipe(gulpif(
+					params.isCssMap,
+					sourcemaps.write('.')
+				))
+				.pipe(gulpif(
+					params.isBitrix,
+					gulp.dest(pathOutB)
+				))
 				.pipe(gulp.dest(pathOut));
 		});
 	},

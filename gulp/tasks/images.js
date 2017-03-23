@@ -2,8 +2,8 @@
 
 var gulp     = require('gulp'),
     watch    = require('gulp-watch'),
-    imagemin = require('gulp-imagemin'),
-    ifElse   = require('gulp-if-else');
+    gulpif   = require('gulp-if'),
+    imagemin = require('gulp-imagemin');
 
 module.exports = {
 	task: function(taskName, params) {
@@ -11,16 +11,22 @@ module.exports = {
 			params.path.in + '/images/**/*.{jpg,jpeg,gif,png}',
 			params.path.in + '/images_tmp/**/*.{jpg,jpeg,gif,png}'
 		];
-		var pathOut = params.path.out + '/images';
+		var pathOut  = params.path.out + '/images';
+		var pathOutB = params.path.bitrix + '/images';
 
 		gulp.task(taskName, function() {
 			return gulp.src(pathIn)
-				.pipe(ifElse(params.isImageMin, function() {
-					return imagemin({
+				.pipe(gulpif(
+					params.isImageMin,
+					imagemin({
 						progressive: true,
 						interlaced: true
-					});
-				}))
+					})
+				))
+				.pipe(gulpif(
+					params.isBitrix,
+					gulp.dest(pathOutB)
+				))
 				.pipe(gulp.dest(pathOut));
 		});
 	},

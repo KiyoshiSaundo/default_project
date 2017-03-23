@@ -10,13 +10,20 @@ module.exports = {
 		var pathIn      = params.path.root + '/modernizr-config.json';
 		var pathOutDir  = params.path.out + '/js';
 		var pathOutFile = params.path.out + '/js/modernizr.js';
+		var pathOutBDir  = params.path.bitrix + '/js';
+		var pathOutBFile = params.path.bitrix + '/js/modernizr.js';
 
 		gulp.task(taskName, function() {
 			var config = require(pathIn);
 			return mdrnzr.build(config, function(code) {
-				fs.mkdir(pathOutDir, function() { // <- not recursive
+				fs.mkdir(pathOutDir, function() { // <- mkdir not recursive
 					fs.writeFile(pathOutFile, code);
 				});
+				if (params.isBitrix) {
+					fs.mkdir(pathOutBDir, function() { // <- mkdir not recursive
+						fs.writeFile(pathOutBFile, code);
+					});
+				}
 			});
 		});
 	},

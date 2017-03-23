@@ -2,6 +2,7 @@
 
 var gulp     = require('gulp'),
     watch    = require('gulp-watch'),
+    gulpif   = require('gulp-if'),
     cssnano  = require('gulp-cssnano'),
     minify   = require('gulp-minify'),
     font2css = require('gulp-font2css').default,
@@ -9,10 +10,14 @@ var gulp     = require('gulp'),
 
 module.exports = {
 	task: function(taskName, params) {
-		var pathInFonts  = params.path.in + '/fonts/**/*.{woff,woff2}';
-		var pathOutFonts = params.path.out + '/fonts';
-		var pathInJS     = params.path.in + '/fonts/fonts.js';
-		var pathOutJS    = params.path.out + '/js';
+		var pathInFonts   = params.path.in + '/fonts/**/*.{woff,woff2}';
+		var pathOutFonts  = params.path.out + '/fonts';
+
+		var pathInJS      = params.path.in + '/fonts/fonts.js';
+		var pathOutJS     = params.path.out + '/js';
+
+		var pathOutBFonts = params.path.bitrix + '/fonts';
+		var pathOutBJS    = params.path.bitrix + '/js';
 
 		gulp.task(taskName, function() {
 			var cssFonts = gulp.src(pathInFonts)
@@ -22,6 +27,10 @@ module.exports = {
 						fontFace: false
 					}
 				}))
+				.pipe(gulpif(
+					params.isBitrix,
+					gulp.dest(pathOutBFonts)
+				))
 				.pipe(gulp.dest(pathOutFonts));
 
 			var jsFonts = gulp.src(pathInJS)
@@ -31,6 +40,10 @@ module.exports = {
 						min: '.min.js'
 					}
 				}))
+				.pipe(gulpif(
+					params.isBitrix,
+					gulp.dest(pathOutBJS)
+				))
 				.pipe(gulp.dest(pathOutJS));
 
 			return merge(cssFonts, jsFonts);

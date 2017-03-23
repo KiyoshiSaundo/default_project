@@ -15,8 +15,9 @@ var params = {
 		'fonts'
 	],
 
-	isImageMin : false,
+	isImageMin : true,
 	isCssMap   : false,
+	isBitrix   : false,
 
 	prefixer : ['last 3 versions'],
 
@@ -29,9 +30,10 @@ var params = {
 	},
 
 	path : {
-		root : __dirname,
-		in   : __dirname + '/source',
-		out  : __dirname + '/www/static',
+		root   : __dirname,
+		in     : __dirname + '/source',
+		out    : __dirname + '/www/static',
+		bitrix : __dirname + '/www/local/templates/TEMPLATE'
 	}
 
 };

@@ -2,8 +2,7 @@
 
 var gulp    = require('gulp'),
     watch   = require('gulp-watch'),
-    include = require('gulp-include'),
-    ifElse  = require('gulp-if-else');
+    include = require('gulp-include');
 
 module.exports = {
 	task: function(taskName, params) {
