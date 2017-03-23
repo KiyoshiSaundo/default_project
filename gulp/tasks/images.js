@@ -7,7 +7,10 @@ var gulp     = require('gulp'),
 
 module.exports = {
 	task: function(taskName, params) {
-		var pathIn  = params.path.in + '/images/**/*.{jpg,jpeg,gif,png}';
+		var pathIn  = [
+			params.path.in + '/images/**/*.{jpg,jpeg,gif,png}',
+			params.path.in + '/images_tmp/**/*.{jpg,jpeg,gif,png}'
+		];
 		var pathOut = params.path.out + '/images';
 
 		gulp.task(taskName, function() {
@@ -23,7 +26,8 @@ module.exports = {
 	},
 	watch: function (taskName, params) {
 		var pathWatch = [
-			params.path.in + '/images/**/*.{jpg,jpeg,gif,png}'
+			params.path.in + '/images/**/*.{jpg,jpeg,gif,png}',
+			params.path.in + '/images_tmp/**/*.{jpg,jpeg,gif,png}'
 		];
 
 		watch(pathWatch, function() {
