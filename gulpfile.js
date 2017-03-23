@@ -1,12 +1,22 @@
 var gulp   = require('gulp'),
     rimraf = require('rimraf');
 
-/* =============== PARAMS =============== */
+/* === PARAMS =============================================================== */
 
 var params = {
 
+	taskList : [
+		'html',
+		'styles',
+		'mdrnzr',
+		'scripts',
+		'images',
+		'sprites',
+		'fonts'
+	],
+
 	isImageMin : false,
-	isCssMap : false,
+	isCssMap   : false,
 
 	prefixer : ['last 3 versions'],
 
@@ -18,7 +28,7 @@ var params = {
 		logLevel : 'silent', // 'info'
 	},
 
-	path: {
+	path : {
 		root : __dirname,
 		in   : __dirname + '/source',
 		out  : __dirname + '/www/static',
@@ -26,33 +36,38 @@ var params = {
 
 };
 
-/* =============== CUSTOM TASKS =============== */
+/* === SERVER =============================================================== */
 
-includeTask('server');
+gulp.task('server', function() {
+	params.bSync.init({
+		server: {
+			baseDir: params.server.path
+		},
+		notify: false,
+		tunnel: params.server.tunnel,
+		host: 'localhost',
+		port: 9000,
+		logLevel: params.server.logLevel,
+		logPrefix: "server",
+		open: params.server.open
+	});
+});
 
-var tasks = [
-	'html',
-	'styles',
-	'mdrnzr',
-	'scripts',
-	'images',
-	'sprites',
-	'fonts'
-];
+/* === TASKS ================================================================ */
 
-for (var i = tasks.length - 1; i >= 0; i--) {
-	includeTask( tasks[i] );
+for (var i = params.taskList.length - 1; i >= 0; i--) {
+	includeTask( params.taskList[i] );
 }
 
 gulp.task('watch', function() {
-	for (var i = tasks.length - 1; i >= 0; i--) {
-		includeWatch( tasks[i] );
+	for (var i = params.taskList.length - 1; i >= 0; i--) {
+		includeWatch( params.taskList[i] );
 	}
 });
 
-/* =============== DEFAULT TASKS =============== */
+/* === DEFAULT TASKS ======================================================== */
 
-gulp.task('build', tasks);
+gulp.task('build', params.taskList);
 gulp.task('default', ['build', 'watch', 'server']);
 gulp.task('clean', function() {
 	rimraf(params.path.out, function () {
@@ -60,7 +75,7 @@ gulp.task('clean', function() {
 	});
 });
 
-/* =============== HELPERS =============== */
+/* === HELPERS ============================================================== */
 
 function includeTask(task) {
 	var t = require('./gulp/tasks/'+task);
