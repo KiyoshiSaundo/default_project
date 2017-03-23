@@ -12,7 +12,7 @@ module.exports = {
 		var pathInFonts  = params.path.in + '/fonts/**/*.{woff,woff2}';
 		var pathOutFonts = params.path.out + '/fonts';
 		var pathInJS     = params.path.in + '/fonts/fonts.js';
-		var pathOutJS    = params.path.out + '/js/fonts.js';
+		var pathOutJS    = params.path.out + '/js';
 
 		gulp.task(taskName, function() {
 			var cssFonts = gulp.src(pathInFonts)
