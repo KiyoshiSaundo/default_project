@@ -11,6 +11,7 @@ $margin_text: 10px;
 	}
 }
 
+/* Base */
 body {
 	font-family: $font;
 	font-size: $fsz;
@@ -22,11 +23,18 @@ body {
 iframe {
 	border: 0;
 }
+hr {
+	margin: $margin_text 0;
+	border: 0;
+	border-top: 1px solid #ddd;
+}
+
+/* Headers */
 
 %h16 {
-	font-weight: normal;
+	font-weight: 300;
 	line-height: 1;
-	margin: .7em 0;
+	margin: 1em 0;
 
 	&:first-child {
 		margin-top: 0;
@@ -48,9 +56,7 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 	font-size: 30px;
 }
 
-a {
-	@include link($fg);
-}
+/* Text */
 
 p {
 	margin: $margin_text 0;
@@ -62,6 +68,28 @@ p {
 		margin-bottom: 0;
 	}
 }
+
+a {
+	@include link($fg);
+}
+
+b, strong {
+	font-weight: 400;
+
+	i, em {
+		font-weight: 400;
+	}
+}
+i, em {
+	font-weight: 300;
+	font-style: italic;
+
+	b, strong {
+		font-weight: 400 !important;
+	}
+}
+
+/* Lists */
 
 ul {
 	margin: $margin_text 0;

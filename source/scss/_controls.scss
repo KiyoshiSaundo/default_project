@@ -24,6 +24,20 @@ $margin_input: 15px;
 // type="search"
 ::-webkit-search-cancel-button{display:none;}
 
+// ios play video button
+*::-webkit-media-controls-panel {
+	display: none !important;
+	-webkit-appearance: none;
+}
+*::--webkit-media-controls-play-button {
+	display: none !important;
+	-webkit-appearance: none;
+}
+*::-webkit-media-controls-start-playback-button {
+	display: none !important;
+	-webkit-appearance: none;
+}
+
 label {
 	display: block;
 	margin: 0 0 $margin_label;

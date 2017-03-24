@@ -12,7 +12,7 @@ var params = {
 		'scripts',
 		'images',
 		'sprites',
-		// 'svgsprites',
+		'svgsprites',
 		'fonts'
 	],
 
