@@ -12,10 +12,11 @@ var params = {
 		'scripts',
 		'images',
 		'sprites',
+		// 'svgsprites',
 		'fonts'
 	],
 
-	isImageMin : true,
+	isImageMin : false,
 	isCssMap   : false,
 	isBitrix   : false,
 

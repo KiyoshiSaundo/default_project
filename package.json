@@ -30,5 +30,8 @@
     "mkdirp": "^0.5.1",
     "modernizr": "^3.3.1",
     "rimraf": "^2.5.2"
+  },
+  "devDependencies": {
+    "gulp-svg-sprites": "^4.1.1"
   }
 }
