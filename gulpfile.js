@@ -3,6 +3,7 @@ var gulp   = require('gulp'),
 
 /* === PARAMS =============================================================== */
 
+var templateDirName = 'YOUR_TEMPLATE';
 var params = {
 
 	taskList : [
@@ -34,7 +35,7 @@ var params = {
 		root   : __dirname,
 		in     : __dirname + '/source',
 		out    : __dirname + '/www/static',
-		bitrix : __dirname + '/www/local/templates/TEMPLATE'
+		bitrix : __dirname + '/www/local/templates/' + templateDirName
 	}
 
 };

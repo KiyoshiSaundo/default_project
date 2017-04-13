@@ -17,12 +17,13 @@ module.exports = {
 		gulp.task(taskName, function() {
 			var config = require(pathIn);
 			return mdrnzr.build(config, function(code) {
-				mkdirp(pathOutDir, function() {
-					fs.writeFile(pathOutFile, code);
-				});
 				if (params.isBitrix) {
 					mkdirp(pathOutBDir, function() {
 						fs.writeFile(pathOutBFile, code);
+					});
+				} else {
+					mkdirp(pathOutDir, function() {
+						fs.writeFile(pathOutFile, code);
 					});
 				}
 			});

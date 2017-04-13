@@ -30,9 +30,9 @@ module.exports = {
 				}))
 				.pipe(gulpif(
 					params.isBitrix,
-					gulp.dest(pathOutB)
-				))
-				.pipe(gulp.dest(pathOut));
+					gulp.dest(pathOutB),
+					gulp.dest(pathOut)
+				));
 		});
 	},
 	watch: function (taskName, params) {

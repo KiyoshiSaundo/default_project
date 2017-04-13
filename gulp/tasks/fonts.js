@@ -29,9 +29,9 @@ module.exports = {
 				}))
 				.pipe(gulpif(
 					params.isBitrix,
-					gulp.dest(pathOutBFonts)
-				))
-				.pipe(gulp.dest(pathOutFonts));
+					gulp.dest(pathOutBFonts),
+					gulp.dest(pathOutFonts)
+				));
 
 			var jsFonts = gulp.src(pathInJS)
 				.pipe(minify({
@@ -42,9 +42,9 @@ module.exports = {
 				}))
 				.pipe(gulpif(
 					params.isBitrix,
-					gulp.dest(pathOutBJS)
-				))
-				.pipe(gulp.dest(pathOutJS));
+					gulp.dest(pathOutBJS),
+					gulp.dest(pathOutJS)
+				));
 
 			return merge(cssFonts, jsFonts);
 		});
