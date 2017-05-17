@@ -10,7 +10,7 @@ var gulp    = require('gulp'),
 
 module.exports = {
 	task: function(taskName, params) {
-		var pathIn   = params.path.in + '/js/**/*';
+		var pathIn   = params.path.in + '/js/**/*.js';
 		var pathOut  = params.path.out + '/js';
 		var pathOutB = params.path.bitrix + '/js';
 
@@ -37,7 +37,7 @@ module.exports = {
 	},
 	watch: function (taskName, params) {
 		var pathWatch = [
-			params.path.in + '/js/**/*'
+			params.path.in + '/js/**/*.js'
 		];
 
 		watch(pathWatch, function() {
