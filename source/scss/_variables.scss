@@ -1,25 +1,30 @@
-$font: Arial, Helvetica, sans-serif;
-// $font: "Arial Black", Gadget, sans-serif;
-// $font: "Comic Sans MS", cursive;
-// $font: "Courier New", Courier, monospace;
-// $font: Georgia, serif;
-// $font: Impact, Charcoal, sans-serif;
-// $font: "Lucida Console", Monaco, monospace;
-// $font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-// $font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-// $font: Tahoma, Geneva, sans-serif;
-// $font: "Times New Roman", Times, serif;
-// $font: "Trebuchet MS", Helvetica, sans-serif;
-// $font: Verdana, Geneva, sans-serif;
-// $font: Symbol;
-// $font: Webdings;
-// $font: Wingdings, "Zapf Dingbats";
-// $font: "MS Sans Serif", Geneva, sans-serif;
-// $font: "MS Serif", "New York", serif;
+$ff: Arial, Helvetica, sans-serif;
+// $ff: "Arial Black", Gadget, sans-serif;
+// $ff: "Comic Sans MS", cursive;
+// $ff: "Courier New", Courier, monospace;
+// $ff: Georgia, serif;
+// $ff: Impact, Charcoal, sans-serif;
+// $ff: "Lucida Console", Monaco, monospace;
+// $ff: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+// $ff: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+// $ff: Tahoma, Geneva, sans-serif;
+// $ff: "Times New Roman", Times, serif;
+// $ff: "Trebuchet MS", Helvetica, sans-serif;
+// $ff: Verdana, Geneva, sans-serif;
+// $ff: Symbol;
+// $ff: Webdings;
+// $ff: Wingdings, "Zapf Dingbats";
+// $ff: "MS Sans Serif", Geneva, sans-serif;
+// $ff: "MS Serif", "New York", serif;
 
-$fsz: 14px;
+$fsz: 16px;
+$lh: 1.2;
 
 $fg: #000;
+$fg--placeholder: #666;
+$fg--bad: #f00;
+$fg--good: #0f0;
+
 $bg: #fff;
 
 $footer-height: 110px;

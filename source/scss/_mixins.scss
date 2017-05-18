@@ -24,11 +24,6 @@
 	list-style: none;
 }
 
-@mixin a-reset {
-	color: inherit;
-	border: 0;
-}
-
 @mixin link ($color, $hover: auto, $bs: solid) {
 	transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 	text-decoration: none;
@@ -40,14 +35,6 @@
 			color: $hover;
 		}
 		border-color: transparent;
-	}
-}
-
-@mixin link-invert ($color, $hover: auto, $bs: solid) {
-	@include link($color, $hover, $bs);
-	border-bottom: 1px $bs transparent;
-	&:hover {
-		border-color: $color;
 	}
 }
 

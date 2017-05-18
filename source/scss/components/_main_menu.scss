@@ -1,6 +1,5 @@
 .main-menu {
-	margin-bottom: 20px;
-	border-bottom: 1px solid #eee;
+	background: #ddd;
 
 	&__list {
 		@include ul-reset;
@@ -11,9 +10,9 @@
 		@include li-reset;
 	}
 	&__link {
-		@include a-reset;
 		display: block;
 		padding: 10px;
+		border: 0;
 
 		&.selected {
 			font-weight: 700;

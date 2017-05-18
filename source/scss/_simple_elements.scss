@@ -1,34 +1,3 @@
-.arrow-after--left {
-	@include arrow-icon('right', 'left');
-}
-.arrow-after--right {
-	@include arrow-icon('right', 'right');
-}
-.arrow-after--top {
-	@include arrow-icon('right', 'top');
-}
-.arrow-after--bottom {
-	@include arrow-icon('right', 'bottom');
-}
-.arrow-before--left {
-	@include arrow-icon('left', 'left');
-}
-.arrow-before--right {
-	@include arrow-icon('left', 'right');
-}
-.arrow-before--top {
-	@include arrow-icon('left', 'top');
-}
-.arrow-before--bottom {
-	@include arrow-icon('left', 'bottom');
-}
-
-hr {
-	margin: 20px 0;
-	border: 0;
-	border-top: 1px solid #000;
-}
-
 .image {
 	line-height: 0;
 	display: inline-block;

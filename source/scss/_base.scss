@@ -1,4 +1,4 @@
-$margin_text: 10px;
+$mtext: 10px;
 
 * {
 	box-sizing: border-box;
@@ -13,10 +13,10 @@ $margin_text: 10px;
 
 /* Base */
 body {
-	font-family: $font;
+	font-family: $ff;
 	font-size: $fsz;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: $lh;
 	color: $fg;
 	background: $bg;
 }
@@ -24,7 +24,7 @@ iframe {
 	border: 0;
 }
 hr {
-	margin: $margin_text 0;
+	margin: $mtext 0;
 	border: 0;
 	border-top: 1px solid #ddd;
 }
@@ -59,7 +59,7 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 /* Text */
 
 p {
-	margin: $margin_text 0;
+	margin: $mtext 0;
 
 	&:first-child {
 		margin-top: 0;
@@ -91,8 +91,8 @@ i, em {
 
 /* Lists */
 
-ul {
-	margin: $margin_text 0;
+ul, ol {
+	margin: $mtext 0;
 	padding-left: 20px;
 	list-style-type: disc;
 	overflow: hidden;
@@ -106,15 +106,5 @@ ul {
 }
 
 ol {
-	margin: $margin_text 0;
-	padding-left: 20px;
 	list-style-type: decimal;
-	overflow: hidden;
-
-	&:first-child {
-		margin-top: 0;
-	}
-	&:last-child {
-		margin-bottom: 0;
-	}
 }

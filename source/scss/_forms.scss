@@ -1,6 +1,3 @@
-$fg-bad: #f00;
-$fg-good: #0f0;
-
 .form {
 	@include clearfix;
 	position: relative;
@@ -21,12 +18,12 @@ $fg-good: #0f0;
 	}
 	&__require {
 		font-weight: bold;
-		color: $fg-bad;
+		color: $fg--bad;
 	}
 	&__bad {
-		color: $fg-bad;
+		color: $fg--bad;
 	}
 	&__good {
-		color: $fg-good;
+		color: $fg--good;
 	}
 }
