@@ -1,13 +1,7 @@
-$color__placeholder: #666;
-$color__bad: #f00;
-$color__good: #00f;
-$margin_label: 5px;
-$margin_input: 15px;
-
-::-webkit-input-placeholder{color:$color__placeholder;}
-::-moz-placeholder{color:$color__placeholder;}
-:-moz-placeholder{color:$color__placeholder;}
-:-ms-input-placeholder{color:$color__placeholder;}
+::-webkit-input-placeholder{color:$fg--placeholder;}
+::-moz-placeholder{color:$fg--placeholder;}
+:-moz-placeholder{color:$fg--placeholder;}
+:-ms-input-placeholder{color:$fg--placeholder;}
 
 // type="date"
 ::-webkit-datetime-edit{}
@@ -25,224 +19,94 @@ $margin_input: 15px;
 ::-webkit-search-cancel-button{display:none;}
 
 // ios play video button
-*::-webkit-media-controls-panel {
-	display: none !important;
-	-webkit-appearance: none;
-}
-*::--webkit-media-controls-play-button {
-	display: none !important;
-	-webkit-appearance: none;
-}
-*::-webkit-media-controls-start-playback-button {
-	display: none !important;
-	-webkit-appearance: none;
-}
+*::-webkit-media-controls-panel{display:none!important;-webkit-appearance:none;}
+*::--webkit-media-controls-play-button{display:none!important;-webkit-appearance:none;}
+*::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none;}
 
-label {
-	display: block;
-	margin: 0 0 $margin_label;
-	&.require:after {
-		content: ' *';
-		font-weight: bold;
-	}
-}
-
-/*
- * Текстовые поля
- */
-input, textarea {
-	font: $fsz__primary $font__primary;
+%common {
+	font: inherit;
 	display: block;
 	width: 100%;
-	margin: 0 0 $margin_input;
-	padding: 7px 15px;
-	transition: border-color .2s ease;
-	border: 1px solid #000;
+	margin: 0;
+	padding: 10px 20px;
+	transition: all .2s;
+	color: $fg;
+	border: 1px solid $fg;
+	border-radius: 0;
+	background: $bg;
+
 	&.error {
-		border-color: $color__bad;
+		border-color: $fg--bad;
+	}
+	&:hover, &:focus {
+		border-color: lighten($fg, 50);
 	}
 }
-textarea {
-	height: auto;
-	resize: none;
-}
 
-/*
- * Кнопки
- */
+// btns
 .btn, button, input[type='submit'], input[type='reset'] {
-	font-size: 17px;
-	font-weight: bold;
-	line-height: 1;
-	line-height: 1.2;
+	font: inherit;
 	display: inline-block;
 	width: auto;
 	height: auto;
 	margin: 0;
-	padding: 7px 17px;
-	transition: color .2s ease, background-color .2s ease;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: all .2s;
 	text-align: center;
-	color: $color__brand-one;
-	border: 1px solid $color__brand-one;
-	border-radius: 4px;
-	background: transparent;
+	color: $fg;
+	border: 1px solid $fg;
+	border-radius: 0;
+	background: $bg;
+
 	&:focus {
-		border-color: $color__brand-two;
+		border-color: $fg;
 	}
 	&:hover {
-		color: $color__secondary;
-		border-color: $color__brand-one;
-		background: $color__brand-one;
+		color: lighten($fg, 50);
+		border-color: lighten($fg, 50);
+		background: lighten($bg, 50);
 	}
 	&:active {
-		border-color: darken($color__brand-one, 5);
-		background: darken($color__brand-one, 5);
+		border-color: darken($fg, 5);
+		background: darken($bg, 5);
 	}
 }
 
-/*
- * Чекбокс, радио-кнопка
- */
-input[type='radio'], input[type='checkbox'] {
+// label
+label {
+	display: block;
+	margin: 0;
+	margin-bottom: 5px;
+
+	&.require:after {
+		content: ' *';
+		font-weight: 700;
+		color: $fg--bad;
+	}
+	&.error {
+		color: $fg--bad;
+	}
+}
+
+// text fields
+input {
+	@extend %common;
+}
+textarea {
+	@extend %common;
+	resize: none;
+}
+
+// select
+select {
+	@extend %common;
+}
+
+// checkbox, radio
+[type='radio'], [type='checkbox'] {
 	display: inline-block;
 	width: auto;
 	margin: 0;
 	padding: 0;
-	height: auto;
 }
-.check-radio {
-	position: relative;
-	display: block;
-	margin: 0 0 $margin_input 30px;
-	label {
-		display: inline;
-	}
-	.jq-checkbox, input[type='checkbox'], .jq-radio, input[type='radio'] {
-		position: absolute !important;
-		left: -30px;
-	}
-}
-.jq-checkbox {
-	display: inline-block;
-	width: 18px;
-	height: 18px;
-	cursor: pointer;
-	vertical-align: middle;
-	border: 1px solid #dbdbdb;
-	background: $bg__primary;
-	&.error {
-		border-color: $color__bad;
-	}
-	&.focused {
-		border-color: $color__brand-two;
-	}
-	&.checked .jq-checkbox__div {
-		width: 10px;
-		height: 10px;
-		margin: 3px 0 0 3px;
-		background: $color__brand-two;
-	}
-}
-.jq-radio {
-	@extend .jq-checkbox;
-	border-radius: 50%;
-	&.checked .jq-radio__div {
-		width: 8px;
-		height: 8px;
-		margin: 4px 0 0 4px;
-		border-radius: 50%;
-		background: $color__brand-two;
-	}
-}
-/* .Чекбокс, радио-кнопка */
-
-/*
- * Селект
- */
-select {
-	font: $fsz__primary $font__primary;
-	height: $input__height;
-	margin: 0 0 $margin_input;
-	width: 100%;
-	border: 1px solid #dbdbdb;
-	padding: 7px 15px;
-	border-radius: 3px;
-}
-.jq-selectbox {
-	width: 100%;
-	vertical-align: middle;
-	cursor: pointer;
-	margin: 0 0 $margin_input 0;
-	height: $input__height;
-	.jq-selectbox__select {
-		border: 1px solid #dbdbdb;
-		background: $bg__primary;
-		color: $color__primary;
-		padding: 7px 30px 7px 15px;
-		border-radius: 3px;
-		transition: border-color .2s ease;
-	}
-	&.error .jq-selectbox__select{
-		border-color: $color__bad;
-	}
-	&.focused {
-		.jq-selectbox__select {
-			border-color: $color__brand-two;
-		}
-	}
-	.jq-selectbox__select-text {
-		display: block;
-		overflow: hidden;
-		width: 100%;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-	.jq-selectbox .placeholder {
-		color: $color__placeholder;
-	}
-	.jq-selectbox__trigger {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 34px;
-		height: 100%;
-	}
-	.jq-selectbox__trigger-arrow {
-		transform: rotate(90deg);
-		position: relative;
-		width: 100%;
-		height: 100%;
-		&:before {
-			content: '';
-			display: block;
-			@include sprite($s-arrow-brand-one);
-			@include abs-center;
-		}
-	}
-	.jq-selectbox__dropdown {
-		width: 100%;
-		margin-top: 2px;
-		border: 1px solid #dbdbdb;
-		border-radius: 5px;
-		background: $bg__primary;
-		overflow: hidden;
-		ul {
-			@include list-reset;
-			li {
-				padding: 5px 10px;
-				-webkit-user-select: none;
-				   -moz-user-select: none;
-				    -ms-user-select: none;
-				        user-select: none;
-				white-space: nowrap;
-				color: $color__primary;
-				&.selected,
-				&:hover {
-					color: $color__secondary;
-					background: $bg__brand-one;
-				}
-			}
-		}
-	}
-}
-/* .Селект */

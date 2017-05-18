@@ -2,12 +2,20 @@
 	@include clearfix;
 	position: relative;
 	padding: 20px;
+	border: 1px solid $fg;
 
+	&--popup {
+		padding: 20px;
+	}
 	&__header {
 		margin-bottom: 20px;
 	}
 	&__footer {
 		margin-top: 20px;
+		text-align: center;
+	}
+	&__field {
+		margin-bottom: 20px;
 	}
 	&__messages {
 		display: none;
@@ -17,7 +25,7 @@
 		font-size: 80%;
 	}
 	&__require {
-		font-weight: bold;
+		font-weight: 700;
 		color: $fg--bad;
 	}
 	&__bad {
