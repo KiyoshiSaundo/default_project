@@ -70,7 +70,13 @@ p {
 }
 
 a {
-	@include link($fg);
+	color: inherit;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+
 }
 
 b, strong {
