@@ -1,49 +1,109 @@
+var vw = $(window).width();
+var vh = $(window).height();
+
 jQuery(document).ready(function($) {
 
-	InitInput();
+	/* PARAMS */
 
-	if ( $().bxSlider ) {
-		// sliders
-	}
-	if ( $().colorbox ) {
-		// popup images
-		$('.colorbox').colorbox({
-			maxWidth: '98%',
-			maxHeight: '98%',
-			transition: "fade",
-			opacity: false,
-			onOpen: function(){
-				$("#cboxClose").css({opacity: 0});
-			},
-			onComplete: function(){
-				$("#cboxClose").stop().animate({opacity: 1});
-			}
-		});
-		// popup forms
-		$(".pforms").colorbox({
-			className: 'pforms',
-			maxWidth: '98%',
-			maxHeight: '98%',
-			transition: "fade",
-			opacity: false,
-			onOpen: function(){
-				$("#cboxClose").css({opacity: 0});
-			},
-			onComplete: function(){
-				$("#cboxClose").stop().animate({opacity: 1});
-				InitInput();
-			}
-		});
-	}
-	// scroll to the element
-	$('a[href^="#"]').click(function(){
-		var el = $(this).attr('href');
-		$('body').animate({scrollTop: $(el).offset().top}, 1000);
-		return false;
+	$(window).resize(function() {
+		vw = $(window).width();
+		vh = $(window).height();
 	});
+
+	InitInput();
+	madeByUtlab();
+
+	/* ACTIONS */
+
+	// disable empty links
+	$('a[href^="#"]').click(function(){
+		e.preventDefault();
+	});
+
+	// placeholders
+	var placeholder = '';
+	$(document).on('focusin', 'input, textarea', function() {
+		placeholder = $(this).attr('placeholder');
+		$(this).attr('placeholder', '');
+	});
+	$(document).on('focusout', 'input, textarea', function() {
+		$(this).attr('placeholder', placeholder);
+	});
+	// end - placeholders
+
+	// ajax forms
+	$(document).on('submit', '[data-form-ajax]', function(e) {
+		e.preventDefault();
+		sendForm($(this));
+	});
+
 });
 
-// style controls
+/* FUNCTIONS */
+
+function sendForm($el) {
+	var $form = $el,
+		$btn = $form.find('button'),
+		fd = new FormData($form[0]);
+
+	if ($btn.hasClass('is-disabled')) return;
+
+	$.ajax({
+		url: $form.attr('action'),
+		type: $form.attr('method'),
+		data: fd,
+		processData: false,
+		contentType: false,
+		dataType: 'json',
+		// dataType: 'html',
+		beforeSend: function() {
+			hideErrorFields($form);
+			showBtnLoaded($btn);
+		},
+		success: function(data) {
+			// console.log('form success', data);
+			setTimeout(function() {
+				hideBtnLoaded($btn);
+				initInput();
+
+				if (data.messages) {
+					console.log(data.messages);
+				}
+				if (data.errors) {
+					showErrorFields($form, data.errors);
+				}
+				if (data.result) {
+					$form[0].reset();
+				}
+			}, 500);
+		},
+		error: function(data) {
+			// console.log('form error:', data);
+			setTimeout(function() {
+				hideErrorFields($form);
+				hideBtnLoaded($btn);
+			}, 500);
+		}
+	});
+
+	function showErrorFields($form, errors) {
+		$.each(errors, function(i, val) {
+			$el = $form.find("[name='" + val + "']");
+			if ($el.length) $el.addClass('is-error');
+		});
+	}
+	function hideErrorFields($form) {
+		$form.find('.error').removeClass('is-error');
+	}
+
+	function showBtnLoaded($btn) {
+		$btn.addClass('is-disabled');
+	}
+	function hideBtnLoaded($btn) {
+		$btn.removeClass('is-disabled');
+	}
+}
+
 function InitInput(){
 	if ( $().datepicker ) {
 		$('input.date').datepicker({
@@ -62,5 +122,20 @@ function InitInput(){
 				singleSelectzIndex: 10
 			});
 		}, 100);
+	}
+}
+
+function madeByUtlab() {
+	var isColor = /Chrome|Firefox/.test(navigator.userAgent);
+	if (isColor) {
+		console.log(
+			"\n%c Made %c by %c Utlab %c http://www.utlab.ru/\n\n",
+			'background: #f01827; color: #fff; padding: 3px 0',
+			'background: #67bc3d; color: #fff; padding: 3px 0',
+			'background: #3b7bbb; color: #fff; padding: 3px 0',
+			'background: #ffffff; color: #000; padding: 3px 0'
+		);
+	} else {
+		console.log("\nMade by Utlab (http://www.utlab.ru/)\n\n");
 	}
 }

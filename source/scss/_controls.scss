@@ -35,7 +35,7 @@
 	border-radius: 0;
 	background: $bg;
 
-	&.error {
+	&.is-error {
 		border-color: $fg--bad;
 	}
 	&:hover, &:focus {
@@ -84,7 +84,7 @@ label {
 		font-weight: 700;
 		color: $fg--bad;
 	}
-	&.error {
+	&.is-error {
 		color: $fg--bad;
 	}
 }
