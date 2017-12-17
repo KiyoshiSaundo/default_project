@@ -1,14 +1,14 @@
 {
-  "name": "lorem_ipsum",
+  "name": "default_project",
   "version": "0.0.1",
-  "description": "Lorem ipsum dolor sit amet",
-  "main": "index.js",
+  "description": "default_project",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Evgeniy Kuzovlev",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -29,9 +29,7 @@
     "merge-stream": "^1.0.0",
     "mkdirp": "^0.5.1",
     "modernizr": "^3.3.1",
-    "rimraf": "^2.5.2"
-  },
-  "devDependencies": {
+    "rimraf": "^2.5.2",
     "gulp-svg-sprites": "^4.1.1"
   }
 }

@@ -1,5 +1,9 @@
 www/
 node_modules/
 bower_components/
+
 *.sublime-project
 *.sublime-workspace
+
+source/images/sprites.svg
+source/images/sprites.png
