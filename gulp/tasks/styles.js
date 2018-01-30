@@ -16,7 +16,14 @@ module.exports = {
 		var pathOut  = params.path.out;
 		var pathOutB = params.path.bitrix;
 
-		gulp.task(taskName, function() {
+		// fix #7
+		var dependence = [];
+		for (let i = 0; i < params.tasksList.length; i++) {
+			if (params.tasksList[i] == 'sprites')
+				dependence = ['sprites'];
+		}
+
+		gulp.task(taskName, dependence, function() {
 			return gulp.src(pathIn)
 				.pipe(include())
 				.pipe(gulpif(
