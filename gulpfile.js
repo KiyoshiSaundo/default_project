@@ -7,7 +7,7 @@ var gulp   = require('gulp'),
 
 var isImageMin = false;
 var isCssMap   = false;
-var isServer   = false;
+var isServer   = true;
 var bxTemplate = false; // or 'TEMPLATE_DIR_NAME'
 var prefixer   = ['last 3 versions'];
 var tasksList  = [
@@ -25,10 +25,14 @@ var tasksList  = [
 
 var params = {
 
-	tasksList : tasksList,
+	tasksList    : tasksList,
+	tasksDefault : (isServer)
+	             ? ['build', 'watch', 'server']
+				 : ['build', 'watch'],
 
-	isImageMin : imageMin,
-	isCssMap   : cssMap,
+	isImageMin : isImageMin,
+	isCssMap   : isCssMap,
+	isServer   : isServer,
 	isBitrix   : bxTemplate ? true : false,
 
 	prefixer : prefixer,
@@ -73,16 +77,14 @@ for (var i = params.tasksList.length - 1; i >= 0; i--) {
 	includeTask( params.tasksList[i] );
 }
 
+gulp.task('default', params.tasksDefault);
+gulp.task('build', params.tasksList);
 gulp.task('watch', function() {
 	for (var i = params.tasksList.length - 1; i >= 0; i--) {
 		includeWatch( params.tasksList[i] );
 	}
 });
 
-/* === DEFAULT TASKS ======================================================== */
-
-gulp.task('build', params.tasksList);
-gulp.task('default', ['build', 'watch', 'server']);
 gulp.task('clean', function() {
 	rimraf(params.path.out, function () {
 		console.log('static clean');
