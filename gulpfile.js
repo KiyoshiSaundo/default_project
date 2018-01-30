@@ -1,27 +1,37 @@
+// gulpfile.js
+
 var gulp   = require('gulp'),
     rimraf = require('rimraf');
 
-/* === PARAMS =============================================================== */
+/* === SETTINGS - change it  ================================================ */
 
-var templateDirName = 'YOUR_TEMPLATE';
+var isImageMin = false;
+var isCssMap   = false;
+var isServer   = false;
+var bxTemplate = false; // or 'TEMPLATE_DIR_NAME'
+var prefixer   = ['last 3 versions'];
+var tasksList  = [
+	'html',
+	'styles',
+	'mdrnzr',
+	'scripts',
+	'images',
+	'sprites',
+	'svgsprites',
+	'fonts'
+]
+
+/* === GLOBAL PARAMS  ======================================================= */
+
 var params = {
 
-	taskList : [
-		'html',
-		'styles',
-		'mdrnzr',
-		'scripts',
-		'images',
-		'sprites',
-		'svgsprites',
-		'fonts'
-	],
+	tasksList : tasksList,
 
-	isImageMin : false,
-	isCssMap   : false,
-	isBitrix   : false,
+	isImageMin : imageMin,
+	isCssMap   : cssMap,
+	isBitrix   : bxTemplate ? true : false,
 
-	prefixer : ['last 3 versions'],
+	prefixer : prefixer,
 
 	bSync  : require('browser-sync').create(),
 	server : {
@@ -35,7 +45,7 @@ var params = {
 		root   : __dirname,
 		in     : __dirname + '/source',
 		out    : __dirname + '/www/static',
-		bitrix : __dirname + '/www/local/templates/' + templateDirName
+		bitrix : __dirname + '/www/local/templates/' + bxTemplate
 	}
 
 };
@@ -59,19 +69,19 @@ gulp.task('server', function() {
 
 /* === TASKS ================================================================ */
 
-for (var i = params.taskList.length - 1; i >= 0; i--) {
-	includeTask( params.taskList[i] );
+for (var i = params.tasksList.length - 1; i >= 0; i--) {
+	includeTask( params.tasksList[i] );
 }
 
 gulp.task('watch', function() {
-	for (var i = params.taskList.length - 1; i >= 0; i--) {
-		includeWatch( params.taskList[i] );
+	for (var i = params.tasksList.length - 1; i >= 0; i--) {
+		includeWatch( params.tasksList[i] );
 	}
 });
 
 /* === DEFAULT TASKS ======================================================== */
 
-gulp.task('build', params.taskList);
+gulp.task('build', params.tasksList);
 gulp.task('default', ['build', 'watch', 'server']);
 gulp.task('clean', function() {
 	rimraf(params.path.out, function () {
