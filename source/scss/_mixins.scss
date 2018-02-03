@@ -28,7 +28,7 @@
 	align-items: center;
 }
 
-@mixin breakpoint($min: 0, $max: 0) {
+@mixin bp($min: 0, $max: 0) {
 	$type: type-of($min);
 	@if $type == string {
 		@if $min == xs {

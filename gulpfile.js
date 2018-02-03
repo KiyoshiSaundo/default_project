@@ -8,7 +8,7 @@ var gulp   = require('gulp'),
 var isImageMin = false;
 var isCssMap   = false;
 var isServer   = true;
-var bxTemplate = false; // or 'TEMPLATE_DIR_NAME'
+var bxTemplate = false; // false or 'TEMPLATE_DIR_NAME'
 var prefixer   = ['last 3 versions'];
 var tasksList  = [
 	'html',
@@ -28,7 +28,7 @@ var params = {
 	tasksList    : tasksList,
 	tasksDefault : (isServer)
 	             ? ['build', 'watch', 'server']
-				 : ['build', 'watch'],
+	             : ['build', 'watch'],
 
 	isImageMin : isImageMin,
 	isCssMap   : isCssMap,

@@ -54,6 +54,7 @@
 	cursor: pointer;
 	transition: all .2s;
 	text-align: center;
+	text-decoration: none;
 	color: $fg;
 	border: 1px solid $fg;
 	border-radius: 0;
@@ -63,6 +64,7 @@
 		border-color: $fg;
 	}
 	&:hover {
+		text-decoration: none;
 		color: lighten($fg, 50);
 		border-color: lighten($fg, 50);
 		background: lighten($bg, 50);

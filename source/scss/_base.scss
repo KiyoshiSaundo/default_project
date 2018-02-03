@@ -70,8 +70,8 @@ p {
 }
 
 a {
-	color: inherit;
 	text-decoration: underline;
+	color: inherit;
 
 	&:hover {
 		text-decoration: none;
@@ -98,10 +98,10 @@ i, em {
 /* Lists */
 
 ul, ol {
+	overflow: hidden;
 	margin: $mtext 0;
 	padding-left: 20px;
 	list-style-type: disc;
-	overflow: hidden;
 
 	&:first-child {
 		margin-top: 0;
@@ -113,4 +113,21 @@ ul, ol {
 
 ol {
 	list-style-type: decimal;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
+thead {}
+tbody {}
+tfoot {}
+tr {}
+th {
+	padding: 5px;
+	border: 1px solid #000;
+}
+td {
+	padding: 5px;
+	border: 1px solid #000;
 }

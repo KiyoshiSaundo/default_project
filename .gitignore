@@ -4,6 +4,7 @@ bower_components/
 
 *.sublime-project
 *.sublime-workspace
+*.vscode
 
 source/images/sprites.svg
 source/images/sprites.png
