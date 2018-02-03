@@ -8,7 +8,8 @@ var gulp       = require('gulp'),
     scssGlob   = require('gulp-sass-glob'),
     sourcemaps = require('gulp-sourcemaps'),
     prefixer   = require('gulp-autoprefixer'),
-    cssnano    = require('gulp-cssnano');
+    cssnano    = require('gulp-cssnano'),
+	wait       = require('gulp-wait');
 
 module.exports = {
 	task: function(taskName, params) {
@@ -30,6 +31,7 @@ module.exports = {
 					params.isCssMap,
 					sourcemaps.init()
 				))
+				.pipe(wait(params.timeout)) // fix #8
 				.pipe(scssGlob())
 				.pipe(scss({
 					errLogToConsole: true

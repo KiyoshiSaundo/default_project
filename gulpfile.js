@@ -5,6 +5,8 @@ var gulp   = require('gulp'),
 
 /* === SETTINGS - change it  ================================================ */
 
+var timeout = 300;
+
 var isImageMin = false;
 var isCssMap   = false;
 var isServer   = true;
@@ -24,6 +26,8 @@ var tasksList  = [
 /* === GLOBAL PARAMS  ======================================================= */
 
 var params = {
+
+	timeout : timeout,
 
 	tasksList    : tasksList,
 	tasksDefault : (isServer)

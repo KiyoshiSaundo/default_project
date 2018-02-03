@@ -31,5 +31,8 @@
     "modernizr": "^3.3.1",
     "rimraf": "^2.5.2",
     "gulp-svg-sprites": "^4.1.1"
+  },
+  "dependencies": {
+    "gulp-wait": "0.0.2"
   }
 }
