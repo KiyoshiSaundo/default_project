@@ -44,7 +44,7 @@
 }
 
 // btns
-.btn, button, input[type='submit'], input[type='reset'] {
+.btn, button, [type='submit'], [type='reset'] {
 	font: inherit;
 	display: inline-block;
 	width: auto;
