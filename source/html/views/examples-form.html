@@ -1,0 +1,95 @@
+<!-- =include ../includes/header.html -->
+
+<form action="#" class="form">
+	<header class="form__header">
+		<h5 class="tac">Header формы</h5>
+	</header>
+
+	<hr>
+
+	<div class="form__field">
+		<label for="i1">Текстовое поле</label>
+		<input type="text" id="i1" placeholder="Текстовое поле">
+	</div>
+	<div class="form__field">
+		<label class="require" for="i2">Текстовое поле с ошибкой</label>
+		<input class="error" type="text" id="i2" placeholder="Текстовое поле с ошибкой">
+	</div>
+
+	<hr>
+
+	<div class="form__field">
+		<label for="s1">Выпадающий список</label>
+		<select id="s1">
+			<option>Lorem ipsum dolor sit.</option>
+			<option>Exercitationem rem quod animi.</option>
+			<option>Deserunt iure, iste quis.</option>
+			<option>Eligendi amet obcaecati sunt!</option>
+			<option>Enim omnis fugit at.</option>
+			<option>Hic facilis aliquid fuga.</option>
+			<option>Esse ex voluptatem eos.</option>
+			<option>Maxime aspernatur iusto repellat.</option>
+			<option>Doloremque assumenda similique aut.</option>
+			<option>Rem perferendis eos dolorem.</option>
+		</select>
+	</div>
+	<div class="form__field">
+		<label for="s2">Выпадающий список с ошибкой</label>
+		<select class="error" id="s2">
+			<option>Exercitationem rem quod animi.</option>
+			<option>Deserunt iure, iste quis.</option>
+			<option>Eligendi amet obcaecati sunt!</option>
+			<option>Enim omnis fugit at.</option>
+			<option>Hic facilis aliquid fuga.</option>
+			<option>Esse ex voluptatem eos.</option>
+			<option>Maxime aspernatur iusto repellat.</option>
+			<option>Doloremque assumenda similique aut.</option>
+			<option>Rem perferendis eos dolorem.</option>
+		</select>
+	</div>
+
+	<hr>
+
+	<div class="form__field">
+		<label for="t1">Текстовое поле</label>
+		<textarea rows="3" id="t1"></textarea>
+	</div>
+	<div class="form__field">
+		<label for="t2">Текстовое поле с ошибкой</label>
+		<textarea class="error" rows="4" id="t2"></textarea>
+	</div>
+
+	<hr>
+
+	<div class="form__field">
+		<label for="f1">Прикрепить файл</label>
+		<input type="file" id="f1">
+	</div>
+	<div class="form__field">
+		<label for="f1">Прикрепить файл с ошибкой</label>
+		<input class="error" type="file" id="f1">
+	</div>
+
+	<hr>
+
+	<div class="form__field">
+		<label><input type="checkbox" name="cc" value="1"> Вариант раз</label>
+		<label><input type="checkbox" name="cc" value="2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet aliquid voluptatibus libero qui soluta commodi, illo nemo magnam quod, incidunt eius! Labore veniam voluptate ipsa possimus pariatur dolore quod ullam.</label>
+		<label class="error"><input type="checkbox" name="cc" value="3"> Вариант три с ошибкой</label>
+	</div>
+	<div class="form__field">
+		<label><input type="radio" name="rr" value="1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo deleniti iure consequuntur, sapiente qui optio dolorum suscipit beatae reprehenderit ea omnis, libero repellendus, nam quisquam, nobis sint. Odio, tempore, ea.</label>
+		<label class="error"><input type="radio" name="rr" value="2"> Вариант два с ошибкой</label>
+		<label><input type="radio" name="rr" value="3"> Вариант три</label>
+	</div>
+
+	<hr>
+
+	<footer class="form__footer">
+		<button type="submit">Отправит (button)</button>
+		<input type="submit" value="Отправит (input)">
+		<a href="#" class="btn">Отправить (a)</a>
+	</footer>
+</form>
+
+<!-- =include ../includes/footer.html -->

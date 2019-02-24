@@ -32,7 +32,7 @@ hr {
 /* Headers */
 
 %h16 {
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 1;
 	margin: 1em 0;
 
@@ -80,18 +80,18 @@ a {
 }
 
 b, strong {
-	font-weight: 400;
+	font-weight: 700;
 
 	i, em {
-		font-weight: 400;
+		font-weight: 700;
 	}
 }
 i, em {
-	font-weight: 300;
+	font-weight: 400;
 	font-style: italic;
 
 	b, strong {
-		font-weight: 400 !important;
+		font-weight: 700 !important;
 	}
 }
 
