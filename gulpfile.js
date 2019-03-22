@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 	include = require('gulp-include'),
 	gulpif = require('gulp-if'),
 	plumber = require('gulp-plumber'),
+	wait = require('gulp-wait'),
 	// images
 	filter = require('gulp-filter'),
 	imagemin = require('gulp-imagemin'),
@@ -36,11 +37,10 @@ var gulp = require('gulp'),
 /* ==== SETTINGS ============================================================ */
 
 var settings = {
-	isBitrix: false,
-	isImgMin: false,
-	isServer: true,
-	isCssMap: false,
-	timeout: 100,
+	isDev: true,
+	isBitrix: true,
+	bitrixTemplate: 'main',
+	timeout: 0,
 	cssPrefixer: ['last 3 versions'],
 	tasks: [
 		'html',
@@ -56,8 +56,7 @@ var settings = {
 	path: {
 		root: __dirname,
 		in: __dirname + '/source',
-		out: __dirname + '/www/static',
-		bitrix: __dirname + '/www/local/templates/TEMPLATE' // <- set template dir
+		out: __dirname + '/www/static', // для битрикса меняется ниже
 	},
 	server: {
 		path: __dirname + '/www/static',
@@ -71,11 +70,17 @@ var settings = {
 	},
 };
 
+if (settings.isBitrix) {
+	settings.path.out = __dirname + '/www/local/templates/' + settings.bitrixTemplate;
+}
+
 /* ==== TASKS =============================================================== */
 
 // html
 (() => {
 	gulp.task('html:build', () => {
+		if (settings.isBitrix) return true;
+
 		let src = settings.path.in + '/html/views/**/*.{html,txt}';
 		let dest = settings.path.out;
 
@@ -93,75 +98,11 @@ var settings = {
 	});
 })();
 
-// images
-(() => {
-	gulp.task('images:build', () => {
-		let src = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}';
-		let dest = settings.path.out + '/images';
-		let exSvg = filter(['**', '!**/*.svg'], {
-			restore: true
-		});
-
-		if (settings.isBitrix) {
-			dest = settings.path.bitrix + '/images';
-		}
-
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(exSvg)
-				.pipe(gulpif(
-					settings.isImgMin,
-					imagemin({
-						progressive: true,
-						interlaced: true
-					})
-				))
-				.pipe(exSvg.restore)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('images:watch', () => {
-		watch([
-			settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
-		], () => {
-			gulp.start('images:build', server.reload);
-		});
-	});
-})();
-
-// uploads
-(() => {
-	gulp.task('uploads:build', () => {
-		let src = settings.path.in + '/uploads/**/*';
-		let dest = settings.path.out + '/uploads';
-
-		if (settings.isBitrix) {
-			return true;
-		}
-
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('uploads:watch', () => {
-		watch([
-			settings.path.in + '/uploads/**/*'
-		], () => {
-			gulp.start('uploads:build', server.reload);
-		});
-	});
-})();
-
 // js
 (() => {
 	gulp.task('js:build', () => {
 		let src = settings.path.in + '/js/**/*.js';
 		let dest = settings.path.out + '/js';
-
-		if (settings.isBitrix) {
-			dest = settings.path.bitrix + '/js';
-		}
 
 		gulp.src(src)
 			.pipe(plumber())
@@ -199,10 +140,10 @@ var settings = {
 			.pipe(plumber())
 			.pipe(include())
 			.pipe(gulpif(
-				settings.isCssMap,
+				settings.isDev && !settings.isBitrix,
 				sourcemaps.init()
 			))
-			// .pipe(wait(settings.timeout)) // fix #8 (not atomic save)
+			.pipe(wait(settings.timeout)) // fix #8 (not atomic save)
 			.pipe(scssGlob())
 			.pipe(scss({
 				errLogToConsole: false
@@ -217,7 +158,7 @@ var settings = {
 				}
 			}))
 			.pipe(gulpif(
-				settings.isCssMap,
+				settings.isDev && !settings.isBitrix,
 				sourcemaps.write('.')
 			))
 			.pipe(gulp.dest(dest));
@@ -227,6 +168,99 @@ var settings = {
 			settings.path.in + '/scss/**/*.scss'
 		], () => {
 			gulp.start('css:build', server.reload);
+		});
+	});
+})();
+
+// images
+(() => {
+	gulp.task('images:build', () => {
+		let src = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}';
+		let dest = settings.path.out + '/images';
+		let exSvg = filter(['**', '!**/*.svg'], {
+			restore: true
+		});
+
+		setTimeout(() => {
+			return gulp.src(src)
+				.pipe(exSvg)
+				.pipe(gulpif(
+					!settings.isDev,
+					imagemin({
+						progressive: true,
+						interlaced: true
+					})
+				))
+				.pipe(exSvg.restore)
+				.pipe(gulp.dest(dest));
+		}, 1000);
+	});
+	gulp.task('images:watch', () => {
+		watch([
+			settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
+		], () => {
+			gulp.start('images:build', server.reload);
+		});
+	});
+})();
+
+// uploads
+(() => {
+	gulp.task('uploads:build', () => {
+		if (settings.isBitrix) return true;
+
+		let src = settings.path.in + '/uploads/**/*';
+		let dest = settings.path.out + '/uploads';
+
+		setTimeout(() => {
+			return gulp.src(src)
+				.pipe(gulp.dest(dest));
+		}, 1000);
+	});
+	gulp.task('uploads:watch', () => {
+		watch([
+			settings.path.in + '/uploads/**/*'
+		], () => {
+			gulp.start('uploads:build', server.reload);
+		});
+	});
+})();
+
+// fonts
+(() => {
+	gulp.task('fonts:build', () => {
+		let srcFonts = settings.path.in + '/fonts/**/*.{woff,woff2}';
+		let destFonts = settings.path.out + '/fonts';
+
+		let srcJs = settings.path.in + '/fonts/**/*.js';
+		let destJs = settings.path.out + '/js';
+
+		let cssFonts = gulp.src(srcFonts)
+			.pipe(font2css())
+			.pipe(cssnano({
+				discardUnused: {
+					fontFace: false
+				}
+			}))
+			.pipe(gulp.dest(destFonts));
+
+		let jsFonts = gulp.src(srcJs)
+			.pipe(minify({
+				ext: {
+					src: '.js',
+					min: '.min.js'
+				}
+			}))
+			.pipe(gulp.dest(destJs));
+
+		return merge(cssFonts, jsFonts);
+	});
+	gulp.task('fonts:watch', () => {
+		watch([
+			settings.path.in + '/fonts/**/*.{woff,woff2}',
+			settings.path.in + '/fonts/**/*.js'
+		], () => {
+			gulp.start('fonts:build', server.reload);
 		});
 	});
 })();
@@ -293,61 +327,12 @@ var settings = {
 	});
 })();
 
-// fonts
-(() => {
-	gulp.task('fonts:build', () => {
-		let srcFonts = settings.path.in + '/fonts/**/*.{woff,woff2}';
-		let destFonts = settings.path.out + '/fonts';
-
-		let srcJs = settings.path.in + '/fonts/**/*.js';
-		let destJs = settings.path.out + '/js';
-
-		if (settings.isBitrix) {
-			destFonts = settings.path.bitrix + '/fonts';
-			destJs = settings.path.bitrix + '/js';
-		}
-
-		let cssFonts = gulp.src(srcFonts)
-			.pipe(font2css())
-			.pipe(cssnano({
-				discardUnused: {
-					fontFace: false
-				}
-			}))
-			.pipe(gulp.dest(destFonts));
-
-		let jsFonts = gulp.src(srcJs)
-			.pipe(minify({
-				ext: {
-					src: '.js',
-					min: '.min.js'
-				}
-			}))
-			.pipe(gulp.dest(destJs));
-
-		return merge(cssFonts, jsFonts);
-	});
-	gulp.task('fonts:watch', () => {
-		watch([
-			settings.path.in + '/fonts/**/*.{woff,woff2}',
-			settings.path.in + '/fonts/**/*.js'
-		], () => {
-			gulp.start('fonts:build', server.reload);
-		});
-	});
-})();
-
 // modernizr
 (() => {
 	gulp.task('modernizr:build', () => {
 		let config = require(settings.path.in + '/modernizr-config.json');
 		let destDir = settings.path.out + '/js';
 		let destFile = settings.path.out + '/js/modernizr.js';
-
-		if (settings.isBitrix) {
-			destDir = settings.path.bitrix + '/js';
-			destFile = settings.path.bitrix + '/js/modernizr.js';
-		}
 
 		return mdrnzr.build(config, function (code) {
 			mkdirp(destDir, function () {
@@ -368,7 +353,7 @@ var settings = {
 
 // server
 gulp.task('server', () => {
-	if (!settings.isServer) return;
+	if (settings.isBitrix) return;
 	server.init({
 		server: {
 			baseDir: settings.server.path

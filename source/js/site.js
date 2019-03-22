@@ -11,7 +11,6 @@ jQuery(document).ready(function($) {
 	});
 
 	InitInput();
-	madeByUtlab();
 
 	/* ACTIONS */
 
@@ -122,20 +121,5 @@ function InitInput(){
 				singleSelectzIndex: 10
 			});
 		}, 100);
-	}
-}
-
-function madeByUtlab() {
-	var isColor = /Chrome|Firefox/.test(navigator.userAgent);
-	if (isColor) {
-		console.log(
-			"\n%c Made %c by %c Utlab %c http://www.utlab.ru/\n\n",
-			'background: #f01827; color: #fff; padding: 3px 0',
-			'background: #67bc3d; color: #fff; padding: 3px 0',
-			'background: #3b7bbb; color: #fff; padding: 3px 0',
-			'background: #ffffff; color: #000; padding: 3px 0'
-		);
-	} else {
-		console.log("\nMade by Utlab (http://www.utlab.ru/)\n\n");
 	}
 }
