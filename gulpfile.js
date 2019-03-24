@@ -364,7 +364,14 @@ gulp.task('server', () => {
 		open: settings.server.open,
 		notify: false,
 		logLevel: settings.server.logLevel,
-		logPrefix: "server"
+		logPrefix: "server",
+		middleware: function (req, res, next) {
+			if (/\.json|\.txt|\.html/.test(req.url) && req.method.toUpperCase() == 'POST') {
+				console.log('[POST => GET] : ' + req.url);
+				req.method = 'GET';
+			}
+			next();
+		}
 	});
 });
 
