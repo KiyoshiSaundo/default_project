@@ -81,7 +81,7 @@ if (settings.isBitrix) {
 	gulp.task('html:build', () => {
 		if (settings.isBitrix) return true;
 
-		let src = settings.path.in + '/html/views/**/*.{html,txt}';
+		let src = settings.path.in + '/html/views/**/*';
 		let dest = settings.path.out;
 
 		return gulp.src(src)
@@ -90,7 +90,7 @@ if (settings.isBitrix) {
 	});
 	gulp.task('html:watch', () => {
 		watch([
-			settings.path.in + '/html/**/*.{html,txt}',
+			settings.path.in + '/html/**/*',
 			settings.path.in + '/images/sprites.svg'
 		], () => {
 			gulp.start('html:build', server.reload);
