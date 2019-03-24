@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 		vh = $(window).height();
 	});
 
-	InitInput();
+	initInput();
 
 	/* ACTIONS */
 
@@ -103,7 +103,7 @@ function sendForm($el) {
 	}
 }
 
-function InitInput(){
+function initInput(){
 	if ( $().datepicker ) {
 		$('input.date').datepicker({
 			autoClose: true,
