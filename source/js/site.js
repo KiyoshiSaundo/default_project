@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	/* ACTIONS */
 
 	// disable empty links
-	$('a[href^="#"]').click(function(){
+	$('a[href="#"]').click(function(e){
 		e.preventDefault();
 	});
 
