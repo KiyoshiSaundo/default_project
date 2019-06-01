@@ -129,12 +129,12 @@ function initInput() {
 			minDate: new Date()
 		});
 	}
-	if ($().mask) {
-		$(".phone").mask("+7 (999) 999 99 99", { placeholder: "+7 (   )          " });
+	if ( $().inputmask ) {
+		$('[data-mask="phone"]').inputmask("+7-999-999-99-99");
 	}
-	if ($().styler) {
-		setTimeout(function () {
-			$("select:not(.nostyle), input[type='checkbox'], input[type='radio']").styler({
+	if ( $().styler ) {
+		setTimeout(function() {
+			$("select:not(.nostyle), [type='checkbox']:not(.nostyle), [type='radio']:not(.nostyle)").styler({
 				singleSelectzIndex: 10
 			});
 		}, 100);

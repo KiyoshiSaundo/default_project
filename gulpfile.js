@@ -38,7 +38,7 @@ var gulp = require('gulp'),
 
 var settings = {
 	isDev: true,
-	isBitrix: true,
+	isBitrix: false,
 	bitrixTemplate: 'main',
 	timeout: 0,
 	cssPrefixer: ['last 3 versions'],
@@ -229,36 +229,15 @@ if (settings.isBitrix) {
 // fonts
 (() => {
 	gulp.task('fonts:build', () => {
-		let srcFonts = settings.path.in + '/fonts/**/*.{woff,woff2}';
-		let destFonts = settings.path.out + '/fonts';
+		let src = settings.path.in + '/fonts/**/*.{woff,woff2}';
+		let dest = settings.path.out + '/fonts';
 
-		let srcJs = settings.path.in + '/fonts/**/*.js';
-		let destJs = settings.path.out + '/js';
-
-		let cssFonts = gulp.src(srcFonts)
-			.pipe(font2css())
-			.pipe(cssnano({
-				discardUnused: {
-					fontFace: false
-				}
-			}))
-			.pipe(gulp.dest(destFonts));
-
-		let jsFonts = gulp.src(srcJs)
-			.pipe(minify({
-				ext: {
-					src: '.js',
-					min: '.min.js'
-				}
-			}))
-			.pipe(gulp.dest(destJs));
-
-		return merge(cssFonts, jsFonts);
+		return gulp.src(src)
+			.pipe(gulp.dest(dest));
 	});
 	gulp.task('fonts:watch', () => {
 		watch([
-			settings.path.in + '/fonts/**/*.{woff,woff2}',
-			settings.path.in + '/fonts/**/*.js'
+			settings.path.in + '/fonts/**/*.{woff,woff2}'
 		], () => {
 			gulp.start('fonts:build', server.reload);
 		});
@@ -336,7 +315,9 @@ if (settings.isBitrix) {
 
 		return mdrnzr.build(config, function (code) {
 			mkdirp(destDir, function () {
-				fs.writeFile(destFile, code);
+				fs.writeFile(destFile, code, function() {
+					console.log('modernizr callback');
+				});
 			});
 		});
 	});

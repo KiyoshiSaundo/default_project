@@ -1,4 +1,0 @@
-Name your fonts:
-<family>[-<weight>][-<style>].<extension>
-
-And include in fonts.js file
