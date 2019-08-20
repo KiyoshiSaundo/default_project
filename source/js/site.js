@@ -53,6 +53,34 @@ jQuery(document).ready(function ($) {
 		sendForm($(this));
 	});
 
+	// всплывающие формы
+	$('[data-popup-form]').click(function (e) {
+		e.preventDefault();
+		var form = $(this).data('popup-form');
+
+		$.colorbox({
+			href: '/ajax/form/' + form + '-form.html',
+			className: 'colorbox-form',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			opacity: false,
+		});
+	});
+
+	// colorbox
+	$('.colorbox').colorbox({
+		maxWidth: '100%',
+		maxHeight: '100%',
+		opacity: false
+	});
+
+	// colorbox buttons svg
+	$(document).bind('cbox_complete', function () {
+		initInput();
+		$("#cboxPrevious").html('<svg><use xlink:href="#svg-arrow"></svg>');
+		$("#cboxNext").html('<svg><use xlink:href="#svg-arrow"></svg>');
+		$("#cboxClose").html('<svg><use xlink:href="#svg-close"></svg>');
+	});
 });
 
 /* FUNCTIONS */
@@ -74,22 +102,21 @@ function sendForm($el) {
 		// dataType: 'html',
 		beforeSend: function () {
 			hideErrorFields($form);
-			showBtnLoaded($btn);
+			showBtnLoading($btn);
 		},
 		success: function (data) {
 			// console.log('form success', data);
 			setTimeout(function () {
-				hideBtnLoaded($btn);
+				hideBtnLoading($btn);
 				initInput();
 
-				if (data.messages) {
-					console.log(data.messages);
-				}
-				if (data.errors) {
-					showErrorFields($form, data.errors);
-				}
 				if (data.result) {
 					$form[0].reset();
+					if (data.message.length) {
+						showPopupMessage(data.message);
+					}
+				} else {
+					showErrorFields($form, data.errors);
 				}
 			}, 1000);
 		},
@@ -97,7 +124,7 @@ function sendForm($el) {
 			// console.log('form error:', data);
 			setTimeout(function () {
 				hideErrorFields($form);
-				hideBtnLoaded($btn);
+				hideBtnLoading($btn);
 			}, 1000);
 		}
 	});
@@ -112,12 +139,22 @@ function sendForm($el) {
 		$form.find('.is-error').removeClass('is-error');
 	}
 
-	function showBtnLoaded($btn) {
+	function showBtnLoading($btn) {
 		$btn.addClass('is-loading');
 	}
-	function hideBtnLoaded($btn) {
+	function hideBtnLoading($btn) {
 		$btn.removeClass('is-loading');
 	}
+}
+
+function showPopupMessage(text) {
+	$.colorbox({
+		html: '<div class="popup-message">' + text + '</div>',
+		maxWidth: '100%',
+		maxHeight: '100%',
+		opacity: false,
+		className: 'colorbox-message'
+	});
 }
 
 function initInput() {
@@ -129,11 +166,11 @@ function initInput() {
 			minDate: new Date()
 		});
 	}
-	if ( $().inputmask ) {
+	if ($().inputmask) {
 		$('[data-mask="phone"]').inputmask("+7-999-999-99-99");
 	}
-	if ( $().styler ) {
-		setTimeout(function() {
+	if ($().styler) {
+		setTimeout(function () {
 			$(":not(.nostyle)").styler({
 				singleSelectzIndex: 10
 			});
@@ -148,12 +185,12 @@ function scroll2element($el, speed, offset, edges) {
 
 	var scroll = $el.offset().top - offset,
 		topEdge = window.pageYOffset,
-		bottomEdge = window.pageYOffset + document.documentElement.clientHeight
+		bottomEdge = window.pageYOffset + document.documentElement.clientHeight,
 		bNeedScroll = edges ? (scroll < topEdge || scroll > bottomEdge) : true;
 
 	if (bNeedScroll) {
 		$('html, body').animate({
-			scrollTop: scroll+'px'
+			scrollTop: scroll + 'px'
 		}, speed);
 	}
 }

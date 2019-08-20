@@ -1,11 +1,9 @@
 .form {
-    @include clearfix;
-    position: relative;
     padding: 20px;
     border: 1px solid $fg;
 
     &--popup {
-        padding: 20px;
+        padding: 30px;
     }
 
     &__header {
@@ -13,21 +11,15 @@
         text-align: center;
     }
 
+    &__body {}
+
     &__footer {
         margin-top: 20px;
         text-align: center;
     }
 
+
     &__field {
         margin-bottom: 20px;
-    }
-
-    &__messages {
-        display: none;
-        margin-bottom: 20px;
-    }
-
-    &__notes {
-        font-size: 80%;
     }
 }

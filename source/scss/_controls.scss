@@ -76,7 +76,7 @@ button,
     margin: 0;
     padding: 10px 20px;
     cursor: pointer;
-    transition: all .2s;
+    transition: all $transition-params;
     text-align: center;
     text-decoration: none;
     color: $fg;
@@ -98,6 +98,21 @@ button,
     &:active {
         border-color: darken($fg, 5);
         background: darken($bg, 5);
+    }
+
+    &.is-loading {
+        position: relative;
+        cursor: default;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: $bg url(images/loading.svg) 50% / 50px auto no-repeat;
+        }
     }
 }
 
@@ -124,7 +139,7 @@ label {
     width: 100%;
     margin: 0;
     padding: 10px 20px;
-    transition: all .2s;
+    transition: all $transition-params;
     color: $fg;
     border: 1px solid $fg;
     border-radius: 0;

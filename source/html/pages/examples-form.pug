@@ -4,7 +4,12 @@ block vars
 	- var h1 = 'Примеры форм и контролов'
 
 block content
-	form.form(action="#")
+	button(data-popup-form="callback") Всплывающая форма
+
+	br
+	br
+
+	form.form(action=formAction, method="post", data-form-ajax)
 		.form__body
 
 			// Шапка формы
@@ -15,15 +20,15 @@ block content
 
 			.form__field
 				label(for="i1") Текстовое поле
-				input#i1(type="text" placeholder="Текстовое поле")
+				input#i1(type="text", name="name", placeholder="Текстовое поле")
 
 			.form__field
 				label(for="i2") Текстовое поле с ошибкой
-				input#i2.is-error(type="text" placeholder="Текстовое поле с ошибкой")
+				input#i2.is-error(type="text", placeholder="Текстовое поле с ошибкой")
 
 			.form__field
 				label(for="i3") Маска для телефона
-				input#i3(type="text" placeholder="Маска для телефона" data-mask="phone")
+				input#i3(type="text", name="phone", placeholder="Маска для телефона", data-mask="phone")
 
 			// Выпадающие списки
 
@@ -111,4 +116,4 @@ block content
 				input(type="submit" value="Отправит (input)")
 				|
 				|
-				a.btn(href="#") Отправить (a)
+				a.btn.is-loading(href="#") Отправить (a)

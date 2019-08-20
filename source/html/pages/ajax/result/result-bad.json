@@ -1,6 +1,7 @@
 {
 	"result": false,
 	"errors": [
-		"name"
+		"name",
+		"phone"
 	]
 }
