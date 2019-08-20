@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 	gulpif = require('gulp-if'),
 	plumber = require('gulp-plumber'),
 	wait = require('gulp-wait'),
+	// html
+	pug = require('gulp-pug'),
 	// images
 	filter = require('gulp-filter'),
 	imagemin = require('gulp-imagemin'),
@@ -43,14 +45,15 @@ var settings = {
 	timeout: 0,
 	cssPrefixer: ['last 3 versions'],
 	tasks: [
+		// 'html-old',
 		'html',
 		'images',
 		'uploads',
 		'js',
 		'css',
-		'sprites-png',
+		// 'sprites-png',
 		'sprites-svg',
-		'modernizr',
+		// 'modernizr',
 		'fonts'
 	],
 	path: {
@@ -76,16 +79,43 @@ if (settings.isBitrix) {
 
 /* ==== TASKS =============================================================== */
 
-// html
+// html old
 (() => {
-	gulp.task('html:build', () => {
+	gulp.task('html-old:build', () => {
 		if (settings.isBitrix) return true;
 
-		let src = settings.path.in + '/html/views/**/*';
+		let src = settings.path.in + '/html-old/views/**/*';
 		let dest = settings.path.out;
 
 		return gulp.src(src)
 			.pipe(include())
+			.pipe(gulp.dest(dest));
+	});
+	gulp.task('html-old:watch', () => {
+		watch([
+			settings.path.in + '/html-old/**/*',
+			settings.path.in + '/images/sprites.svg'
+		], () => {
+			gulp.start('html-old:build', server.reload);
+		});
+	});
+})();
+
+// html
+(() => {
+	gulp.task('html:build', () => {
+		let src = settings.path.in + '/html/pages/**/*';
+		let dest = settings.path.out;
+
+		let onlyPug = filter(['**/*.pug'], {
+			restore: true
+		});
+
+		return gulp.src(src)
+			.pipe(plumber())
+			.pipe(onlyPug)
+			.pipe(pug({pretty: '\t'}))
+			.pipe(onlyPug.restore)
 			.pipe(gulp.dest(dest));
 	});
 	gulp.task('html:watch', () => {

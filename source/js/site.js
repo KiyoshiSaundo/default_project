@@ -62,7 +62,7 @@ function sendForm($el) {
 		$btn = $form.find('button'),
 		fd = new FormData($form[0]);
 
-	if ($btn.hasClass('is-disabled')) return;
+	if ($btn.hasClass('is-loading')) return;
 
 	$.ajax({
 		url: $form.attr('action'),
@@ -91,14 +91,14 @@ function sendForm($el) {
 				if (data.result) {
 					$form[0].reset();
 				}
-			}, 500);
+			}, 1000);
 		},
 		error: function (data) {
 			// console.log('form error:', data);
 			setTimeout(function () {
 				hideErrorFields($form);
 				hideBtnLoaded($btn);
-			}, 500);
+			}, 1000);
 		}
 	});
 
@@ -109,14 +109,14 @@ function sendForm($el) {
 		});
 	}
 	function hideErrorFields($form) {
-		$form.find('.error').removeClass('is-error');
+		$form.find('.is-error').removeClass('is-error');
 	}
 
 	function showBtnLoaded($btn) {
-		$btn.addClass('is-disabled');
+		$btn.addClass('is-loading');
 	}
 	function hideBtnLoaded($btn) {
-		$btn.removeClass('is-disabled');
+		$btn.removeClass('is-loading');
 	}
 }
 
@@ -134,21 +134,13 @@ function initInput() {
 	}
 	if ( $().styler ) {
 		setTimeout(function() {
-			$("select:not(.nostyle), [type='checkbox']:not(.nostyle), [type='radio']:not(.nostyle)").styler({
+			$(":not(.nostyle)").styler({
 				singleSelectzIndex: 10
 			});
 		}, 100);
 	}
 }
 
-/**
- * Прокрутка страницы до определенного элемента, если он не в поле видимости
- *
- * @param  {jQuery} $el ссылка на объект
- * @param  {string | number} speed скорость прокрутки
- * @param  {number} offset смещение от начала страницы
- * @param  {boolean} edges нужно ли учитывать видимость объекта
- */
 function scroll2element($el, speed, offset, edges) {
 	if (speed == undefined) speed = 'slow';
 	if (offset == undefined) offset = 50;
