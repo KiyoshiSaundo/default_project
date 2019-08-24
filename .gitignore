@@ -6,6 +6,3 @@ bower_components/
 *.sublime-workspace
 *.vscode
 *.code-workspace
-
-source/images/sprites.svg
-source/images/sprites.png

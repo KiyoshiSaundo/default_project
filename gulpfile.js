@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	gulpif = require('gulp-if'),
 	plumber = require('gulp-plumber'),
 	wait = require('gulp-wait'),
+	rename = require("gulp-rename"),
 	// html
 	pug = require('gulp-pug'),
 	// images
@@ -28,7 +29,7 @@ var gulp = require('gulp'),
 	spritesmith = require('gulp.spritesmith'),
 	merge = require('merge-stream'),
 	// svg
-	svgSprite = require('gulp-svg-sprites'),
+	svgSymbols = require('gulp-svg-symbols'),
 	// modernizr
 	mkdirp = require('mkdirp'),
 	fs = require('fs'),
@@ -50,6 +51,7 @@ var settings = {
 	],
 	path: {
 		root: __dirname,
+		config: __dirname + '/source/.config',
 		in: __dirname + '/source',
 		out: __dirname + '/www/static', // static
 		// out: __dirname + '/www/local/templates/main', // bitrix
@@ -84,7 +86,7 @@ var settings = {
 		return gulp.src(src)
 			.pipe(plumber())
 			.pipe(onlyPug)
-			.pipe(pug({pretty: '\t'}))
+			.pipe(pug({ pretty: '\t' }))
 			.pipe(onlyPug.restore)
 			.pipe(gulp.dest(dest));
 	});
@@ -249,22 +251,44 @@ var settings = {
 (() => {
 	gulp.task('sprites:build', () => {
 		var src = settings.path.in + '/sprites/**/*.svg';
-		var dest = settings.path.in + '/images';
+		var destSvg = settings.path.in + '/images';
+		var destScss = settings.path.in + '/scss';
+		var destPug = settings.path.in + '/html';
 
 		return gulp.src(src)
-			.pipe(svgSprite({
-				preview: false,
-				mode: 'symbols',
-				svgId: 'svg-%f',
-				svg: {
-					defs: 'sprites.svg',
-					symbols: 'sprites.svg'
-				}
+			.pipe(svgSymbols({
+				svgAttrs: {
+					'width': 0,
+					'height': 0,
+					'style': `position: absolute`,
+					'aria-hidden': 'true'
+				},
+				id: 'icon-%f',
+				class: '.icon.icon-%f',
+				templates: [
+					settings.path.config + '/sprites-template.scss',
+					settings.path.config + '/sprites-template.svg',
+					settings.path.config + '/sprites-template.pug'
+				]
 			}))
-			.pipe(gulp.dest(dest));
+			.pipe(
+				rename(function (path) {
+					if (path.extname == '.scss') {
+						path.basename = '_sprites';
+					} else {
+						path.basename = 'sprites';
+					}
+				})
+			)
+			.pipe(gulpif(/[.]svg$/, gulp.dest(destSvg)))
+			.pipe(gulpif(/[.]scss$/, gulp.dest(destScss)))
+			.pipe(gulpif(/[.]pug$/, gulp.dest(destPug)))
 	});
 	gulp.task('sprites:watch', () => {
 		watch([
+			settings.path.config + '/sprites-template.scss',
+			settings.path.config + '/sprites-template.svg',
+			settings.path.config + '/sprites-template.pug',
 			settings.path.in + '/sprites/**/*.svg'
 		], () => {
 			gulp.start('sprites:build', server.reload);
@@ -275,13 +299,13 @@ var settings = {
 // modernizr
 (() => {
 	gulp.task('modernizr:build', () => {
-		let config = require(settings.path.in + '/modernizr-config.json');
+		let config = require(settings.path.config + '/modernizr.json');
 		let destDir = settings.path.out + '/js';
 		let destFile = settings.path.out + '/js/modernizr.js';
 
 		return mdrnzr.build(config, function (code) {
 			mkdirp(destDir, function () {
-				fs.writeFile(destFile, code, function() {
+				fs.writeFile(destFile, code, function () {
 					console.log('modernizr callback');
 				});
 			});
@@ -289,7 +313,7 @@ var settings = {
 	});
 	gulp.task('modernizr:watch', () => {
 		watch([
-			settings.path.in + '/modernizr-config.json'
+			settings.path.config + '/modernizr.json'
 		], () => {
 			gulp.start('modernizr:build', server.reload);
 		});
@@ -299,7 +323,7 @@ var settings = {
 // sprites png
 (() => {
 	gulp.task('sprites-png:build', () => {
-		let src = settings.path.in + '/sprites/**/*.{jpg,jpeg,gif,png}';
+		let src = settings.path.in + '/sprites-png/**/*.{jpg,jpeg,gif,png}';
 		let destImg = settings.path.in + '/images';
 		let destCss = settings.path.in + '/scss';
 
@@ -324,7 +348,7 @@ var settings = {
 	});
 	gulp.task('sprites-png:watch', () => {
 		watch([
-			settings.path.in + '/sprites/**/*.{jpg,jpeg,gif,png}'
+			settings.path.in + '/sprites-png/**/*.{jpg,jpeg,gif,png}'
 		], () => {
 			gulp.start('sprites-png:build', server.reload);
 		});

@@ -1,0 +1,13 @@
+//-
+	ЭТОТ ФАЙЛ КОМПИЛИРУЕТСЯ АВТОМАТИЧЕСКИ
+<% _.forEach( icons, function( icon ){ %>
+mixin <%= icon.id %>
+	svg<%= icon.class %>
+		use(xlink:href='#<%= icon.id %>')
+<% }); %>
+mixin sprite-examples
+<% _.forEach( icons, function( icon ){ %>
+	div
+		svg<%= icon.class %>
+			use(xlink:href='#<%= icon.id %>')
+<% }); %>
