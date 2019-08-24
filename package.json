@@ -14,9 +14,7 @@
 		"gulp-autoprefixer": "^3.1.0",
 		"gulp-concat": "^2.6.0",
 		"gulp-cssnano": "^2.1.0",
-		"gulp-eslint": "^5.0.0",
 		"gulp-filter": "^4.0.0",
-		"gulp-font2css": "^0.1.2",
 		"gulp-if": "^2.0.2",
 		"gulp-imagemin": "^2.4.0",
 		"gulp-include": "^2.3.0",
@@ -33,7 +31,6 @@
 		"gulp-watch": "^4.3.5",
 		"gulp.spritesmith": "^6.2.0",
 		"merge-stream": "^1.0.0",
-		"minimist": "^1.2.0",
 		"mkdirp": "^0.5.1",
 		"modernizr": "^3.3.1",
 		"rimraf": "^2.5.2"

@@ -27,10 +27,8 @@ var gulp = require('gulp'),
 	// png sprites
 	spritesmith = require('gulp.spritesmith'),
 	merge = require('merge-stream'),
-	// svg sprites
+	// svg
 	svgSprite = require('gulp-svg-sprites'),
-	// fonts
-	font2css = require('gulp-font2css').default,
 	// modernizr
 	mkdirp = require('mkdirp'),
 	fs = require('fs'),
@@ -39,67 +37,39 @@ var gulp = require('gulp'),
 /* ==== SETTINGS ============================================================ */
 
 var settings = {
-	isDev: true,
-	isBitrix: false,
-	bitrixTemplate: 'main',
-	timeout: 0,
-	cssPrefixer: ['last 3 versions'],
 	tasks: [
-		// 'html-old',
 		'html',
-		'images',
-		'uploads',
 		'js',
 		'css',
-		// 'sprites-png',
-		'sprites-svg',
+		'fonts',
+		'sprites',
+		'images',
+		'uploads',
 		// 'modernizr',
-		'fonts'
+		// 'sprites-png',
 	],
 	path: {
 		root: __dirname,
 		in: __dirname + '/source',
-		out: __dirname + '/www/static', // для битрикса меняется ниже
+		out: __dirname + '/www/static', // static
+		// out: __dirname + '/www/local/templates/main', // bitrix
 	},
 	server: {
+		start: true,
 		path: __dirname + '/www/static',
 		host: 'localhost',
 		port: 9000,
 		tunnel: false,
-		open: false,
-		// open: 'tunnel',
-		logLevel: 'silent',
-		// logLevel: 'info',
+		open: false, // 'tunnel'
+		logLevel: 'silent', // 'info'
 	},
+	timeout: 0,
+	cssPrefixer: ['last 3 versions'],
+	scssMaps: false,
+	imageMin: false,
 };
 
-if (settings.isBitrix) {
-	settings.path.out = __dirname + '/www/local/templates/' + settings.bitrixTemplate;
-}
-
 /* ==== TASKS =============================================================== */
-
-// html old
-(() => {
-	gulp.task('html-old:build', () => {
-		if (settings.isBitrix) return true;
-
-		let src = settings.path.in + '/html-old/views/**/*';
-		let dest = settings.path.out;
-
-		return gulp.src(src)
-			.pipe(include())
-			.pipe(gulp.dest(dest));
-	});
-	gulp.task('html-old:watch', () => {
-		watch([
-			settings.path.in + '/html-old/**/*',
-			settings.path.in + '/images/sprites.svg'
-		], () => {
-			gulp.start('html-old:build', server.reload);
-		});
-	});
-})();
 
 // html
 (() => {
@@ -170,7 +140,7 @@ if (settings.isBitrix) {
 			.pipe(plumber())
 			.pipe(include())
 			.pipe(gulpif(
-				settings.isDev && !settings.isBitrix,
+				settings.scssMaps,
 				sourcemaps.init()
 			))
 			.pipe(wait(settings.timeout)) // fix #8 (not atomic save)
@@ -188,7 +158,7 @@ if (settings.isBitrix) {
 				}
 			}))
 			.pipe(gulpif(
-				settings.isDev && !settings.isBitrix,
+				settings.scssMaps,
 				sourcemaps.write('.')
 			))
 			.pipe(gulp.dest(dest));
@@ -198,60 +168,6 @@ if (settings.isBitrix) {
 			settings.path.in + '/scss/**/*.scss'
 		], () => {
 			gulp.start('css:build', server.reload);
-		});
-	});
-})();
-
-// images
-(() => {
-	gulp.task('images:build', () => {
-		let src = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}';
-		let dest = settings.path.out + '/images';
-		let exSvg = filter(['**', '!**/*.svg'], {
-			restore: true
-		});
-
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(exSvg)
-				.pipe(gulpif(
-					!settings.isDev,
-					imagemin({
-						progressive: true,
-						interlaced: true
-					})
-				))
-				.pipe(exSvg.restore)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('images:watch', () => {
-		watch([
-			settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
-		], () => {
-			gulp.start('images:build', server.reload);
-		});
-	});
-})();
-
-// uploads
-(() => {
-	gulp.task('uploads:build', () => {
-		if (settings.isBitrix) return true;
-
-		let src = settings.path.in + '/uploads/**/*';
-		let dest = settings.path.out + '/uploads';
-
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('uploads:watch', () => {
-		watch([
-			settings.path.in + '/uploads/**/*'
-		], () => {
-			gulp.start('uploads:build', server.reload);
 		});
 	});
 })();
@@ -270,6 +186,112 @@ if (settings.isBitrix) {
 			settings.path.in + '/fonts/**/*.{woff,woff2}'
 		], () => {
 			gulp.start('fonts:build', server.reload);
+		});
+	});
+})();
+
+// images
+(() => {
+	gulp.task('images:build', () => {
+		let src = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}';
+		let dest = settings.path.out + '/images';
+		let excludeSvg = filter(['**', '!**/*.svg'], {
+			restore: true
+		});
+		let onlySvg = filter(['**/*.svg'], {
+			restore: true
+		});
+
+		setTimeout(() => {
+			return gulp.src(src)
+				.pipe(excludeSvg)
+				.pipe(gulpif(
+					settings.imageMin,
+					imagemin({
+						progressive: true,
+						interlaced: true
+					})
+				))
+				.pipe(excludeSvg.restore)
+				.pipe(gulp.dest(dest));
+		}, 1000);
+	});
+	gulp.task('images:watch', () => {
+		watch([
+			settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
+		], () => {
+			gulp.start('images:build', server.reload);
+		});
+	});
+})();
+
+// uploads
+(() => {
+	gulp.task('uploads:build', () => {
+		let src = settings.path.in + '/uploads/**/*';
+		let dest = settings.path.out + '/uploads';
+
+		setTimeout(() => {
+			return gulp.src(src)
+				.pipe(gulp.dest(dest));
+		}, 1000);
+	});
+	gulp.task('uploads:watch', () => {
+		watch([
+			settings.path.in + '/uploads/**/*'
+		], () => {
+			gulp.start('uploads:build', server.reload);
+		});
+	});
+})();
+
+// sprites
+(() => {
+	gulp.task('sprites:build', () => {
+		var src = settings.path.in + '/sprites/**/*.svg';
+		var dest = settings.path.in + '/images';
+
+		return gulp.src(src)
+			.pipe(svgSprite({
+				preview: false,
+				mode: 'symbols',
+				svgId: 'svg-%f',
+				svg: {
+					defs: 'sprites.svg',
+					symbols: 'sprites.svg'
+				}
+			}))
+			.pipe(gulp.dest(dest));
+	});
+	gulp.task('sprites:watch', () => {
+		watch([
+			settings.path.in + '/sprites/**/*.svg'
+		], () => {
+			gulp.start('sprites:build', server.reload);
+		});
+	});
+})();
+
+// modernizr
+(() => {
+	gulp.task('modernizr:build', () => {
+		let config = require(settings.path.in + '/modernizr-config.json');
+		let destDir = settings.path.out + '/js';
+		let destFile = settings.path.out + '/js/modernizr.js';
+
+		return mdrnzr.build(config, function (code) {
+			mkdirp(destDir, function () {
+				fs.writeFile(destFile, code, function() {
+					console.log('modernizr callback');
+				});
+			});
+		});
+	});
+	gulp.task('modernizr:watch', () => {
+		watch([
+			settings.path.in + '/modernizr-config.json'
+		], () => {
+			gulp.start('modernizr:build', server.reload);
 		});
 	});
 })();
@@ -309,62 +331,11 @@ if (settings.isBitrix) {
 	});
 })();
 
-// sprites svg
-(() => {
-	gulp.task('sprites-svg:build', () => {
-		var src = settings.path.in + '/sprites/**/*.svg';
-		var dest = settings.path.in + '/images';
-
-		return gulp.src(src)
-			.pipe(svgSprite({
-				preview: false,
-				mode: 'symbols',
-				svgId: 'svg-%f',
-				svg: {
-					defs: 'sprites.svg',
-					symbols: 'sprites.svg'
-				}
-			}))
-			.pipe(gulp.dest(dest));
-	});
-	gulp.task('sprites-svg:watch', () => {
-		watch([
-			settings.path.in + '/sprites/**/*.svg'
-		], () => {
-			gulp.start('sprites-svg:build', server.reload);
-		});
-	});
-})();
-
-// modernizr
-(() => {
-	gulp.task('modernizr:build', () => {
-		let config = require(settings.path.in + '/modernizr-config.json');
-		let destDir = settings.path.out + '/js';
-		let destFile = settings.path.out + '/js/modernizr.js';
-
-		return mdrnzr.build(config, function (code) {
-			mkdirp(destDir, function () {
-				fs.writeFile(destFile, code, function() {
-					console.log('modernizr callback');
-				});
-			});
-		});
-	});
-	gulp.task('modernizr:watch', () => {
-		watch([
-			settings.path.in + '/modernizr-config.json'
-		], () => {
-			gulp.start('modernizr:build', server.reload);
-		});
-	});
-})();
-
 /* ==== BASE TASKS =========================================================== */
 
 // server
 gulp.task('server', () => {
-	if (settings.isBitrix) return;
+	if (!settings.server.start) return;
 	server.init({
 		server: {
 			baseDir: settings.server.path
@@ -388,7 +359,7 @@ gulp.task('server', () => {
 
 // clean "static"
 gulp.task('clean', () => {
-	rimraf(settings.path.out, function () {
+	rimraf(settings.path.root + '/www/static', function () {
 		console.log('static clean');
 	});
 });
