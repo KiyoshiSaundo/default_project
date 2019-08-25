@@ -77,9 +77,9 @@ jQuery(document).ready(function ($) {
 	// colorbox buttons svg
 	$(document).bind('cbox_complete', function () {
 		initInput();
-		$("#cboxPrevious").html('<svg><use xlink:href="#svg-arrow"></svg>');
-		$("#cboxNext").html('<svg><use xlink:href="#svg-arrow"></svg>');
-		$("#cboxClose").html('<svg><use xlink:href="#svg-close"></svg>');
+		$("#cboxPrevious").html('<svg><use xlink:href="#icon-arrow"></svg>');
+		$("#cboxNext").html('<svg><use xlink:href="#icon-arrow"></svg>');
+		$("#cboxClose").html('<svg><use xlink:href="#icon-close"></svg>');
 	});
 });
 

@@ -1,0 +1,16 @@
+extends ../layouts/layout.pug
+
+block vars
+	- var h1 = 'Примеры готовых блоков'
+
+block content
+
+	p Спрайты:
+
+	+sprite-examples
+
+	hr
+
+	.preloading.is-loading
+		div
+		| Блок с прелоадером

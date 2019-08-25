@@ -7,7 +7,5 @@ mixin <%= icon.id %>
 <% }); %>
 mixin sprite-examples
 <% _.forEach( icons, function( icon ){ %>
-	div
-		svg<%= icon.class %>
-			use(xlink:href='#<%= icon.id %>')
+	+<%= icon.id %>
 <% }); %>
