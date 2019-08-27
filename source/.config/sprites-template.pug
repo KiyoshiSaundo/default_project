@@ -1,8 +1,8 @@
 //-
 	ЭТОТ ФАЙЛ КОМПИЛИРУЕТСЯ АВТОМАТИЧЕСКИ
 <% _.forEach( icons, function( icon ){ %>
-mixin <%= icon.id %>
-	svg<%= icon.class %>
+mixin <%= icon.id %>(className)
+	svg(class= className)<%= icon.class %>
 		use(xlink:href='#<%= icon.id %>')
 <% }); %>
 mixin sprite-examples
