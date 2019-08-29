@@ -9,25 +9,34 @@ block content
 
 	+sprite-examples
 
+	="\r\n"
 	hr
+	="\r\n"
 
 	p Блок с прелоадером
+
 	.preloading.is-loading
 		div
-		| Содержимое блока
+			| Содержимое блока
 
+	="\r\n"
 	hr
+	="\r\n"
 
 	p Слайдер
+
 	.slider
 		- for (var i=1; i<=10; i++) {
 			.slider__item
 				.slider__content= i
 		- }
 
+	="\r\n"
 	hr
+	="\r\n"
 
 	p Colorbox
+
 	.row
 		- for (var i=0; i<2; i++) {
 			.col-6
