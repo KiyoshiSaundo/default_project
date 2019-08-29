@@ -139,7 +139,6 @@ var settings = {
 		let dest = settings.path.out;
 
 		return gulp.src(src)
-			.pipe(plumber())
 			.pipe(include())
 			.pipe(gulpif(
 				settings.scssMaps,
@@ -147,9 +146,7 @@ var settings = {
 			))
 			.pipe(wait(settings.timeout)) // fix #8 (not atomic save)
 			.pipe(scssGlob())
-			.pipe(scss({
-				errLogToConsole: false
-			}))
+			.pipe(scss().on('error', scss.logError))
 			.pipe(prefixer({
 				browsers: settings.cssPrefixer
 			}))
