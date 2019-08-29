@@ -5,6 +5,10 @@ mixin icon-arrow(className)
 	svg(class= className).icon.icon-arrow
 		use(xlink:href='#icon-arrow')
 
+mixin icon-checkbox(className)
+	svg(class= className).icon.icon-checkbox
+		use(xlink:href='#icon-checkbox')
+
 mixin icon-close(className)
 	svg(class= className).icon.icon-close
 		use(xlink:href='#icon-close')
@@ -12,5 +16,7 @@ mixin icon-close(className)
 mixin sprite-examples
 
 	+icon-arrow
+
+	+icon-checkbox
 
 	+icon-close

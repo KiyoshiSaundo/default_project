@@ -15,57 +15,52 @@
 
     #cboxContent {
         position: static;
-        margin: 0;
+        margin: 24px;
         background: #fff;
     }
 
-    #cboxClose {
-        line-height: 0;
-        z-index: 5;
-        top: 0;
-        right: 0;
-        display: flex;
-        width: 30px;
-        height: 30px;
-        background: #fff;
-        justify-content: center;
-        align-items: center;
-        fill: #000;
-
-        svg {
-            width: 15px;
-            height: 15px;
-            transition: transform $transition-params;
-        }
+    #cboxSlideshow {
+        display: none;
+        background: none;
     }
 
+    #cboxClose,
     #cboxPrevious,
     #cboxNext {
         line-height: 0;
         position: absolute;
         z-index: 5;
-        top: 50%;
         display: flex;
-        width: 30px;
-        height: 30px;
-        margin-top: -15px;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
-        background: #fff;
-        fill: #fff;
+        transition: transform $transition-params;
         justify-content: center;
         align-items: center;
+    }
 
-        @include breakpoint(xl) {
-            width: 38px;
-            height: 86px;
-            margin-top: -43px;
+    #cboxClose {
+        top: 0;
+        right: 0;
+        fill: #000;
+
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+
+    #cboxPrevious,
+    #cboxNext {
+        top: 50%;
+        margin-top: -12px;
+
+		.icon {
+            transition: transform $transition-params;
+            fill: $fg;
         }
 
-        &:hover {}
-
-        svg {
-            width: 15px;
-            height: 15px;
+        &:hover .icon {
+            transform: translateX(5px);
         }
     }
 
@@ -77,11 +72,6 @@
     #cboxNext {
         right: 0;
     }
-
-    #cboxSlideshow {
-        display: none;
-        background: none;
-    }
 }
 
 #colorbox.colorbox-message,
@@ -92,4 +82,28 @@
     }
 }
 
-/* end - colorbox */
+/* datepicker */
+
+.datepicker,
+.datepicker-inline .datepicker {
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+
+    &--day-name {
+        color: $fg;
+    }
+
+    &--cell {
+        &.-current- {
+            color: $fg;
+        }
+
+        &.-selected-,
+        &.-selected-.-current-,
+        &.-selected-.-focus- {
+            color: $fg;
+            background: $bg;
+        }
+    }
+}

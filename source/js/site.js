@@ -77,9 +77,40 @@ jQuery(document).ready(function ($) {
 	// colorbox buttons svg
 	$(document).bind('cbox_complete', function () {
 		initInput();
-		$("#cboxPrevious").html('<svg><use xlink:href="#icon-arrow"></svg>');
-		$("#cboxNext").html('<svg><use xlink:href="#icon-arrow"></svg>');
-		$("#cboxClose").html('<svg><use xlink:href="#icon-close"></svg>');
+		$("#cboxPrevious").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+		$("#cboxNext").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+		$("#cboxClose").html('<svg class="icon icon-close"><use xlink:href="#icon-close"></svg>');
+	});
+
+	// slick
+	$('.slider').slick({
+		arrows: true,
+		prevArrow: '<i class="slider__arrow slider__arrow--prev"><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg></i>',
+		nextArrow: '<i class="slider__arrow slider__arrow--next"><svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg></i>',
+
+		dots: true,
+		dotsClass: 'slider__dots',
+		customPaging: function(slider, i) {
+			return '';
+		},
+
+		autoplay: false,
+		autoplaySpeed: 3000,
+
+		infinite: false,
+		adaptiveHeight: true,
+
+		slidesToShow: 1,
+		slidesToScroll: 1,
+
+		mobileFirst: true,
+		responsive: [{
+			breakpoint: 1219,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3
+			}
+		}]
 	});
 });
 
@@ -172,7 +203,14 @@ function initInput() {
 	if ($().styler) {
 		setTimeout(function () {
 			$(":not(.nostyle)").styler({
-				singleSelectzIndex: 10
+				singleSelectzIndex: 10,
+				filePlaceholder: 'Файл не выбран',
+				fileBrowse: 'Выбрать',
+				fileNumber: 'Выбрано файлов: %s',
+				onFormStyled: function () {
+					$('.jq-selectbox__trigger-arrow').html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+					$('.jq-checkbox__div').html('<svg class="icon icon-checkbox"><use xlink:href="#icon-checkbox"></svg>');
+				}
 			});
 		}, 100);
 	}
