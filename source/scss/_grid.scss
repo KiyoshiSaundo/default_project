@@ -124,6 +124,7 @@ $grid: (
 		}
 	}
 }
+
 @for $i from 1 through length($grid) {
 	$size: nth($grid, $i);
 	$pref: map-get($size, pref);
@@ -184,7 +185,17 @@ $grid: (
 		}
 	}
 
-	// .offset-1, .offset-2 ...
+    // .offset-0, .offset-1, .offset-2 ...
+    .offset#{$pref}-0 {
+        @if ($i == 1) {
+            margin-left: 0;
+        }
+        @else {
+            @include breakpoint($bp) {
+                margin-left: 0;
+            }
+        }
+    }
 	@for $j from 1 through $collumns {
 		.offset#{$pref}-#{$j} {
 			@if ($i == 1) {
@@ -229,6 +240,71 @@ $grid: (
 			@else {
 				@include breakpoint($bp) {
 					order: $j;
+				}
+			}
+		}
+	}
+}
+
+/* align-items */
+
+$items: (
+	start,
+	end,
+	center,
+	baseline,
+	stretch
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $item in $items {
+		.align-items#{$pref}-#{$item} {
+			@if ($item == 'start' or $item == 'end') {
+				$item: 'flex-'+$item;
+			}
+			@if ($i == 1) {
+				align-items: #{$item};
+			}
+			@else {
+				@include breakpoint($bp) {
+					align-items: #{$item};
+				}
+			}
+		}
+	}
+}
+
+/* justify-content */
+
+$items: (
+	start,
+	end,
+	center,
+	between,
+	around
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $item in $items {
+		.justify-content#{$pref}-#{$item} {
+			@if ($item == 'start' or $item == 'end') {
+				$item: 'flex-'+$item;
+			}
+			@if ($item == 'between' or $item == 'around') {
+				$item: 'space-'+$item;
+			}
+			@if ($i == 1) {
+				justify-content: #{$item};
+			}
+			@else {
+				@include breakpoint($bp) {
+					justify-content: #{$item};
 				}
 			}
 		}
