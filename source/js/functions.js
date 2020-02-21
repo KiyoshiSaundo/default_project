@@ -25,10 +25,13 @@ function sendForm($el) {
 
                 if (data.result) {
                     $form[0].reset();
-                    if (data.message.length) {
-                        showPopupMessage(data.message);
+                    if (data.messages.length) {
+                        showPopupMessage(data.messages);
                     }
                 } else {
+                    if (data.messages.length) {
+                        showPopupMessage(data.messages);
+                    }
                     showErrorFields($form, data.errors);
                 }
             }, 1000);

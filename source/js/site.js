@@ -76,12 +76,17 @@ jQuery(document).ready(function ($) {
     });
 
     // colorbox buttons svg
-    $(document).bind('cbox_complete', function () {
-        initInput();
-        $("#cboxPrevious").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
-        $("#cboxNext").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
-        $("#cboxClose").html('<svg class="icon icon-close"><use xlink:href="#icon-close"></svg>');
-    });
+    (function () {
+        $(document).bind('cbox_complete', function () {
+            initInput();
+            $("#cboxPrevious").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+            $("#cboxNext").html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+        });
+
+        $(document).bind('cbox_load', function () {
+            $("#cboxClose").html('<svg class="icon icon-close"><use xlink:href="#icon-close"></svg>');
+        });
+    })();
 
     // slick
     $('.slider').slick({
