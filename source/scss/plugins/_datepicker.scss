@@ -1,0 +1,23 @@
+.datepicker,
+.datepicker-inline .datepicker {
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+
+    &--day-name {
+        color: $fg;
+    }
+
+    &--cell {
+        &.-current- {
+            color: $fg;
+        }
+
+        &.-selected-,
+        &.-selected-.-current-,
+        &.-selected-.-focus- {
+            color: $fg;
+            background: $bg;
+        }
+    }
+}

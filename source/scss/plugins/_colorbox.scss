@@ -1,11 +1,8 @@
-/* colorbox */
-
 #cboxOverlay {
     background: rgba(#000, .6);
 }
 
 #colorbox {
-
     #cboxLoadedContent,
     #cboxLoadingOverlay,
     #cboxLoadingGraphic {
@@ -79,31 +76,5 @@
     #cboxLoadedContent {
         max-width: 400px;
         background: #fff;
-    }
-}
-
-/* datepicker */
-
-.datepicker,
-.datepicker-inline .datepicker {
-    line-height: 1;
-    border: 0;
-    border-radius: 5px;
-
-    &--day-name {
-        color: $fg;
-    }
-
-    &--cell {
-        &.-current- {
-            color: $fg;
-        }
-
-        &.-selected-,
-        &.-selected-.-current-,
-        &.-selected-.-focus- {
-            color: $fg;
-            background: $bg;
-        }
     }
 }
