@@ -1,9 +1,9 @@
 "use strict"
 
-var gulp = require('gulp'),
-	server = require('browser-sync').create(),
-	rimraf = require('rimraf'),
-	watch = require('gulp-watch'),
+const { src, dest, parallel, series, watch, task } = require('gulp');
+
+var babel = require('gulp-babel'),
+    server = require('browser-sync').create(),
 	include = require('gulp-include'),
 	gulpif = require('gulp-if'),
 	plumber = require('gulp-plumber'),
@@ -15,7 +15,6 @@ var gulp = require('gulp'),
 	filter = require('gulp-filter'),
 	imagemin = require('gulp-imagemin'),
 	// js
-	order = require('gulp-order'),
 	concat = require('gulp-concat'),
 	minify = require('gulp-minify'),
 	jsValidate = require('gulp-jsvalidate'),
@@ -25,48 +24,48 @@ var gulp = require('gulp'),
 	scssGlob = require('gulp-sass-glob'),
 	sourcemaps = require('gulp-sourcemaps'),
 	cssnano = require('gulp-cssnano'),
-	// png sprites
-	spritesmith = require('gulp.spritesmith'),
-	merge = require('merge-stream'),
 	// svg
 	svgSymbols = require('gulp-svg-symbols'),
 	// modernizr
-	mkdirp = require('mkdirp'),
 	fs = require('fs'),
 	mdrnzr = require('modernizr');
 
 /* ==== SETTINGS ============================================================ */
 
-var settings = {
+const settings = {
 	tasks: [
+		'sprites', // создает .pug и .scss файлы, лучше запускать до соответствующих задач
+
 		'html',
 		'js',
 		'css',
 		'fonts',
-		'sprites',
-		'images',
+
+        'images',
 		'uploads',
-		// 'modernizr',
-		// 'sprites-png',
+
+        'modernizr',
+
+        'vendor-css',
+        'vendor-js',
 	],
 	path: {
-		root: __dirname,
-		config: __dirname + '/source/.config',
-		in: __dirname + '/source',
-		out: __dirname + '/www/static', // static
-		// out: __dirname + '/www/local/templates/main', // bitrix
+		root: __dirname.replace(/\\/g, '/'),
+		config: __dirname.replace(/\\/g, '/') + '/source/.config',
+		in: __dirname.replace(/\\/g, '/') + '/source',
+		out: __dirname.replace(/\\/g, '/') + '/www/static', // static
+		// out: __dirname.replace(/\\/g, '/') + '/www/local/templates/main', // bitrix
 	},
 	server: {
-		start: true,
+        enable: true,
 		path: __dirname + '/www/static',
 		host: 'localhost',
 		port: 9000,
 		tunnel: false,
-		open: false, // 'tunnel'
-		logLevel: 'silent', // 'info'
+		open: false,
+		logLevel: 'silent',
 	},
 	timeout: 0,
-	cssPrefixer: ['last 3 versions'],
 	scssMaps: false,
 	imageMin: false,
 };
@@ -75,45 +74,47 @@ var settings = {
 
 // html
 (() => {
-	gulp.task('html:build', () => {
-		let src = settings.path.in + '/html/pages/**/*';
-		let dest = settings.path.out;
+    task('html:build', () => {
+        let pathSrc = settings.path.in + '/html/pages/**/*',
+            pathDest = settings.path.out;
 
-		let onlyPug = filter(['**/*.pug'], {
-			restore: true
-		});
+        let onlyPug = filter(['**/*.pug'], {
+            restore: true
+        });
 
-		return gulp.src(src)
-			.pipe(plumber())
-			.pipe(onlyPug)
-			.pipe(pug({ pretty: '\t' }))
-			.pipe(onlyPug.restore)
-			.pipe(gulp.dest(dest));
-	});
-	gulp.task('html:watch', () => {
-		watch([
-			settings.path.in + '/html/**/*',
-			settings.path.in + '/images/sprites.svg'
-		], () => {
-			gulp.start('html:build', server.reload);
-		});
-	});
+        return src(pathSrc)
+            .pipe(plumber())
+            .pipe(onlyPug)
+            .pipe(pug({ pretty: '\t' }))
+            .pipe(onlyPug.restore)
+            .pipe(dest(pathDest));
+    });
+    task('html:watch', () => {
+        return watch([
+            settings.path.in + '/html/**/*',
+            settings.path.in + '/images/sprites.svg'
+        ], {
+            ignoreInitial: true
+        }, series('html:build', 'server:reload'));
+    });
 })();
 
 // js
 (() => {
-	gulp.task('js:build', () => {
-		let src = settings.path.in + '/js/**/*.js';
-		let dest = settings.path.out + '/js';
+	task('js:build', () => {
+		let pathSrc = [
+                settings.path.in + '/js/**/*.js',
+                '!' + settings.path.in + '/js/**/plugins.js'
+            ],
+		    pathDest = settings.path.out + '/js';
 
-		gulp.src(src)
+		return src(pathSrc)
 			.pipe(plumber())
 			.pipe(jsValidate())
-			.pipe(include())
-			.pipe(order([
-				"plugins.js",
-				"*.js"
-			]))
+            .pipe(include())
+            .pipe(babel({
+                presets: ['@babel/preset-env']
+            }))
 			.pipe(concat('main.js'))
 			.pipe(minify({
 				ext: {
@@ -121,24 +122,24 @@ var settings = {
 					min: '.min.js'
 				}
 			}))
-			.pipe(gulp.dest(dest));
-	});
-	gulp.task('js:watch', () => {
-		watch([
-			settings.path.in + '/js/**/*.js'
-		], () => {
-			gulp.start('js:build', server.reload);
-		});
-	});
+			.pipe(dest(pathDest));
+    });
+    task('js:watch', () => {
+        return watch([
+            settings.path.in + '/js/**/*.js'
+        ], {
+            ignoreInitial: true
+        }, series('js:build', 'server:reload'));
+    });
 })();
 
 // css
 (() => {
-	gulp.task('css:build', () => {
-		let src = settings.path.in + '/scss/**/*.scss';
-		let dest = settings.path.out;
+	task('css:build', () => {
+		let pathSrc = settings.path.in + '/scss/**/*.scss',
+		    pathDest = settings.path.out;
 
-		return gulp.src(src)
+		return src(pathSrc)
 			.pipe(include())
 			.pipe(gulpif(
 				settings.scssMaps,
@@ -147,9 +148,7 @@ var settings = {
 			.pipe(wait(settings.timeout)) // fix #8 (not atomic save)
 			.pipe(scssGlob())
 			.pipe(scss().on('error', scss.logError))
-			.pipe(prefixer({
-				browsers: settings.cssPrefixer
-			}))
+			.pipe(prefixer())
 			.pipe(cssnano({
 				zindex: false,
 				discardUnused: {
@@ -160,99 +159,95 @@ var settings = {
 				settings.scssMaps,
 				sourcemaps.write('.')
 			))
-			.pipe(gulp.dest(dest));
-	});
-	gulp.task('css:watch', () => {
-		watch([
-			settings.path.in + '/scss/**/*.scss'
-		], () => {
-			gulp.start('css:build', server.reload);
-		});
-	});
+			.pipe(dest(pathDest));
+    });
+    task('css:watch', () => {
+        return watch([
+            settings.path.in + '/scss/**/*.scss'
+        ], {
+            ignoreInitial: true
+        }, series('css:build', 'server:reload'));
+    });
 })();
 
 // fonts
 (() => {
-	gulp.task('fonts:build', () => {
-		let src = settings.path.in + '/fonts/**/*.{woff,woff2}';
-		let dest = settings.path.out + '/fonts';
+	task('fonts:build', () => {
+		let pasthSrc = settings.path.in + '/fonts/**/*.{woff,woff2}',
+		    pathDest = settings.path.out + '/fonts';
 
-		return gulp.src(src)
-			.pipe(gulp.dest(dest));
+		return src(pasthSrc)
+			.pipe(dest(pathDest));
 	});
-	gulp.task('fonts:watch', () => {
-		watch([
-			settings.path.in + '/fonts/**/*.{woff,woff2}'
-		], () => {
-			gulp.start('fonts:build', server.reload);
-		});
+	task('fonts:watch', () => {
+        return watch([
+            settings.path.in + '/fonts/**/*.{woff,woff2}'
+        ], {
+            ignoreInitial: true
+        }, series('fonts:build', 'server:reload'));
 	});
 })();
 
 // images
 (() => {
-	gulp.task('images:build', () => {
-		let src = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}';
-		let dest = settings.path.out + '/images';
+	task('images:build', () => {
+		let pathSrc = settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
+            pathDest = settings.path.out + '/images';
+
 		let excludeSvg = filter(['**', '!**/*.svg'], {
 			restore: true
 		});
-		let onlySvg = filter(['**/*.svg'], {
-			restore: true
-		});
 
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(excludeSvg)
-				.pipe(gulpif(
-					settings.imageMin,
-					imagemin({
-						progressive: true,
-						interlaced: true
-					})
-				))
-				.pipe(excludeSvg.restore)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('images:watch', () => {
-		watch([
-			settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
-		], () => {
-			gulp.start('images:build', server.reload);
-		});
+        return src(pathSrc)
+            .pipe(excludeSvg)
+            .pipe(gulpif(
+                settings.imageMin,
+                imagemin({
+                    progressive: true,
+                    interlaced: true
+                })
+            ))
+            .pipe(excludeSvg.restore)
+            .pipe(dest(pathDest));
+    });
+    task('images:watch', () => {
+        return watch([
+            settings.path.in + '/images/**/*.{jpg,jpeg,gif,png,svg}',
+        ], {
+            ignoreInitial: true,
+            delay: 1000
+        }, series('images:build', 'server:reload'));
 	});
 })();
 
 // uploads
 (() => {
-	gulp.task('uploads:build', () => {
-		let src = settings.path.in + '/uploads/**/*';
-		let dest = settings.path.out + '/uploads';
+	task('uploads:build', () => {
+		let pathSrc = settings.path.in + '/uploads/**/*',
+		    pathDest = settings.path.out + '/uploads';
 
-		setTimeout(() => {
-			return gulp.src(src)
-				.pipe(gulp.dest(dest));
-		}, 1000);
-	});
-	gulp.task('uploads:watch', () => {
-		watch([
-			settings.path.in + '/uploads/**/*'
-		], () => {
-			gulp.start('uploads:build', server.reload);
-		});
+        return src(pathSrc)
+            .pipe(dest(pathDest));
+    });
+    task('uploads:watch', () => {
+        return watch([
+            settings.path.in + '/uploads/**/*'
+        ], {
+            ignoreInitial: true,
+            delay: 1000
+        }, series('uploads:build', 'server:reload'));
 	});
 })();
 
 // sprites
 (() => {
-	gulp.task('sprites:build', () => {
-		var src = settings.path.in + '/sprites/**/*.svg';
-		var destSvg = settings.path.in + '/images';
-		var destScss = settings.path.in + '/scss';
-		var destPug = settings.path.in + '/html';
+	task('sprites:build', () => {
+		let pathSrc = settings.path.in + '/sprites/**/*.svg',
+		    pathDestSvg = settings.path.in + '/images',
+		    pathDestScss = settings.path.in + '/scss',
+		    pathDestPug = settings.path.in + '/html';
 
-		return gulp.src(src)
+		return src(pathSrc)
 			.pipe(svgSymbols({
 				svgAttrs: {
 					'width': 0,
@@ -277,112 +272,122 @@ var settings = {
 					}
 				})
 			)
-			.pipe(gulpif(/[.]svg$/, gulp.dest(destSvg)))
-			.pipe(gulpif(/[.]scss$/, gulp.dest(destScss)))
-			.pipe(gulpif(/[.]pug$/, gulp.dest(destPug)))
-	});
-	gulp.task('sprites:watch', () => {
-		watch([
-			settings.path.config + '/sprites-template.scss',
+			.pipe(gulpif(/[.]svg$/, dest(pathDestSvg)))
+			.pipe(gulpif(/[.]scss$/, dest(pathDestScss)))
+			.pipe(gulpif(/[.]pug$/, dest(pathDestPug)))
+    });
+    task('sprites:watch', () => {
+        return watch([
+            settings.path.config + '/sprites-template.scss',
 			settings.path.config + '/sprites-template.svg',
 			settings.path.config + '/sprites-template.pug',
 			settings.path.in + '/sprites/**/*.svg'
-		], () => {
-			gulp.start('sprites:build', server.reload);
-		});
+        ], {
+            ignoreInitial: true
+        }, series('sprites:build', 'server:reload'));
 	});
 })();
 
 // modernizr
 (() => {
-	gulp.task('modernizr:build', () => {
-		let config = require(settings.path.config + '/modernizr.json');
-		let destDir = settings.path.out + '/js';
-		let destFile = settings.path.out + '/js/modernizr.js';
+	task('modernizr:build', (done) => {
+        let config = require(settings.path.config + '/modernizr.json'),
+            pathDest = settings.path.out + '/js/modernizr.js';
 
-		return mdrnzr.build(config, function (code) {
-			mkdirp(destDir, function () {
-				fs.writeFile(destFile, code, function () {
-					console.log('modernizr callback');
-				});
-			});
-		});
-	});
-	gulp.task('modernizr:watch', () => {
-		watch([
-			settings.path.config + '/modernizr.json'
-		], () => {
-			gulp.start('modernizr:build', server.reload);
-		});
+		mdrnzr.build(config, (code) => {
+            fs.writeFile(pathDest, code, () => { done() });
+        });
+    });
+    task('modernizr:watch', () => {
+        return watch([
+            settings.path.config + '/modernizr.json'
+        ], {
+            ignoreInitial: true
+        }, series('modernizr:build', 'server:reload'));
 	});
 })();
 
-// sprites png
+// vendor
 (() => {
-	gulp.task('sprites-png:build', () => {
-		let src = settings.path.in + '/sprites-png/**/*.{jpg,jpeg,gif,png}';
-		let destImg = settings.path.in + '/images';
-		let destCss = settings.path.in + '/scss';
+    // css
+    task('vendor-css:build', () => {
+		let pathSrc = settings.path.in + '/vendor/vendor.css',
+		    pathDest = settings.path.out;
 
-		let spriteData = gulp.src(src)
-			.pipe(spritesmith({
-				imgName: 'sprites.png',
-				imgPath: 'images/sprites.png', // in css
-				cssName: '_sprites.scss',
-				algorithm: 'binary-tree',
-				padding: 1,
-				cssVarMap: function (sprite) {
-					sprite.name = 's-' + sprite.name;
+        return src(pathSrc)
+            .pipe(include())
+			.pipe(cssnano({
+				zindex: false,
+				discardUnused: {
+					fontFace: false
 				}
-			}));
+			}))
+			.pipe(dest(pathDest));
+    });
+    task('vendor-css:watch', () => {
+        return watch([
+            settings.path.in + '/vendor/vendor.css'
+        ], {
+            ignoreInitial: true
+        }, series('vendor-css:build', 'server:reload'));
+    });
 
-		let imgStream = spriteData.img
-			.pipe(gulp.dest(destImg));
-		let cssStream = spriteData.css
-			.pipe(gulp.dest(destCss));
+    // js
+    task('vendor-js:build', () => {
+		let pathSrc = settings.path.in + '/vendor/vendor.js',
+		    pathDest = settings.path.out + '/js';
 
-		return merge(imgStream, cssStream);
-	});
-	gulp.task('sprites-png:watch', () => {
-		watch([
-			settings.path.in + '/sprites-png/**/*.{jpg,jpeg,gif,png}'
-		], () => {
-			gulp.start('sprites-png:build', server.reload);
-		});
-	});
+        return src(pathSrc)
+			.pipe(include())
+			.pipe(minify({
+                ext:{
+                    min:'.js'
+                },
+                noSource: true
+            }))
+			.pipe(dest(pathDest));
+    });
+    task('vendor-js:watch', () => {
+        return watch([
+            settings.path.in + '/vendor/vendor.js'
+        ], {
+            ignoreInitial: true
+        }, series('vendor-js:build', 'server:reload'));
+    });
 })();
 
 /* ==== BASE TASKS =========================================================== */
 
 // server
-gulp.task('server', () => {
-	if (!settings.server.start) return;
-	server.init({
-		server: {
-			baseDir: settings.server.path
-		},
-		host: settings.server.host,
-		port: settings.server.port,
-		tunnel: settings.server.tunnel,
-		open: settings.server.open,
-		notify: false,
-		logLevel: settings.server.logLevel,
-		logPrefix: "server",
-		middleware: function (req, res, next) {
-			if (/\.json|\.txt|\.html/.test(req.url) && req.method.toUpperCase() == 'POST') {
-				console.log('[POST => GET] : ' + req.url);
-				req.method = 'GET';
-			}
-			next();
-		}
-	});
-});
-
-// clean "static"
-gulp.task('clean', () => {
-	rimraf(settings.path.root + '/www/static', function () {
-		console.log('static clean');
-	});
+task('server:init', (done) => {
+	if (settings.server.enable) {
+        server.init({
+            server: {
+                baseDir: settings.server.path
+            },
+            host: settings.server.host,
+            port: settings.server.port,
+            tunnel: settings.server.tunnel,
+            open: settings.server.open,
+            notify: false,
+            logLevel: settings.server.logLevel,
+            logPrefix: "server",
+            middleware: function (req, res, next) {
+                if (/\.json|\.txt|\.html/.test(req.url) && req.method.toUpperCase() == 'POST') {
+                    console.log('[POST => GET] : ' + req.url);
+                    req.method = 'GET';
+                }
+                next();
+            }
+        });
+    }
+    done();
+})
+task('server:reload', (done) => {
+    if (settings.server.enable) {
+        server.reload();
+    }
+    done();
 });
 
 // default tasks
@@ -392,6 +397,7 @@ settings.tasks.forEach((item, i) => {
 	tasksBuild[i] = item + ':build';
 	tasksWatch[i] = item + ':watch';
 });
-gulp.task('build', tasksBuild);
-gulp.task('watch', tasksWatch);
-gulp.task('default', ['build', 'watch', 'server']);
+
+task('build', series(tasksBuild));
+task('watch', parallel(tasksWatch));
+task('default', series('server:init', 'build', 'watch'));
