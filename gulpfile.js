@@ -2,7 +2,8 @@
 
 const { src, dest, parallel, series, watch, task } = require('gulp');
 
-var server = require('browser-sync').create(),
+var babel = require('gulp-babel'),
+    server = require('browser-sync').create(),
 	include = require('gulp-include'),
 	gulpif = require('gulp-if'),
 	plumber = require('gulp-plumber'),
@@ -14,7 +15,6 @@ var server = require('browser-sync').create(),
 	filter = require('gulp-filter'),
 	imagemin = require('gulp-imagemin'),
 	// js
-	order = require('gulp-order'),
 	concat = require('gulp-concat'),
 	minify = require('gulp-minify'),
 	jsValidate = require('gulp-jsvalidate'),
@@ -111,11 +111,10 @@ const settings = {
 		return src(pathSrc)
 			.pipe(plumber())
 			.pipe(jsValidate())
-			.pipe(include())
-			.pipe(order([
-				"plugins.js",
-				"*.js"
-			]))
+            .pipe(include())
+            .pipe(babel({
+                presets: ['@babel/preset-env']
+            }))
 			.pipe(concat('main.js'))
 			.pipe(minify({
 				ext: {
