@@ -1,6 +1,8 @@
-www/
-node_modules/
-bower_components/
+/.source/node_modules
+/.source/bower_components
+
+/static
+/local
 
 *.sublime-project
 *.sublime-workspace
