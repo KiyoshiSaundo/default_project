@@ -75,29 +75,27 @@ function showPopupMessage(text) {
 
 function initInput() {
     if ($().datepicker) {
-        $('input.date').datepicker({
+        $('[data-calendar]').datepicker({
             autoClose: true,
             toggleSelected: false,
             keyboardNav: false,
-            minDate: new Date()
+            // minDate: new Date()
         });
     }
     if ($().inputmask) {
         $('[data-mask="phone"]').inputmask("+7-999-999-99-99");
     }
     if ($().styler) {
-        setTimeout(function () {
-            $(":not(.nostyle)").styler({
-                singleSelectzIndex: 10,
-                filePlaceholder: 'Файл не выбран',
-                fileBrowse: 'Выбрать',
-                fileNumber: 'Выбрано файлов: %s',
-                onFormStyled: function () {
-                    $('.jq-selectbox__trigger-arrow').html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
-                    $('.jq-checkbox__div').html('<svg class="icon icon-checkbox"><use xlink:href="#icon-checkbox"></svg>');
-                }
-            });
-        }, 100);
+        $(":not(.nostyle)").styler({
+            singleSelectzIndex: 10,
+            filePlaceholder: 'Файл не выбран',
+            fileBrowse: 'Выбрать',
+            fileNumber: 'Выбрано файлов: %s',
+            onFormStyled: function () {
+                $('.jq-selectbox__trigger-arrow').html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
+                $('.jq-checkbox__div').html('<svg class="icon icon-checkbox"><use xlink:href="#icon-checkbox"></svg>');
+            }
+        });
     }
 }
 

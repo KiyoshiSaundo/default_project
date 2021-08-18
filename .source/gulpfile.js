@@ -42,7 +42,7 @@ const settings = {
 		'fonts',
 
         'images',
-		'uploads',
+		'upload',
 
         'modernizr',
 
@@ -53,12 +53,12 @@ const settings = {
 		root: __dirname.replace(/\\/g, '/'),
 		config: __dirname.replace(/\\/g, '/') + '/source/.config',
 		in: __dirname.replace(/\\/g, '/') + '/source',
-		out: __dirname.replace(/\\/g, '/') + '/www/static', // static
-		// out: __dirname.replace(/\\/g, '/') + '/www/local/templates/main', // bitrix
+		out: __dirname.replace(/\\/g, '/') + '/../static', // static
+		// out: __dirname.replace(/\\/g, '/') + '/../local/templates/main', // bitrix
 	},
 	server: {
         enable: true,
-		path: __dirname + '/www/static',
+		path: __dirname + '/../static',
 		host: 'localhost',
 		port: 9000,
 		tunnel: false,
@@ -220,22 +220,22 @@ const settings = {
 	});
 })();
 
-// uploads
+// upload
 (() => {
-	task('uploads:build', () => {
-		let pathSrc = settings.path.in + '/uploads/**/*',
-		    pathDest = settings.path.out + '/uploads';
+	task('upload:build', () => {
+		let pathSrc = settings.path.in + '/upload/**/*',
+		    pathDest = settings.path.out + '/upload';
 
         return src(pathSrc)
             .pipe(dest(pathDest));
     });
-    task('uploads:watch', () => {
+    task('upload:watch', () => {
         return watch([
-            settings.path.in + '/uploads/**/*'
+            settings.path.in + '/upload/**/*'
         ], {
             ignoreInitial: true,
             delay: 1000
-        }, series('uploads:build', 'server:reload'));
+        }, series('upload:build', 'server:reload'));
 	});
 })();
 
@@ -312,7 +312,7 @@ const settings = {
     // css
     task('vendor-css:build', () => {
 		let pathSrc = settings.path.in + '/vendor/vendor.css',
-		    pathDest = settings.path.out;
+		    pathDest = settings.path.out + '/css';
 
         return src(pathSrc)
             .pipe(include())

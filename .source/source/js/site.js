@@ -113,9 +113,28 @@ jQuery(document).ready(function ($) {
         responsive: [{
             breakpoint: 1219,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3
+                slidesToShow: 3
             }
         }]
+    });
+
+    // swiper
+    new Swiper('.slider2', {
+        autoHeight: true,
+        slidesPerView: 1,
+        // spaceBetween: 20,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            1200: {
+              slidesPerView: 3
+            }
+        }
     });
 });

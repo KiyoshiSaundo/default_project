@@ -1,4 +1,4 @@
-$transition-params: ease-in-out .3s;
+/* FONTS */
 
 $ff: "Roboto", sans-serif;
 // $ff: Arial, Helvetica, sans-serif;
@@ -23,9 +23,53 @@ $ff: "Roboto", sans-serif;
 $fsz: 16px;
 $lh: 1.2;
 
+/* COLORS */
+
 $fg: #000;
 $fg--placeholder: #666;
 $fg--bad: #f00;
 $fg--good: #0f0;
 
 $bg: #fff;
+
+/* TRANSITION */
+
+$transition-type: ease-in-out;
+$transition-speed: .2s;
+$transition: $transition-type $transition-speed;
+
+/* RESPONSIVE */
+
+$collumns: 12;
+$grid: (
+	(
+		bp: 'xs',
+		pref: '',
+		container: 100%,
+		gutter: 10px
+	),
+	(
+		bp: 'sm',
+		pref: '-sm',
+		container: 540px,
+		gutter: 15px
+	),
+	(
+		bp: 'md',
+		pref: '-md',
+		container: 720px,
+		gutter: 15px
+	),
+	(
+		bp: 'lg',
+		pref: '-lg',
+		container: 960px,
+		gutter: 15px
+	),
+	(
+		bp: 'xl',
+		pref: '-xl',
+		container: 1140px,
+		gutter: 15px
+	)
+);

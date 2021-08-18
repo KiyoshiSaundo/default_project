@@ -1,0 +1,146 @@
+pre {
+	font: normal 14/1.5 monospace !important;
+	position: relative;
+	padding: 15px;
+	text-align: left !important;
+	background: #eee;
+	&:before {
+		content: 'debug';
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		display: inline-block;
+		color: #aaa;
+	}
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+.clear {
+	@include clear;
+}
+
+/* display */
+
+$displays: (
+	none,
+	inline,
+	inline-block,
+	block,
+	table,
+	table-row,
+	table-cell,
+	flex,
+	inline-flex
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $display in $displays {
+		.d#{$pref}-#{$display} {
+			@if ($i == 1) {
+				display: $display !important;
+			}
+			@else {
+				@include breakpoint($bp) {
+					display: $display !important;
+				}
+			}
+		}
+	}
+}
+
+/* text-align */
+
+$items: (
+	left,
+	center,
+	right
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $item in $items {
+		.text-align#{$pref}-#{$item} {
+			@if ($i == 1) {
+				text-align: #{$item};
+			}
+			@else {
+				@include breakpoint($bp) {
+					text-align: #{$item};
+				}
+			}
+		}
+	}
+}
+
+/* justify-content */
+
+$items: (
+	start,
+	end,
+	center,
+	between,
+	around
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $item in $items {
+		.justify-content#{$pref}-#{$item} {
+			@if ($item == 'start' or $item == 'end') {
+				$item: 'flex-'+$item;
+			}
+			@if ($item == 'between' or $item == 'around') {
+				$item: 'space-'+$item;
+			}
+			@if ($i == 1) {
+				justify-content: #{$item};
+			}
+			@else {
+				@include breakpoint($bp) {
+					justify-content: #{$item};
+				}
+			}
+		}
+	}
+}
+
+/* align-items */
+
+$items: (
+	start,
+	end,
+	center,
+	baseline,
+	stretch
+);
+@for $i from 1 through length($grid) {
+	$size: nth($grid, $i);
+	$pref: map-get($size, pref);
+	$bp: map-get($size, bp);
+
+	@each $item in $items {
+		.align-items#{$pref}-#{$item} {
+			@if ($item == 'start' or $item == 'end') {
+				$item: 'flex-'+$item;
+			}
+			@if ($i == 1) {
+				align-items: #{$item};
+			}
+			@else {
+				@include breakpoint($bp) {
+					align-items: #{$item};
+				}
+			}
+		}
+	}
+}

@@ -76,7 +76,7 @@ button,
     margin: 0;
     padding: 10px 20px;
     cursor: pointer;
-    transition: all $transition-params;
+    transition: all $transition;
     text-align: center;
     text-decoration: none;
     color: $fg;
@@ -143,7 +143,7 @@ $baseHeight: 40px;
     height: $baseHeight;
     margin: 0;
     padding: 10px 20px;
-    transition: all $transition-params;
+    transition: all $transition;
     color: $fg;
     border: 1px solid $fg;
     border-radius: 0;
@@ -216,7 +216,6 @@ select {
 
     &__trigger-arrow {
         .icon {
-            transition: transform $transition-params;
             transform: rotate(90deg);
             fill: $fg;
 
@@ -283,7 +282,7 @@ select {
     height: 24px;
     margin-right: 5px;
     cursor: pointer;
-    transition: all $transition-params;
+    transition: all $transition;
     vertical-align: text-bottom;
     border: 1px solid $fg;
     background: $bg;
@@ -302,7 +301,7 @@ select {
 
     &__div {
         line-height: 0;
-        transition: opacity $transition-params;
+        transition: opacity $transition;
         opacity: 0;
 
         .checked & {
@@ -328,7 +327,7 @@ select {
     width: 100%;
     height: $baseHeight;
     cursor: pointer;
-    transition: all $transition-params;
+    transition: all $transition;
     color: $fg;
     border: 1px solid $fg;
     background: $bg;

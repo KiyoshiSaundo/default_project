@@ -28,12 +28,13 @@
         position: absolute;
         z-index: 5;
         display: flex;
+        justify-content: center;
+        align-items: center;
         width: 24px;
         height: 24px;
         cursor: pointer;
-        transition: transform $transition-params;
-        justify-content: center;
-        align-items: center;
+        transition: transform $transition;
+        background: none;
     }
 
     #cboxClose {
@@ -52,7 +53,7 @@
         margin-top: -12px;
 
 		.icon {
-            transition: transform $transition-params;
+            transition: transform $transition;
             fill: $fg;
         }
 
