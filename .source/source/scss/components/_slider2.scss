@@ -1,0 +1,91 @@
+.slider2 {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 20px;
+    user-select: none;
+
+    &__item {
+        border: 1px solid $fg;
+    }
+
+    &__content {
+        width: 50px;
+        margin: 0 auto;
+        padding: 50px;
+        text-align: center;
+        border: 1px solid $fg;
+    }
+
+    &__arrow {
+        line-height: 0;
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        display: flex;
+        width: 24px;
+        height: 24px;
+        margin-top: -(12px + 10px);
+        cursor: pointer;
+        transition: opacity $transition;
+        justify-content: center;
+        align-items: center;
+
+        &--prev {
+            left: 24px;
+            transform: rotate(180deg);
+        }
+
+        &--next {
+            right: 24px;
+        }
+
+        &.swiper-button-disabled {
+            cursor: default;
+            opacity: .5;
+        }
+
+        .icon {
+            transition: transform $transition;
+            fill: $fg;
+        }
+
+        &:hover .icon {
+            transform: translateX(5px);
+        }
+
+        &.swiper-button-disabled:hover .icon {
+            transform: translateX(0);
+        }
+    }
+
+    &__pagination {
+        line-height: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+            transition: background $transition;
+            border: 1px solid $fg;
+            border-radius: 50%;
+            background: $bg;
+
+            &.swiper-pagination-bullet-active {
+                background: $fg;
+            }
+        }
+    }
+}

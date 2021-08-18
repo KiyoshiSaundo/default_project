@@ -1,0 +1,75 @@
+/* FONTS */
+
+$ff: "Roboto", sans-serif;
+// $ff: Arial, Helvetica, sans-serif;
+// $ff: "Arial Black", Gadget, sans-serif;
+// $ff: "Comic Sans MS", cursive;
+// $ff: "Courier New", Courier, monospace;
+// $ff: Georgia, serif;
+// $ff: Impact, Charcoal, sans-serif;
+// $ff: "Lucida Console", Monaco, monospace;
+// $ff: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+// $ff: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+// $ff: Tahoma, Geneva, sans-serif;
+// $ff: "Times New Roman", Times, serif;
+// $ff: "Trebuchet MS", Helvetica, sans-serif;
+// $ff: Verdana, Geneva, sans-serif;
+// $ff: Symbol;
+// $ff: Webdings;
+// $ff: Wingdings, "Zapf Dingbats";
+// $ff: "MS Sans Serif", Geneva, sans-serif;
+// $ff: "MS Serif", "New York", serif;
+
+$fsz: 16px;
+$lh: 1.2;
+
+/* COLORS */
+
+$fg: #000;
+$fg--placeholder: #666;
+$fg--bad: #f00;
+$fg--good: #0f0;
+
+$bg: #fff;
+
+/* TRANSITION */
+
+$transition-type: ease-in-out;
+$transition-speed: .2s;
+$transition: $transition-type $transition-speed;
+
+/* RESPONSIVE */
+
+$collumns: 12;
+$grid: (
+	(
+		bp: 'xs',
+		pref: '',
+		container: 100%,
+		gutter: 10px
+	),
+	(
+		bp: 'sm',
+		pref: '-sm',
+		container: 540px,
+		gutter: 15px
+	),
+	(
+		bp: 'md',
+		pref: '-md',
+		container: 720px,
+		gutter: 15px
+	),
+	(
+		bp: 'lg',
+		pref: '-lg',
+		container: 960px,
+		gutter: 15px
+	),
+	(
+		bp: 'xl',
+		pref: '-xl',
+		container: 1140px,
+		gutter: 15px
+	)
+);

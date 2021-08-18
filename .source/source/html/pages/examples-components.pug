@@ -1,0 +1,63 @@
+extends ../layouts/layout.pug
+
+block vars
+    - var h1 = 'Примеры готовых блоков'
+
+block content
+
+    p Спрайты:
+
+    +sprite-examples
+
+    ="\r\n"
+    hr
+    ="\r\n"
+
+    p Блок с прелоадером
+
+    .preloading.is-loading
+        div
+            | Содержимое блока
+
+    ="\r\n"
+    hr
+    ="\r\n"
+
+    p Slick
+
+    .slider
+        - for (var i=1; i<=10; i++) {
+            .slider__item
+                .slider__content= i
+        - }
+
+    ="\r\n"
+    hr
+    ="\r\n"
+
+    p Swiper
+
+    .slider2.swiper-container
+        .slider2__wrapper.swiper-wrapper
+            - for (var i=1; i<=10; i++) {
+                .slider2__item.swiper-slide
+                    .slider2__content= i
+            - }
+        .slider2__pagination.swiper-pagination
+        .slider2__arrow.slider2__arrow--prev.swiper-button-prev
+            <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>
+        .slider2__arrow.slider2__arrow--next.swiper-button-next
+            <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>
+
+    ="\r\n"
+    hr
+    ="\r\n"
+
+    p Colorbox
+
+    .row
+        - for (var i=0; i<2; i++) {
+            .col-6
+                a.colorbox(href="upload/example.jpg", rel="colorbox")
+                    img(src="upload/example.jpg", alt="")
+        - }
