@@ -1,7 +1,7 @@
 {
-	"result": false,
-	"errors": [
-		"name",
-		"phone"
-	]
+    "result": false,
+    "errors": [
+        "name",
+        "phone"
+    ]
 }

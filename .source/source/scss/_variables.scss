@@ -42,34 +42,34 @@ $transition: $transition-type $transition-speed;
 
 $collumns: 12;
 $grid: (
-	(
-		bp: 'xs',
-		pref: '',
-		container: 100%,
-		gutter: 10px
-	),
-	(
-		bp: 'sm',
-		pref: '-sm',
-		container: 540px,
-		gutter: 15px
-	),
-	(
-		bp: 'md',
-		pref: '-md',
-		container: 720px,
-		gutter: 15px
-	),
-	(
-		bp: 'lg',
-		pref: '-lg',
-		container: 960px,
-		gutter: 15px
-	),
-	(
-		bp: 'xl',
-		pref: '-xl',
-		container: 1140px,
-		gutter: 15px
-	)
+    (
+        bp: 'xs',
+        pref: '',
+        container: 100%,
+        gutter: 10px
+    ),
+    (
+        bp: 'sm',
+        pref: '-sm',
+        container: 540px,
+        gutter: 15px
+    ),
+    (
+        bp: 'md',
+        pref: '-md',
+        container: 720px,
+        gutter: 15px
+    ),
+    (
+        bp: 'lg',
+        pref: '-lg',
+        container: 960px,
+        gutter: 15px
+    ),
+    (
+        bp: 'xl',
+        pref: '-xl',
+        container: 1140px,
+        gutter: 15px
+    )
 );

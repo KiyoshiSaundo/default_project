@@ -3,8 +3,8 @@
  */
 
 .icon {
-	display: inline-block;
-	line-height: 0;
+    display: inline-block;
+    line-height: 0;
 }
 
 /*
@@ -24,8 +24,8 @@
  */
 <% _.forEach( icons, function( icon ){ %>
 <%= icon.class %> {
-	font-size: <%= icon.svg.width %>px;
-	width: 1em;
-	height: <%= icon.svg.height / icon.svg.width %>em;
+    font-size: <%= icon.svg.width %>px;
+    width: 1em;
+    height: <%= icon.svg.height / icon.svg.width %>em;
 }
 <% }); %>
