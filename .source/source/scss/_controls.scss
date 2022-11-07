@@ -15,17 +15,23 @@
 }
 
 // type="date"
-::-webkit-datetime-edit {}
+::-webkit-datetime-edit {
+}
 
-::-webkit-datetime-edit-fields-wrapper {}
+::-webkit-datetime-edit-fields-wrapper {
+}
 
-::-webkit-datetime-edit-text {}
+::-webkit-datetime-edit-text {
+}
 
-::-webkit-datetime-edit-month-field {}
+::-webkit-datetime-edit-month-field {
+}
 
-::-webkit-datetime-edit-day-field {}
+::-webkit-datetime-edit-day-field {
+}
 
-::-webkit-datetime-edit-year-field {}
+::-webkit-datetime-edit-year-field {
+}
 
 ::-webkit-inner-spin-button {
     display: none;
@@ -67,8 +73,8 @@
 // buttons
 .btn,
 button,
-[type='submit'],
-[type='reset'] {
+[type="submit"],
+[type="reset"] {
     font: inherit;
     display: inline-block;
     width: auto;
@@ -105,7 +111,7 @@ button,
         cursor: default;
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -123,7 +129,7 @@ label {
     margin-bottom: 5px;
 
     &.require:after {
-        content: ' *';
+        content: " *";
         font-weight: 700;
         color: $fg--bad;
     }
@@ -262,8 +268,8 @@ select {
 }
 
 // checkbox, radio
-[type='radio'],
-[type='checkbox'] {
+[type="radio"],
+[type="checkbox"] {
     display: inline-block;
     width: auto;
     height: auto;

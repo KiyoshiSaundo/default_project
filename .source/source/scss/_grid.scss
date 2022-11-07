@@ -18,8 +18,7 @@
         @if ($i == 1) {
             padding-right: $gutter;
             padding-left: $gutter;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 max-width: $width;
                 padding-right: $gutter;
@@ -43,8 +42,7 @@
         @if ($i == 1) {
             margin-right: -$gutter;
             margin-left: -$gutter;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 margin-right: -$gutter;
                 margin-left: -$gutter;
@@ -79,8 +77,7 @@
         @if ($i == 1) {
             padding-right: $gutter;
             padding-left: $gutter;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 padding-right: $gutter;
                 padding-left: $gutter;
@@ -103,8 +100,7 @@
             max-width: 100%;
             flex-basis: 0;
             flex-grow: 1;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 max-width: 100%;
                 flex-basis: 0;
@@ -121,8 +117,7 @@
             width: auto;
             max-width: none;
             flex: 0 0 auto;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 width: auto;
                 max-width: none;
@@ -137,13 +132,12 @@
             @extend %col;
 
             @if ($i == 1) {
-                max-width: (100% / $collumns * $j);
-                flex: 0 0 (100% / $collumns * $j);
-            }
-            @else {
+                max-width: calc(100% / $collumns * $j);
+                flex: 0 0 calc(100% / $collumns * $j);
+            } @else {
                 @include breakpoint($bp) {
-                    max-width: (100% / $collumns * $j);
-                    flex: 0 0 (100% / $collumns * $j);
+                    max-width: calc(100% / $collumns * $j);
+                    flex: 0 0 calc(100% / $collumns * $j);
                 }
             }
         }
@@ -153,8 +147,7 @@
     .offset#{$pref}-0 {
         @if ($i == 1) {
             margin-left: 0;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 margin-left: 0;
             }
@@ -163,11 +156,10 @@
     @for $j from 1 through $collumns {
         .offset#{$pref}-#{$j} {
             @if ($i == 1) {
-                margin-left: (100% / $collumns * $j);
-            }
-            @else if ($j < 12) {
+                margin-left: calc(100% / $collumns * $j);
+            } @else if ($j < 12) {
                 @include breakpoint($bp) {
-                    margin-left: (100% / $collumns * $j);
+                    margin-left: calc(100% / $collumns * $j);
                 }
             }
         }
@@ -177,8 +169,7 @@
     .order#{$pref}-first {
         @if ($i == 1) {
             order: -1;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 order: -1;
             }
@@ -187,8 +178,7 @@
     .order#{$pref}-last {
         @if ($i == 1) {
             order: 13;
-        }
-        @else {
+        } @else {
             @include breakpoint($bp) {
                 order: 13;
             }
@@ -200,8 +190,7 @@
         .order#{$pref}-#{$j} {
             @if ($i == 1) {
                 order: $j;
-            }
-            @else {
+            } @else {
                 @include breakpoint($bp) {
                     order: $j;
                 }
