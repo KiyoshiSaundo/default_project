@@ -1,6 +1,6 @@
 {
 	"name": "default_project",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Сборщик для нового проекта",
 	"main": "gulpfile.js",
 	"repository": {
