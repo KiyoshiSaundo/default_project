@@ -5,7 +5,7 @@ pre {
     text-align: left !important;
     background: #eee;
     &:before {
-        content: 'debug';
+        content: "debug";
         position: absolute;
         top: 15px;
         right: 15px;
@@ -44,8 +44,7 @@ $displays: (
         .d#{$pref}-#{$display} {
             @if ($i == 1) {
                 display: $display !important;
-            }
-            @else {
+            } @else {
                 @include breakpoint($bp) {
                     display: $display !important;
                 }
@@ -56,11 +55,7 @@ $displays: (
 
 /* text-align */
 
-$items: (
-    left,
-    center,
-    right
-);
+$items: (left, center, right);
 @for $i from 1 through length($grid) {
     $size: nth($grid, $i);
     $pref: map-get($size, pref);
@@ -70,8 +65,7 @@ $items: (
         .text-align#{$pref}-#{$item} {
             @if ($i == 1) {
                 text-align: #{$item};
-            }
-            @else {
+            } @else {
                 @include breakpoint($bp) {
                     text-align: #{$item};
                 }
@@ -82,13 +76,7 @@ $items: (
 
 /* justify-content */
 
-$items: (
-    start,
-    end,
-    center,
-    between,
-    around
-);
+$items: (start, end, center, between, around);
 @for $i from 1 through length($grid) {
     $size: nth($grid, $i);
     $pref: map-get($size, pref);
@@ -96,16 +84,15 @@ $items: (
 
     @each $item in $items {
         .justify-content#{$pref}-#{$item} {
-            @if ($item == 'start' or $item == 'end') {
-                $item: 'flex-'+$item;
+            @if ($item == "start" or $item == "end") {
+                $item: "flex-" + $item;
             }
-            @if ($item == 'between' or $item == 'around') {
-                $item: 'space-'+$item;
+            @if ($item == "between" or $item == "around") {
+                $item: "space-" + $item;
             }
             @if ($i == 1) {
                 justify-content: #{$item};
-            }
-            @else {
+            } @else {
                 @include breakpoint($bp) {
                     justify-content: #{$item};
                 }
@@ -116,13 +103,7 @@ $items: (
 
 /* align-items */
 
-$items: (
-    start,
-    end,
-    center,
-    baseline,
-    stretch
-);
+$items: (start, end, center, baseline, stretch);
 @for $i from 1 through length($grid) {
     $size: nth($grid, $i);
     $pref: map-get($size, pref);
@@ -130,13 +111,12 @@ $items: (
 
     @each $item in $items {
         .align-items#{$pref}-#{$item} {
-            @if ($item == 'start' or $item == 'end') {
-                $item: 'flex-'+$item;
+            @if ($item == "start" or $item == "end") {
+                $item: "flex-" + $item;
             }
             @if ($i == 1) {
                 align-items: #{$item};
-            }
-            @else {
+            } @else {
                 @include breakpoint($bp) {
                     align-items: #{$item};
                 }

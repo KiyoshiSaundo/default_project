@@ -41,7 +41,8 @@
 		"gulp-watch": "^5.0.1",
 		"gulp.spritesmith": "^6.13.0",
 		"merge-stream": "^2.0.0",
-		"modernizr": "^3.12.0"
+		"modernizr": "^3.12.0",
+		"sass": "^1.56.0"
 	},
 	"dependencies": {
 		"air-datepicker": "^3.3.1",

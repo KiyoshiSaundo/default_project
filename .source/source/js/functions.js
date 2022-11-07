@@ -1,17 +1,17 @@
 function sendForm($el) {
     var $form = $el,
-        $btn = $form.find('button'),
+        $btn = $form.find("button"),
         fd = new FormData($form[0]);
 
-    if ($btn.hasClass('is-loading')) return;
+    if ($btn.hasClass("is-loading")) return;
 
     $.ajax({
-        url: $form.attr('action'),
-        type: $form.attr('method'),
+        url: $form.attr("action"),
+        type: $form.attr("method"),
         data: fd,
         processData: false,
         contentType: false,
-        dataType: 'json',
+        dataType: "json",
         // dataType: 'html',
         beforeSend: function () {
             hideErrorFields($form);
@@ -42,40 +42,40 @@ function sendForm($el) {
                 hideErrorFields($form);
                 hideBtnLoading($btn);
             }, 1000);
-        }
+        },
     });
 
     function showErrorFields($form, errors) {
         $.each(errors, function (i, val) {
             $el = $form.find("[name='" + val + "']");
-            if ($el.length) $el.addClass('is-error');
+            if ($el.length) $el.addClass("is-error");
         });
     }
     function hideErrorFields($form) {
-        $form.find('.is-error').removeClass('is-error');
+        $form.find(".is-error").removeClass("is-error");
     }
 
     function showBtnLoading($btn) {
-        $btn.addClass('is-loading');
+        $btn.addClass("is-loading");
     }
     function hideBtnLoading($btn) {
-        $btn.removeClass('is-loading');
+        $btn.removeClass("is-loading");
     }
 }
 
 function showPopupMessage(text) {
     $.colorbox({
-        html: '<div class="popup-message">' + text + '</div>',
-        maxWidth: '100%',
-        maxHeight: '100%',
+        html: '<div class="popup-message">' + text + "</div>",
+        maxWidth: "100%",
+        maxHeight: "100%",
         opacity: false,
-        className: 'colorbox-message'
+        className: "colorbox-message",
     });
 }
 
 function initInput() {
     if ($().datepicker) {
-        $('[data-calendar]').datepicker({
+        $("[data-calendar]").datepicker({
             autoClose: true,
             toggleSelected: false,
             keyboardNav: false,
@@ -88,30 +88,37 @@ function initInput() {
     if ($().styler) {
         $(":not(.nostyle)").styler({
             singleSelectzIndex: 10,
-            filePlaceholder: 'Файл не выбран',
-            fileBrowse: 'Выбрать',
-            fileNumber: 'Выбрано файлов: %s',
+            filePlaceholder: "Файл не выбран",
+            fileBrowse: "Выбрать",
+            fileNumber: "Выбрано файлов: %s",
             onFormStyled: function () {
-                $('.jq-selectbox__trigger-arrow').html('<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>');
-                $('.jq-checkbox__div').html('<svg class="icon icon-checkbox"><use xlink:href="#icon-checkbox"></svg>');
-            }
+                $(".jq-selectbox__trigger-arrow").html(
+                    '<svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></svg>'
+                );
+                $(".jq-checkbox__div").html(
+                    '<svg class="icon icon-checkbox"><use xlink:href="#icon-checkbox"></svg>'
+                );
+            },
         });
     }
 }
 
 function scroll2element($el, speed, offset, edges) {
-    if (speed == undefined) speed = 'slow';
+    if (speed == undefined) speed = "slow";
     if (offset == undefined) offset = 50;
     if (edges == undefined) edges = true;
 
     var scroll = $el.offset().top - offset,
         topEdge = window.pageYOffset,
         bottomEdge = window.pageYOffset + document.documentElement.clientHeight,
-        bNeedScroll = edges ? (scroll < topEdge || scroll > bottomEdge) : true;
+        bNeedScroll = edges ? scroll < topEdge || scroll > bottomEdge : true;
 
     if (bNeedScroll) {
-        $('html, body').animate({
-            scrollTop: scroll + 'px'
-        }, speed);
+        $("html, body").animate(
+            {
+                scrollTop: scroll + "px",
+            },
+            speed
+        );
     }
 }

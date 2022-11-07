@@ -3,5 +3,5 @@
     width: 300px;
     height: 100px;
     border: 1px solid #000;
-    @include preloading(#000, #fff, .8);
+    @include preloading(#000, #fff, 0.8);
 }
