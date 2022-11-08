@@ -1,6 +1,6 @@
 {
 	"name": "default_project",
-	"version": "3.0.2",
+	"version": "4.0.0",
 	"description": "Сборщик для нового проекта",
 	"main": "gulpfile.js",
 	"repository": {
@@ -8,7 +8,10 @@
 		"url": "git://github.com/KiyoshiSaundo/default_project.git"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "gulp",
+        "build": "gulp build",
+        "custom-dev": "gulp --preset=custom-dev",
+        "custom-build": "gulp build --preset=custom-build"
 	},
 	"author": "Evgeniy Kuzovlev",
 	"license": "ISC",
@@ -18,6 +21,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.20.2",
 		"@babel/preset-env": "^7.20.2",
+		"@babel/register": "^7.18.9",
 		"browser-sync": "^2.27.10",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",

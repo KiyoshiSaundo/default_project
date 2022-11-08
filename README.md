@@ -9,25 +9,51 @@ sudo npm i --unsafe-perm
 
 Запустить сборку + наблюдение за изменением файлов:
 ```
+npm run dev
+// или
 gulp
 ```
 
 Запустить только сборку:
 ```
+npm run build
+// или
 gulp build
 ```
 
 Запустить отдельную задачу:
 ```
-gulp html:build
-gulp js:build
+gulp htmlBuild
+gulp cssBuild
+gulp jsBuild
 ...
+```
+
+При необходимости можно настроить отдельную команду, которая будет менять настройки в зависимости от параметра. Примеры в package.json:
+```
+"scripts": {
+    "custom-dev": "gulp --preset=custom-dev",
+    "custom-build": "gulp build --preset=custom-build"
+}
+```
+И в gulpfile.mjs:
+```
+switch (preset) {
+    case "custom-dev":
+        settings.server.enable = true;
+        settings.imageMin = false;
+        break;
+    case "custom-build":
+        settings.server.enable = false;
+        settings.imageMin = true;
+        break;
+}
 ```
 
 ## Структура файлов
 
 - source - исходники проекта
-    - .congif
+    - .config
     - fonts
     - html
     - images
@@ -64,7 +90,7 @@ gulp js:build
 
 ### js
 
-Отдельные файлы скомпилируются в main.js и main.min.js
+Отдельные файлы скомпилируются в main.min.js
 
 ### scss
 
@@ -118,6 +144,12 @@ gulp js:build
 
 
 # История версий
+
+### 4.0.0
+
+Изменения:
+- Сборщик переведен на модуль es6
+- Добавлен imagemin
 
 ### 3.0.2
 
