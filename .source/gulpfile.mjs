@@ -64,7 +64,7 @@ const settings = {
     imageMin: false,
 };
 
-/* ==== PRESETS ======================================================= */
+/* ==== PRESETS ============================================================= */
 
 let preset = "";
 process.argv.forEach((item) => {
@@ -89,9 +89,7 @@ switch (preset) {
 const serverInit = (done) => {
     if (settings.server.enable) {
         server.init({
-            server: {
-                baseDir: settings.path.out,
-            },
+            server: { baseDir: settings.path.out },
             host: settings.server.host,
             port: settings.server.port,
             tunnel: settings.server.tunnel,
@@ -128,9 +126,7 @@ export const htmlBuild = () => {
     let pathSrc = settings.path.in + "/html/pages/**/*",
         pathDest = settings.path.out;
 
-    let onlyPug = filter(["**/*.pug"], {
-        restore: true,
-    });
+    let onlyPug = filter(["**/*.pug"], { restore: true });
 
     return gulp
         .src(pathSrc)
@@ -346,9 +342,7 @@ export const vendorCssBuild = () => {
         .pipe(
             cssnano({
                 zindex: false,
-                discardUnused: {
-                    fontFace: false,
-                },
+                discardUnused: { fontFace: false },
             })
         )
         .pipe(gulp.dest(pathDest));
@@ -370,14 +364,7 @@ export const vendorJsBuild = () => {
     return gulp
         .src(pathSrc)
         .pipe(include())
-        .pipe(
-            minify({
-                ext: {
-                    min: ".js",
-                },
-                noSource: true,
-            })
-        )
+        .pipe(minify({ ext: { min: ".js" }, noSource: true }))
         .pipe(gulp.dest(pathDest));
 };
 const vendorJsWatch = () => {
