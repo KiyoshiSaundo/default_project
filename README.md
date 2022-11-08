@@ -53,7 +53,7 @@ switch (preset) {
 ## Структура файлов
 
 - source - исходники проекта
-    - .congif
+    - .config
     - fonts
     - html
     - images
